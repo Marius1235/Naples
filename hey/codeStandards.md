@@ -1,21 +1,21 @@
-# Python kode-standardark
+# Python Code Standard Sheet
 
-## Navnekonvensjoner
-- Bruk `camelCase` for variabel- og funksjonsnavn
-- Bruk `PascalCase` for klassenavn
-- Bruk `UPPERCASE` for konstanter
+## Naming Conventions
+- Use `camelCase` for variable and function names
+- Use `PascalCase` for class names
+- Use `UPPERCASE` for constants
 
-## Kodeformatering
-- Bruk 1 tab / 4 mellomrom for innrykk
-- Begrens linjer til maksimalt 79 tegn
-- Bruk blanke linjer for å skille funksjoner og klasser, og større blokker med kode inne i funksjoner
+## Code Formatting
+- Use 1 tab
+- Limit lines to a maximum of 79 characters
+- Use blank lines to separate functions and classes, and larger blocks of code inside functions
 
-## Kommentarer
-- Bruk inline-kommentarer sparsomt og bare når det er nødvendig for å forklare ikke-opplagt kode
-- Skriv noen få linjer med kommentarer før alle funksjoner som forklarer hva den aktuelle funksjonen gjør.
+## Comments
+- Use inline comments sparingly and only when necessary to explain non-obvious code
+- Write a sentence or two before all functions that explain what they do.
 
-## Importer
-- Bruk absolutte importer i stedet for relative importer
+## Imports
+- Use absolute imports rather than relative imports
 
-## Beste praksis
-- Skriv kode som er kompatibel med Python 3.x når det er mulig.
+## Best Practices
+- Write code that is compatible with Python 3.x whenever possible
