@@ -1,4 +1,4 @@
-Python kode-standardark
+### Python kode-standardark
 
 ## Navnekonvensjoner
 - Bruk `camelCase` for variabel- og funksjonsnavn
