@@ -16,6 +16,3 @@
 
 ## Imports
 - Use absolute imports rather than relative imports
-
-## Best Practices
-- Write code that is compatible with Python 3.x whenever possible
