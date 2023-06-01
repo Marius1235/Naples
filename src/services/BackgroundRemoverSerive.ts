@@ -1,13 +1,9 @@
-import axios from "axios";
+import React, { useContext, useEffect } from 'react';
+import axios, { AxiosResponse } from "axios";
+import { CapturedImageContext } from '../contexts/CapturedImageContext';
 
-const BackgroundRemoverService = (
-    () => {
+const BackgroundRemoverService = async () => {
+  
+};
 
-        const url = ""
-
-        const header = {
-
-        }
-
-    }
-)();
+export default BackgroundRemoverService;

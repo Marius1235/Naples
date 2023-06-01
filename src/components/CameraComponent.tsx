@@ -12,7 +12,6 @@ const CameraComponent: React.FC = () => {
   const [showImage, setShowImage] = useState(false);
   const navigate = useNavigate();
 
-
   useEffect(() => {
     let timer: NodeJS.Timeout;
 
@@ -35,10 +34,15 @@ const CameraComponent: React.FC = () => {
     }
   }, [countdown, isCounting, capturedImageContext]);
 
+  // Runs when the button is clicked. Starts the timer which then initilizes the takePhoto function.
+  // After the takePhoto function is called, you then get redirected to the next page.
+
   const startCountdown = () => {
     setCountdown(5);
     setIsCounting(true);
   };
+
+  // Function that runs in the background on startup. Finds the selected external device on the computer.
 
   useEffect(() => {
     const findCamera = async (): Promise<MediaDeviceInfo | null> => {
@@ -54,6 +58,8 @@ const CameraComponent: React.FC = () => {
         return null;
       }
     };
+
+    // If the camera is found the current media device will stream the video input onto the website.
 
     const startCamera = async (): Promise<void> => {
       const camera = await findCamera();
@@ -79,6 +85,8 @@ const CameraComponent: React.FC = () => {
 
     startCamera();
   }, []);
+
+  // Takes a picture of the input and stores the image in a background running useState.
 
   const takePicture = () => {
     if (videoRef.current && canvasRef.current) {
