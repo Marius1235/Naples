@@ -1,7 +1,6 @@
-// Imports // [CODEREVIEW] 
 import ImageChoiceComponent from "../components/ImageChoiceComponent";
 
-// Displays the ImageChoiceComponent in a container. // [CODEREVIEW]
+// Displays the ImageChoiceComponent in a container and grid system.
 // Add more comments here as more components are added // [CODEREVIEW]
 const PictureChoicePage = () => {
     return(
@@ -21,5 +20,4 @@ const PictureChoicePage = () => {
     )
 }
 
-// Exports // [CODEREVIEW]
 export default PictureChoicePage;

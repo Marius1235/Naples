@@ -1,4 +1,4 @@
-// Imports and neccesary variables // [CODEREVIEW] 
+// Imports of necessary libraries and files 
 import { useRef, useEffect, useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { CapturedImageContext } from "../contexts/CapturedImageContext";
@@ -9,7 +9,7 @@ const ImageChoiceComponent: React.FC = () => {
   const capturedImageContext = useContext(CapturedImageContext);
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
-  // Mangler kommentarer her // [CODEREVIEW]
+  // Html elements with img output and Link(button) to the previous page
   return (
     <div>
       {capturedImageContext?.capturedImage && (
@@ -21,5 +21,5 @@ const ImageChoiceComponent: React.FC = () => {
   );
 };
 
-// Exports // [CODEREVIEW]
+// Export for use in pages
 export default ImageChoiceComponent;

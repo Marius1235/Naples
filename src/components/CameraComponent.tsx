@@ -1,20 +1,18 @@
-// Importing necessary libraries and files // [CODEREVIEW] 
+// Imports of necessary libraries and files 
 import { useRef, useEffect, useState, useContext } from "react";
 import { CapturedImageContext } from "../contexts/CapturedImageContext";
 import { useNavigate } from "react-router-dom";
 
-// CameraComponent function that returns the video input from the camera and a button that starts a countdown. // [CODEREVIEW] 
+// Camera component for video streaming, picture taking and countdown.
 const CameraComponent: React.FC = () => {
-  const videoRef = useRef<HTMLVideoElement>(null);                // Kanskje  inline comments her? // [CODEREVIEW] 
+  const videoRef = useRef<HTMLVideoElement>(null);            // useRef can be used to store a mutable value that does not cause a re-render when updated. 
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const capturedImageContext = useContext(CapturedImageContext);
-
   const [countdown, setCountdown] = useState(5);
-  const [isCounting, setIsCounting] = useState(false);
-  const [showImage, setShowImage] = useState(false);            // Skal dette brukes? // [CODEREVIEW]
+  const [isCounting, setIsCounting] = useState(false);         
   const navigate = useNavigate();
 
-  // Starts a timer that counts down from 5 to 0. // [CODEREVIEW] 
+  // Starts a timer that counts down from 5 to 0.
   useEffect(() => {
     let timer: NodeJS.Timeout;
 
@@ -27,11 +25,10 @@ const CameraComponent: React.FC = () => {
     return () => clearInterval(timer);
   }, [isCounting]);
 
-  // When the countdown reaches 0, the takePicture function is called and the image is stored in a useState. // [CODEREVIEW]
+  // When the countdown reaches 0, the takePicture function is called and the image is stored in a useState. 
   useEffect(() => {
     if (countdown === 0 && isCounting) {
       takePicture();
-      setShowImage(true);
       setTimeout(() => {
         navigate("pictureChoice")
       }, 50); 
@@ -107,7 +104,7 @@ const CameraComponent: React.FC = () => {
     }
   };
 
-  // Returns the video input from the camera and a button that starts a countdown. // [CODEREVIEW] 
+  // Returns the video input from the camera and a button that starts a countdown for the picture to be taken.
   return (
     <div>
       <video ref={videoRef} autoPlay muted />
@@ -121,5 +118,5 @@ const CameraComponent: React.FC = () => {
   );
 };
 
-// Exports // [CODEREVIEW]
+// Export for use in pages
 export default CameraComponent;
