@@ -1,9 +1,10 @@
+// Imports // [CODEREVIEW]
 import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import CameraComponent from "../components/CameraComponent";
-
-
  
+// Displays the CameraComponent in a container. // [CODEREVIEW]
+// Add more comments here as more components are added // [CODEREVIEW]
 const TakePicturePage = () => {
     return (
         <div className="container mt-5">
@@ -21,4 +22,6 @@ const TakePicturePage = () => {
         </div>
     )
 };
+
+// Exports // [CODEREVIEW]
 export default TakePicturePage;
