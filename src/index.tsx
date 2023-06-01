@@ -3,13 +3,16 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import CapturedImageProvider from './contexts/CapturedImageContext';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <App />
+    <CapturedImageProvider>
+      <App />
+    </CapturedImageProvider>
   </React.StrictMode>
 );
 

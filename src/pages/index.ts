@@ -1,5 +1,5 @@
 import ChooseBackgroundPage from "./ChooseBackgroundPage";
-import Test from "./test";
-import Next from "./Tester";
+import TakePicturePage from "./TakePicturePage";
+import PictureChoicePage from "./PictureChoicePage";
 
-export { Test, Next, ChooseBackgroundPage }
+export { TakePicturePage, PictureChoicePage, ChooseBackgroundPage }
