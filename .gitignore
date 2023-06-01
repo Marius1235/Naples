@@ -1,0 +1,10 @@
+*
+
+!.gitignore
+!connectDB.js
+!index.js
+!package-lock.json
+!package.json
+!codeStandards.md
+!README.md
+!*/
