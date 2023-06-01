@@ -1,32 +1,43 @@
 import { useRef, useEffect, useState, useContext } from "react";
 import { CapturedImageContext } from "../contexts/CapturedImageContext";
+import { useNavigate } from "react-router-dom";
 
 const CameraComponent: React.FC = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const [capturedImage, setCapturedImage] = useState<string | null>(null);
   const capturedImageContext = useContext(CapturedImageContext);
 
   const [countdown, setCountdown] = useState(5);
   const [isCounting, setIsCounting] = useState(false);
+  const [showImage, setShowImage] = useState(false);
+  const navigate = useNavigate();
+
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setCountdown((prevCountdown) => prevCountdown - 1);
-    }, 1000);
+    let timer: NodeJS.Timeout;
+
+    if (isCounting) {
+      timer = setInterval(() => {
+        setCountdown((prevCountdown) => prevCountdown - 1);
+      }, 1000);
+    }
 
     return () => clearInterval(timer);
-  }, []);
+  }, [isCounting]);
 
   useEffect(() => {
-    if (countdown === 0) {
+    if (countdown === 0 && isCounting) {
       takePicture();
+      setShowImage(true);
+      setTimeout(() => {
+        navigate("pictureChoice")
+      }, 50); 
     }
-  }, [countdown]);
+  }, [countdown, isCounting, capturedImageContext]);
 
   const startCountdown = () => {
-    setCountdown(5); // Set initial countdown value
-    setIsCounting(true); // Start the countdown
+    setCountdown(5);
+    setIsCounting(true);
   };
 
   useEffect(() => {
@@ -62,7 +73,7 @@ const CameraComponent: React.FC = () => {
             console.error("Error accessing camera:", error);
           });
       } else {
-        console.error("Logitech camera not found.");
+        console.error("Camera not found.");
       }
     };
 
@@ -85,7 +96,6 @@ const CameraComponent: React.FC = () => {
       if (capturedImageContext) {
         capturedImageContext.setCapturedImage(dataUrl);
       }
-      setCapturedImage(dataUrl);
     }
   };
 
@@ -93,15 +103,10 @@ const CameraComponent: React.FC = () => {
     <div>
       <video ref={videoRef} autoPlay muted />
       <canvas ref={canvasRef} style={{ display: "none" }} />
-      {!isCounting && <button onClick={startCountdown}>Start Countdown</button>}
-      {countdown > 0 ? (
+      {isCounting ? (
         <p>Countdown: {countdown}</p>
       ) : (
-        <p>
-          {isCounting
-            ? "Countdown finished!"
-            : "Click the button to start the countdown."}
-        </p>
+        <button onClick={startCountdown}>Start Countdown</button>
       )}
     </div>
   );

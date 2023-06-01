@@ -8,7 +8,6 @@ const TakePicturePage = () => {
     return (
         <div>
             <CameraComponent />
-            <Link to="pictureChoice">Test</Link>
         </div>
     )
 };
