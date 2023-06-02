@@ -4,35 +4,37 @@ import { CapturedImageContext } from '../contexts/CapturedImageContext';
 
 const BackgroundRemoverService = (
     () => {
-        const removeBackground = async (image: string): Promise<string> => {
-            const base64Image = btoa(image);
+      const removeBackground = async (image: string): Promise<string> => {
+        image = image.replace("data:image/png;base64,", "");
+        console.log(image)
+        const formData = new FormData();
+        formData.append('size', 'auto');
+        formData.append('image_file_b64', image);
 
-            try {
-                const response = await fetch('https://api.remove.bg/v1.0/removebg', {
-                  method: 'POST',
-                  headers: {
-                    'X-Api-Key': '<YOUR-API-KEY>',
-                    'Content-Type': 'application/json',
-                  },
-                  body: JSON.stringify({
-                    image_file_b64: base64Image,
-                    size: 'auto',
-                  }),
-                });
+        try {
+            const response = await fetch('https://api.remove.bg/v1.0/removebg', {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'X-Api-Key': 'qWKnGV8R3gbHaWzJD5UEGVUd',
+                },
+            });
+
+            if (!response.ok) {
+                throw new Error('Remove bg API call failed');
+            }
+
+            const data = await response.blob();
+            const imageUrl = URL.createObjectURL(data);
+
+            // return the image data
+            return imageUrl;
             
-                if (!response.ok) {
-                  throw new Error('Remove bg API call failed');
-                }
-            
-                const data = await response.json();
-            
-                // return the image data
-                return data.result;
-              } catch (error) {
-                console.error(error);
-                throw error;
-              }
-        };
+        } catch (error) {
+            console.error(error);
+            throw error;
+        }
+    };
 
         return{
             removeBackground

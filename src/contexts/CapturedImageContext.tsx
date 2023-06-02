@@ -22,9 +22,7 @@ const CapturedImageProvider: FC<Props> = ({ children }) => {
   const handleRemoveBackground = async () => {
     if (capturedImage) {
       try {
-        const newImage = await BackgroundRemoverService.removeBackground(
-          capturedImage
-        );
+        const newImage = await BackgroundRemoverService.removeBackground(capturedImage);
         setCapturedImage(newImage);
       } catch (error) {
         console.error(error);
