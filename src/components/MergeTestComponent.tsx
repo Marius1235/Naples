@@ -15,7 +15,7 @@ const MergeTestComponents = () => {
   const [backgroundImages, setBackgroundImages] = useState<IBackgroundImage[]>([]);
   const [selectedImage, setSelectedImage] = useState<IBackgroundImage | null>(null);
   const capturedImage = useContext(CapturedImageContext);
-  const [overlayImage, setOverlayImage] = useState<IBackgroundImage | null> (null);
+  const [mergedImage, setMergedImage] = useState<string | null>(null);
 
   // Useffect kjører setBackgroundImagesFromModule når endringer gjøres i bakgrunnen
   useEffect(() => {
@@ -27,44 +27,34 @@ const MergeTestComponents = () => {
   const setBackgroundImagesFromModule = () => {
     const images = BackgroundImageModule.getAll();
     setBackgroundImages(images);
-    setSelectedImage(images[2]);
+    setSelectedImage(images[3]);
   };
 
-  const MergeImages = (backgroundImage : any, capturedImage : any) => {
-    const [mergedImage, setMergedImage] = useState("");
-  
-    useEffect(() => {
-      // Assuming you have some images stored in your public folder
-      mergeImages([backgroundImage, capturedImage])
+  useEffect(() => {
+    if (selectedImage) {
+      mergeImages([
+        require(`../assets/images/${selectedImage.name}`),
+        require(`../assets/images/josef.png`)
+      ])
         .then((b64) => setMergedImage(b64))
         .catch((error) => console.error(error));
-    }, []);
-  
-    return <img src={mergedImage} alt="Merged images" />;
-  }
+    }
+  }, [selectedImage]);
 
-  let mergedImage = MergeImages(selectedImage,selectedImage);
-  
   const handleImageClick = (image: IBackgroundImage) => {
     setSelectedImage(image);
-    mergedImage = MergeImages(image,image);
   };
-  
-  
-  
-  
 
   return (
     <div>
-              <ImageScrollerComponent
-              images={backgroundImages}
-              selectedImage={selectedImage}
-              onImageClick={handleImageClick}
-            />
-            <h1>Captured Image {capturedImage?.capturedImage}</h1>            
-            {mergedImage}
-                
-    </div>
+      <ImageScrollerComponent
+        images={backgroundImages}
+        selectedImage={selectedImage}
+        onImageClick={handleImageClick}
+      />
+      <h1>Captured Image {capturedImage?.capturedImage}</h1>
+      {mergedImage && <img src={mergedImage} alt="Merged images" />}
+      </div>
   );
 };
 
