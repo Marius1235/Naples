@@ -12,9 +12,9 @@ const PictureChoicePage = () => {
                 </div>
                 <div className="col-sm mt-5">
                     <ImageChoiceComponent/>
+                    <RemoveImageComponent/>
                 </div>
                 <div className="col-sm">
-                    <RemoveImageComponent/>
                 </div>
             </div>
         </div>
