@@ -11,6 +11,8 @@ const BackgroundRemoverService = (
         formData.append('size', 'auto');
         formData.append('image_file_b64', image);
 
+        //qWKnGV8R3gbHaWzJD5UEGVUd
+
         try {
             const response = await fetch('https://api.remove.bg/v1.0/removebg', {
                 method: 'POST',

@@ -10,13 +10,15 @@ const RemoveImageComponent = () => {
     const startRemoveBackground = () => {
         if (image?.capturedImage && image.removeBackground) {
             image.removeBackground();
-            navigate("noBackground")
+            setTimeout(() => {
+                navigate("*");
+              }, 200);     
         }
     }
 
     return(
         <div>
-            <button onClick={startRemoveBackground}>Remove that background!</button>
+            <button onClick={startRemoveBackground}>Remove background</button>
         </div>
     )
 }
