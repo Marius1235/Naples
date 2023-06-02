@@ -42,14 +42,23 @@ const CameraComponent: React.FC = () => {
     setIsCounting(true);
   };
 
+  const isMac = () => {
+    return navigator.platform.toUpperCase().indexOf("MAC") >= 0;
+  };
+
   // Function that runs in the background on startup. Finds the selected external device on the computer.
   useEffect(() => {
+    const isMac = window.navigator.platform.toUpperCase().includes('MAC');
+    
     const findCamera = async (): Promise<MediaDeviceInfo | null> => {
       try {
         const devices = await navigator.mediaDevices.enumerateDevices();
         const camera = devices.find(
           (device) =>
-            device.kind === "videoinput" && device.label.includes("C920")
+            device.kind === "videoinput" &&
+            (isMac
+              ? device.label.includes("C920")
+              : device.label.includes("YOUR_WINDOWS_DEVICE_NAME"))
         );
         return camera || null;
       } catch (error) {
