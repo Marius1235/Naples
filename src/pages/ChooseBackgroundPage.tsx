@@ -1,10 +1,10 @@
 import ChooseBackgroundComponent from "../components/ChooseBackgroundComponent"
+import BackgroundImageList from "../components/BackgroundImageList"
 
 const ChooseBackgroundPage = () => {
     return(
-        <div>
-            ChooseBackgroundPage
-            <ChooseBackgroundComponent/>
+        <div>            
+            <BackgroundImageList/>
         </div>
     )
 }

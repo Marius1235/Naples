@@ -1,7 +1,7 @@
 const ChooseBackgroundComponent = () => {
     return(
         <div>
-            bilde
+            <img src={require("../assets/images/Background1.png")} alt="Placeholder Image" />
         </div>
     )
 }
