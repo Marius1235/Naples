@@ -47,20 +47,28 @@ const CameraComponent: React.FC = () => {
   };
 
   // Function that runs in the background on startup. Finds the selected external device on the computer.
-  useEffect(() => {
-    const isMac = window.navigator.platform.toUpperCase().includes('MAC');
-    
+  useEffect(() => {    
     const findCamera = async (): Promise<MediaDeviceInfo | null> => {
       try {
         const devices = await navigator.mediaDevices.enumerateDevices();
-        const camera = devices.find(
-          (device) =>
-            device.kind === "videoinput" &&
-            (isMac
-              ? device.label.includes("C920")
-              : device.label.includes("YOUR_WINDOWS_DEVICE_NAME"))
-        );
-        return camera || null;
+        let camera: MediaDeviceInfo | null = null;
+    
+        // Platform-specific checks for macOS and Windows
+        if (navigator.platform.includes("Mac")) {
+          // macOS-specific logic
+          camera = devices.find(
+            (device) =>
+              device.kind === "videoinput" && device.label.includes("C920")
+          ) || null;
+        } else if (navigator.platform.includes("Win")) {
+          // Windows-specific logic
+          camera = devices.find(
+            (device) =>
+              device.kind === "videoinput" && device.label.includes("C920")
+          ) || null;
+        }
+    
+        return camera;
       } catch (error) {
         console.error("Error enumerating devices:", error);
         return null;
