@@ -1,15 +1,15 @@
-// Imports of necessary libraries and files 
+// Imports of necessary libraries and files
 import { useRef, useEffect, useState, useContext } from "react";
 import { CapturedImageContext } from "../contexts/CapturedImageContext";
 import { useNavigate } from "react-router-dom";
 
 // Camera component for video streaming, picture taking and countdown.
 const CameraComponent: React.FC = () => {
-  const videoRef = useRef<HTMLVideoElement>(null);            // useRef can be used to store a mutable value that does not cause a re-render when updated. 
+  const videoRef = useRef<HTMLVideoElement>(null); // useRef can be used to store a mutable value that does not cause a re-render when updated.
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const capturedImageContext = useContext(CapturedImageContext);
   const [countdown, setCountdown] = useState(5);
-  const [isCounting, setIsCounting] = useState(false);         
+  const [isCounting, setIsCounting] = useState(false);
   const navigate = useNavigate();
 
   // Starts a timer that counts down from 5 to 0.
@@ -25,13 +25,13 @@ const CameraComponent: React.FC = () => {
     return () => clearInterval(timer);
   }, [isCounting]);
 
-  // When the countdown reaches 0, the takePicture function is called and the image is stored in a useState. 
+  // When the countdown reaches 0, the takePicture function is called and the image is stored in a useState.
   useEffect(() => {
     if (countdown === 0 && isCounting) {
       takePicture();
       setTimeout(() => {
-        navigate("pictureChoice")
-      }, 50); 
+        navigate("pictureChoice");
+      }, 50);
     }
   }, [countdown, isCounting, capturedImageContext]);
 
