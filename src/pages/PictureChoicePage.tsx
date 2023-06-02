@@ -1,4 +1,5 @@
 import ImageChoiceComponent from "../components/ImageChoiceComponent";
+import RemoveImageComponent from "../components/RemoveBackgroundComponent";
 
 // Displays the ImageChoiceComponent in a container and grid system.
 // Add more comments here as more components are added // [CODEREVIEW]
@@ -13,7 +14,7 @@ const PictureChoicePage = () => {
                     <ImageChoiceComponent/>
                 </div>
                 <div className="col-sm">
-                    
+                    <RemoveImageComponent/>
                 </div>
             </div>
         </div>

@@ -14,7 +14,7 @@ const TakePicturePage = () => {
                     <CameraComponent />  
                 </div>
                 <div className="col-sm">
-                    
+            
                 </div>
             </div>
         </div>
