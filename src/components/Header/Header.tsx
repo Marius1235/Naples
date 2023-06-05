@@ -6,7 +6,7 @@ const HeaderComponent = () => {
         <div>
             <ul className="HeaderNav">
                 <li className="HeaderNavItem">
-                    <a href="" className="Logo">Munch</a>
+                    <a href="/" className="Logo">Munch</a>
                 </li>
             </ul>
         </div>

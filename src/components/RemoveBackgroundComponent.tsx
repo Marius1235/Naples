@@ -11,7 +11,7 @@ const RemoveImageComponent = () => {
         if (image?.capturedImage && image.removeBackground) {
             image.removeBackground();
             setTimeout(() => {
-                navigate("*");
+                navigate("/backgroundPage");
               }, 200);     
         }
     }

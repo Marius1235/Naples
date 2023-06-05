@@ -59,7 +59,7 @@ const BackgroundChoiceComponent: React.FC = () => {
         };
       };
     }else{
-      console.log("There is no image to combine with")
+      console.log("There is no image to combine with");
     }
   };
 

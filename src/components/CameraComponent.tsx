@@ -30,7 +30,7 @@ const CameraComponent: React.FC = () => {
     if (countdown === 0 && isCounting) {
       takePicture();
       setTimeout(() => {
-        navigate("pictureChoice");
+        navigate("/choicePage");
       }, 50);
     }
   }, [countdown, isCounting, capturedImageContext]);

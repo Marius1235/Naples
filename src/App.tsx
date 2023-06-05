@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { TakePicturePage, PictureChoicePage, ChooseBackgroundPage, ActionPage  } from "./pages";
+import { TakePicturePage, PictureChoicePage, ChooseBackgroundPage, ActionPage, LandingPage  } from "./pages";
 import HeaderComponent from "./components/Header/Header";
 import './css/App.css'
 
@@ -10,10 +10,10 @@ function App() {
 
         <main>
           <Routes>
-            <Route path="/" element={< TakePicturePage/>}></Route>
-            <Route path="pictureChoice" element={<PictureChoicePage />}></Route>
-            <Route path="background" element={<ChooseBackgroundPage />}></Route>
-            <Route path="*" element={<ChooseBackgroundPage />}></Route>
+            <Route path="/" element={< LandingPage/>}></Route>
+            <Route path="/picturePage" element={< TakePicturePage/>}></Route>
+            <Route path="/choicePage" element={<PictureChoicePage />}></Route>
+            <Route path="/backgroundPage" element={<ChooseBackgroundPage />}></Route>
             <Route path="ActionPage" element ={<ActionPage />}></Route>
           </Routes>
         </main>

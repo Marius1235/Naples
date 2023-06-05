@@ -11,11 +11,14 @@ const ImageChoiceComponent: React.FC = () => {
   // Html elements with img output and Link(button) to the previous page
   return (
     <div>
+      
       {capturedImageContext?.capturedImage && (
         <img src={capturedImageContext.capturedImage} alt="Captured" />
       )}
       <canvas ref={canvasRef} style={{ display: "none" }} />  
-      <Link to="/">Retake</Link>
+      <div>
+      <Link to="/picturePage"><button>back</button></Link>
+      </div>
     </div>
   );
 };

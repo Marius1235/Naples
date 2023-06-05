@@ -15,7 +15,7 @@ const RemovedBackgroundPage = () => {
 					{image?.capturedImage && (
 					<img src={image.capturedImage} alt="Background removed" />
 					)}
-					<Link to="/">Restart</Link>
+					<Link to="">Restart</Link>
 				</div>
 			<div className="col-sm"></div>
 		</div>
