@@ -5,22 +5,22 @@ import TakePicturePage from "./TakePicturePage";
 import { useContext } from "react";
 
 const RemovedBackgroundPage = () => {
-  const image = useContext(CapturedImageContext);
+	const image = useContext(CapturedImageContext);
 
-  return (
-    <div className="container mt-5">
-      <div className="row">
-        <div className="col-sm"></div>
-        <div className="col-sm mt-5">
-          {image?.capturedImage && (
-            <img src={image.capturedImage} alt="Background removed" />
-          )}
-          <Link to="/">Restart</Link>
-        </div>
-        <div className="col-sm"></div>
-      </div>
-    </div>
-  );
+	return (
+	<div className="container mt-5">
+		<div className="row">
+			<div className="col-sm"></div>
+				<div className="col-sm mt-5">
+					{image?.capturedImage && (
+					<img src={image.capturedImage} alt="Background removed" />
+					)}
+					<Link to="/">Restart</Link>
+				</div>
+			<div className="col-sm"></div>
+		</div>
+	</div>
+	);
 };
 
 export default RemovedBackgroundPage;

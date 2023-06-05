@@ -30,18 +30,18 @@ const BackgroundImageList = () => {
   };
   
   const handleImageClick = (image: IBackgroundImage) => {
-    setSelectedImage(image);
+	setSelectedImage(image);
   };  
 
   return (
-    <div>
-              <ImageScrollerComponent
-              images={backgroundImages}
-              selectedImage={selectedImage}
-              onImageClick={handleImageClick}
-            />
-            <h1>Captured Image: {capturedImage?.capturedImage}</h1>        
-    </div>
+	<div>
+		<ImageScrollerComponent
+		images={backgroundImages}
+		selectedImage={selectedImage}
+		onImageClick={handleImageClick}
+		/>
+		<h1>Captured Image: {capturedImage?.capturedImage}</h1>        
+	</div>
   );
 };
 
