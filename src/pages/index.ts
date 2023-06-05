@@ -4,4 +4,4 @@ import PictureChoicePage from "./PictureChoicePage";
 import RemovedBackgroundPage from "./RemovedBackgroundPage";
 import ActionPage from "./ActionPage";
 
-export { TakePicturePage, PictureChoicePage, ChooseBackgroundPage, RemovedBackgroundPage, ActionPage  }
+export { TakePicturePage, PictureChoicePage, ChooseBackgroundPage, RemovedBackgroundPage, ActionPage }
