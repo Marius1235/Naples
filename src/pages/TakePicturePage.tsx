@@ -7,7 +7,16 @@ import BackgroundChoiceComponent from "../components/BackgorundChoiceComponent";
 const TakePicturePage = () => {
     return (
         <div className="container mt-5">
-            <BackgroundChoiceComponent/>
+            <div className="row">
+                <div className="col-sm">
+                    
+                </div>
+                <div className="col-sm mt-5">
+                    <CameraComponent/>
+                </div>
+                <div className="col-sm">
+                </div>
+            </div>
         </div>
     )
 };
