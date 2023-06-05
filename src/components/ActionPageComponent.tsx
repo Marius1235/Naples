@@ -55,6 +55,7 @@ const ActionPageComponent = () => {
 			<div className="container mt-5">
             <div className="row">
                 <div className="col-sm">
+					{/* Remember to animate to hidden/visible in css. */}
                     <img src={require(`../assets/images/skriket.jpg`)} alt="Skrik by Edvard Munch" />
                 </div>
                 <div className="col-sm">
