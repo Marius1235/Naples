@@ -3,9 +3,7 @@ import BackgroundImageList from "../components/BackgroundImageList"
 
 const ChooseBackgroundPage = () => {
     return(
-        <div>            
-            <BackgroundImageList/>
-        </div>
+        <div></div>
     )
 }
 
