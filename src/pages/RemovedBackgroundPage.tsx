@@ -9,16 +9,16 @@ const RemovedBackgroundPage = () => {
 
   return (
     <div className="container mt-5">
-      <div className="row">
-        <div className="col-sm"></div>
-        <div className="col-sm mt-5">
-          {image?.capturedImage && (
-            <img src={image.capturedImage} alt="Background removed" />
-          )}
-          <Link to="/">Restart</Link>
-        </div>
-        <div className="col-sm"></div>
-      </div>
+		<div className="row">
+			<div className="col-sm"></div>
+				<div className="col-sm mt-5">
+					{image?.capturedImage && (
+					<img src={image.capturedImage} alt="Background removed" />
+					)}
+					<Link to="/">Restart</Link>
+				</div>
+			<div className="col-sm"></div>
+		</div>
     </div>
   );
 };
