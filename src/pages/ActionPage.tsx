@@ -3,10 +3,19 @@ import ActionPageComponent from "../components/ActionPageComponent";
 
 
 const ActionPage = () => {
+    return (
+        <div>
+			<ActionPageComponent/>
+		</div>
+    );
+
+};
+export default ActionPage;const ActionPage = () => {
 
 
     function handleClick() {
     
+
         // Send data to the backend via fetch
         fetch('http://127.0.0.1:3002/MunchifiedPicture')   // Enter your IP address here
             .then(response => response.json())
