@@ -9,7 +9,7 @@ function App() {
             <Route path="/" element={< TakePicturePage/>}></Route>
             <Route path="pictureChoice" element={<PictureChoicePage />}></Route>
             <Route path="background" element={<ChooseBackgroundPage />}></Route>
-            <Route path="*" element={<RemovedBackgroundPage />}></Route>
+            <Route path="*" element={<ChooseBackgroundPage />}></Route>
             <Route path="ActionPage" element ={<ActionPage />}></Route>
           </Routes>
         </main>
