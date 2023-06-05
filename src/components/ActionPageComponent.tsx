@@ -2,15 +2,21 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useContext } from "react";
 import { CapturedImageContext } from "../contexts/CapturedImageContext";
-import { Link } from 'react-router-dom';
-import { useNavigate } from "react-router-dom";
+
 
 // Component for ActionPage with the name of the art and the image 
 // object
 const ActionPageComponent = () => {
 	// Image from context, after it is munchified
 	const capturedImage = useContext(CapturedImageContext);
-
+	
+	const handleClick = async () => {
+		// Send data to the backend via fetch
+		fetch('http://127.0.0.1:3002/MunchifiedPicture')   // Enter your IP address here
+		.then(response => response.json())
+		.then(data => console.log(data))
+		.catch(error => console.error(error));
+	};
     return (
         // Grid layout for the page
 		<div className="container mt-5">
@@ -24,7 +30,7 @@ const ActionPageComponent = () => {
 						<input type="text" id="artNameText"/>
 						{capturedImage?.capturedImage && (
 							<img src={capturedImage.capturedImage} alt="Munchified Image" />
-						)}
+							)}
 					</div>
 					<h1>UPLOAD YOUR ART</h1>
 					{/* // POST to sql database goes here? */}
@@ -49,15 +55,6 @@ const ActionPageComponent = () => {
 		
 
 
-    function handleClick() {
-    
-
-      // Send data to the backend via fetch
-      fetch('http://127.0.0.1:3002/MunchifiedPicture')   // Enter your IP address here
-          .then(response => response.json())
-          .then(data => console.log(data))
-          .catch(error => console.error(error));
-    }
 
 
 
