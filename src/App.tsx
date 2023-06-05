@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { TakePicturePage, PictureChoicePage, ChooseBackgroundPage, RemovedBackgroundPage, ActionPage  } from "./pages";
+import './css/App.css'
 
 function App() {
   return (
