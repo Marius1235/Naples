@@ -24,12 +24,23 @@
   }
   
   .selected-image-container {
+    position: relative;
     margin-top: 20px;
   }
   
-  .selected-image {
+  .selected-background {
     width: 750px;
     height: 500px;
     border: 1px solid #ccc;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .selected-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    z-index: 1;
   }

@@ -13,14 +13,15 @@ const BackgroundChoiceComponent: React.FC = () => {
   const backgroundOptions: IImage[] = [
     { imageUrl: require("../assets/images/Background4.png"), alt: "Background 1" },
     { imageUrl: require("../assets/images/Background5.png"), alt: "Background 2" },
-    { imageUrl: require("../assets/images/Background3.png"), alt: "Background 3" },
+    { imageUrl: require("../assets/images/Background4.png"), alt: "Background 3" },
   ];
 
   
   return (
     <div className="container">
       <div className="selected-image-container">
-        <img className="selected-image" src={selectedImage} alt="Selected Image" />
+        <img className="selected-background" src={selectedImage} alt="Selected Image"  style={{ position: "relative" }}/>
+        {selectedImage && <img className="selected-image" src={require("../assets/images/josef.png")} alt="Selected Image" />}
       </div>
       <div className="background-bar">
         {backgroundOptions.map((option: IImage) => (
