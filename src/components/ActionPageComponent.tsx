@@ -29,6 +29,15 @@ const ActionPageComponent = () => {
 					<h1>UPLOAD YOUR ART</h1>
 					{/* // POST to sql database goes here? */}
 					
+					<div onClick={handleClick} style={{
+						textAlign: 'center',
+						width: '100px',
+						border: '1px solid gray',
+						borderRadius: '5px' 
+						}}>
+						Send data to backend
+					</div>
+					
 					
 					<h5>And upload your masterpiece to the virutal Munch art gallery</h5>
 					
@@ -50,16 +59,8 @@ const ActionPageComponent = () => {
           .catch(error => console.error(error));
     }
 
-  return (
-      <div onClick={handleClick} style={{
-          textAlign: 'center',
-          width: '100px',
-          border: '1px solid gray',
-          borderRadius: '5px' 
-        }}>
-          Send data to backend
-      </div>
-  );
+
+
     );
 };
 
