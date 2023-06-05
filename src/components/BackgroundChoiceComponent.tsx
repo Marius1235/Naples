@@ -6,16 +6,28 @@ import { CapturedImageContext } from "../contexts/CapturedImageContext";
 
 
 const BackgroundChoiceComponent: React.FC = () => {
-  const [selectedBackground, setSelectedBackground] = useState<string>("/assets/images/Background4.png");
+  const [selectedBackground, setSelectedBackground] = useState<string>(require("../assets/images/Background4.png"));
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const capturedImageContext = useContext(CapturedImageContext);
+  const testImage = require("../assets/images/josef.png")
 
   const changeBackground = (imageUrl: string) => {
     setSelectedBackground(imageUrl);
   };
 
+  const backgroundOptions: IImage[] = [
+    { imageUrl: require("../assets/images/Background4.png"), alt: "Background 1" },
+    { imageUrl: require("../assets/images/Background5.png"), alt: "Background 2" },
+    { imageUrl: require("../assets/images/Background6.jpg"), alt: "Background 3" },
+    { imageUrl: require("../assets/images/Background7.jpg"), alt: "Background 4" },
+    { imageUrl: require("../assets/images/Background8.jpg"), alt: "Background 5" },
+    { imageUrl: require("../assets/images/Background9.jpg"), alt: "Background 6" },
+    { imageUrl: require("../assets/images/Background10.jpg"), alt: "Background 7" },
+    { imageUrl: require("../assets/images/Background11.jpg"), alt: "Background 8" },
+  ];
+
   const createCombinedImage = () => {
-    if (canvasRef.current && capturedImageContext?.capturedImage) {
+    if (canvasRef.current && testImage) {
       const canvas = canvasRef.current;
       const ctx = canvas.getContext("2d");
 
@@ -32,7 +44,7 @@ const BackgroundChoiceComponent: React.FC = () => {
 
         // Load the selected image
         const image = new Image();
-        image.src = capturedImageContext.capturedImage!;
+        image.src = testImage;
         image.onload = () => {
           // Calculate the position to center the selected image on the canvas
           const x = (canvas.width - image.width) / 2;
@@ -46,22 +58,19 @@ const BackgroundChoiceComponent: React.FC = () => {
           capturedImageContext?.setCapturedImage(combinedImageData);
         };
       };
+    }else{
+      console.log("There is no image to combine with")
     }
   };
-
-  const backgroundOptions: IImage[] = [
-    { imageUrl: require("../assets/images/Background4.png"), alt: "Background 1" },
-    { imageUrl: require("../assets/images/Background5.png"), alt: "Background 2" },
-    { imageUrl: require("../assets/images/Background4.png"), alt: "Background 3" },
-  ];
 
   return (
     <div className="container">
       <div className="selected-image-container">
-        <img className="selected-background" src={selectedBackground} alt="Selected Background" />
-        {capturedImageContext?.capturedImage && (
-        <img className="selected-image" src={capturedImageContext.capturedImage} alt="Captured" />
-      )}
+        <div className="image-wrapper">
+          <img className="selected-background" src={selectedBackground} alt="Selected Background" />
+          <img className="selected-image" src={testImage} alt="Captured" />
+        </div>
+        <div className="combine-btn" onClick={createCombinedImage}>Combine Images</div>
       </div>
       <div className="background-bar">
         {backgroundOptions.map((option: IImage) => (
@@ -74,7 +83,6 @@ const BackgroundChoiceComponent: React.FC = () => {
           />
         ))}
       </div>
-      <button onClick={createCombinedImage}>Combine Images</button>
       {capturedImageContext?.capturedImage && (
         <img src={capturedImageContext.capturedImage} alt="Captured" />
       )}

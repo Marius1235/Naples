@@ -1,0 +1,50 @@
+.HeaderNav{
+    position: relative;
+    height: 0px
+}
+
+.HeaderNavItem{
+    display: block;
+    text-decoration-style: solid;
+}
+
+.Logo{
+    display: block;
+    word-wrap: break-word;
+    transform: skew(20deg, 0deg);
+    font-family: "aktiv-grotesk", sans-serif;
+    font-size: 70px;
+    color: rgb(235, 163, 152);
+    letter-spacing: -4px;
+    line-height: 150px;
+    list-style-type: none;
+    padding: 0 22px;
+    display: inline-block;
+    text-decoration-color: rgb(235, 163, 152);
+    text-decoration-thickness: auto;
+    text-decoration-line: none;
+    text-transform: uppercase;
+    text-align: left;
+    white-space: nowrap;
+    word-break: normal;
+    -webkit-transform: skew(-20deg, 0deg);
+    -moz-transform:skew(20deg, 0deg);
+    -o-transform:skew(20deg, 0deg);
+    -ms-transform:skew(20deg, 0deg);
+    transform: skew(20deg, 0deg);
+    transition: color 0.3s ease;
+}
+
+.Logo.hovered {
+    color: rgb(255, 255, 255);
+  }
+  
+  .Logo:hover {
+    color: rgb(255, 255, 255);
+  }
+
+@font-face {
+    font-family: "aktiv-grotesk";
+    src: url("../assets/fonts/AktivGrotesk-Bold.woff") format("woff")
+}
+

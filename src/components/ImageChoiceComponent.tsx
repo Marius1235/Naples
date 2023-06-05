@@ -2,7 +2,6 @@
 import { useRef, useEffect, useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { CapturedImageContext } from "../contexts/CapturedImageContext";
-import BackgroundRemoverService from "../services/BackgroundRemoverSerive";
 
 // Fetches the image in the useState and displays it in a canvasRef.
 const ImageChoiceComponent: React.FC = () => {

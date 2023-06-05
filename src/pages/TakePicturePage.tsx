@@ -1,6 +1,6 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import CameraComponent from "../components/CameraComponent";
-import BackgroundChoiceComponent from "../components/BackgorundChoiceComponent";
+import BackgroundChoiceComponent from "../components/BackgroundChoiceComponent";
  
 // Displays the CameraComponent in a container and grid system.
 // Add more comments here as more components are added // [CODEREVIEW]
