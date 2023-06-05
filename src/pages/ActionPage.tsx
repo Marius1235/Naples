@@ -1,11 +1,12 @@
+import "bootstrap/dist/css/bootstrap.min.css";
+import ActionPageComponent from "../components/ActionPageComponent";
 
 
 const ActionPage = () => {
-
     return (
         <div>
-            <h1> Action Page </h1>
-        </div>
+			<ActionPageComponent/>
+		</div>
     );
 
 };
