@@ -42,19 +42,16 @@ const ActionPageComponent = () => {
 							border: '1px solid gray', 
 							borderRadius: '5px' 
 							}}>
-							Send data to backend
+							{/* Send data to backend */}
 						</div>
-						
-						
 						<h5>And upload your masterpiece to the virutal Munch art gallery</h5>
-						
 					</div>
 					<div className="col-sm">
 					</div>
 				</div>
 			</div>
+
 			{/* Divs for the munch pictures */}
-			
 			<div className="container mt-5">
             <div className="row">
                 <div className="col-sm">
