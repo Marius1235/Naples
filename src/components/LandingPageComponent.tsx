@@ -2,6 +2,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link } from 'react-router-dom';
 
+// Component for LandingPage, links to PicturePage
 const LandingPageComponent = () => {
 
     return(
