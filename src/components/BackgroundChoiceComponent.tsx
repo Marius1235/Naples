@@ -20,6 +20,8 @@ const BackgroundChoiceComponent: React.FC = () => {
   // Move image function
   const moveImage = (xOffset: number, yOffset: number) => {
     setPosition({
+
+
       x: position.x + xOffset,
       y: position.y + yOffset,
     });
@@ -55,14 +57,15 @@ const BackgroundChoiceComponent: React.FC = () => {
 
         // Load the selected image
         const image = new Image();
-        image.src = capturedImageContext?.capturedImage!;
+          image.src = testImage;
+        //image.src = capturedImageContext?.capturedImage!;
         image.onload = () => {
           // Calculate the position to center the selected image on the canvas
           const x = (canvas.width - image.width) / 2;
           const y = (canvas.height - image.height) / 2;
 
-            // Draw the selected image onto the canvas
-            ctx?.drawImage(image, x, y);
+          // Draw the selected image onto the canvas
+          ctx?.drawImage(image, x + position.x, y + position.y);
 
             // Create a new image with the combined images
             const combinedImageData = canvas.toDataURL("image/png");
