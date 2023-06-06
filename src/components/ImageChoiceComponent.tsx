@@ -2,6 +2,7 @@
 import { useRef, useEffect, useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { CapturedImageContext } from "../contexts/CapturedImageContext";
+import ConfirmIcon from "./Buttons/ConfirmIcon";
 
 // Fetches the image in the useState and displays it in a canvasRef.
 const ImageChoiceComponent: React.FC = () => {
@@ -17,7 +18,7 @@ const ImageChoiceComponent: React.FC = () => {
       )}
       <canvas ref={canvasRef} style={{ display: "none" }} />  
       <div>
-      <Link to="/picturePage"><button>back</button></Link>
+      <Link to="/picturePage"><ConfirmIcon/></Link>      
       </div>
     </div>
   );
