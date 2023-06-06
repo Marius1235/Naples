@@ -10,7 +10,7 @@ const LandingPageComponent = () => {
                 <div className="col-sm mt-5">
                     <Link to="/picturePage"><h1>ENTER THE MUNCHIVERSE</h1></Link>
                     {/* Style link: Should be "Munch-Pink", no Underline, on hover -> white. */}
-                    <h5>Use our Munch-AI to transform your picture into a personalized Munch painting.</h5>
+                    <h5>Unleash your inner artist with our AI-powered Munchifier to transform a picture of yourself into a personalized Munch painting.</h5>
                 </div>
             </div>
         </div>
