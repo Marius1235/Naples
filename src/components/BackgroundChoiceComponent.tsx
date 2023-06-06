@@ -9,7 +9,7 @@ const BackgroundChoiceComponent: React.FC = () => {
   const [selectedBackground, setSelectedBackground] = useState<string>(require("../assets/images/Background4.png"));
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const capturedImageContext = useContext(CapturedImageContext);
-  const testImage = require("../assets/images/josef.png")
+  const testImage = require("../assets/images/josef.png");
 
   const changeBackground = (imageUrl: string) => {
     setSelectedBackground(imageUrl);
