@@ -8,13 +8,13 @@ import "../../src/css/TakePicturePage.css";
 
 // Camera component for video streaming, picture taking and countdown.
 const CameraComponent: React.FC = () => {
-  const videoRef = useRef<HTMLVideoElement>(null); // useRef can be used to store a mutable value that does not cause a re-render when updated.
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-  const capturedImageContext = useContext(CapturedImageContext);
-  const [countdown, setCountdown] = useState(5);
-  const [isCounting, setIsCounting] = useState(false);
-  const [isBlinking, setIsBlinking] = useState(false);
-  const navigate = useNavigate();
+    const videoRef = useRef<HTMLVideoElement>(null); // useRef can be used to store a mutable value that does not cause a re-render when updated.
+    const canvasRef = useRef<HTMLCanvasElement>(null);
+    const capturedImageContext = useContext(CapturedImageContext);
+    const [countdown, setCountdown] = useState(5);
+    const [isCounting, setIsCounting] = useState(false);
+    const [isBlinking, setIsBlinking] = useState(false);
+    const navigate = useNavigate();
 
   // Starts a timer that counts down from 5 to 0.
     useEffect(() => {
