@@ -5,6 +5,7 @@ import { CapturedImageContext } from "../contexts/CapturedImageContext";
 import { faDeleteLeft, faSquareCheck, fas } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import "../../src/css/RemoveBackgroundPage.css";
+import ConfirmIcon from "./Buttons/ConfirmIcon";
 
 // Fetches the image in the useState and displays it in a canvasRef.
 const ImageChoiceComponent: React.FC = () => {

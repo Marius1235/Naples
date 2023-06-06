@@ -4,18 +4,37 @@ import { useContext } from "react";
 import { CapturedImageContext } from "../contexts/CapturedImageContext";
 
 
+
+
 // Component for ActionPage with the name of the art and the image 
 // object
 const ActionPageComponent = () => {
 	// Image from context, after it is munchified
 	const capturedImage = useContext(CapturedImageContext);
-	
+
 	const handleClick = async () => {
+		
+
+    fetch("http://localhost:3002/MunchifiedPicture", {
+	method: "GET",
+	headers: {
+        "Content-Type": "application/json",
+	},
+	
+    })
+	.then((response) => response.json())
+	.then((data) => {
+        console.log(data);
+	})
+	.catch((error) => {
+        console.error(error);
+    });
+
+
+
+
 		// Send data to the backend via fetch
-		fetch('http://127.0.0.1:3002/MunchifiedPicture')   // Enter your IP address here
-		.then(response => response.json())
-		.then(data => console.log(data))
-		.catch(error => console.error(error));
+		
 	};
     return (
         // Grid layout for the page
@@ -36,14 +55,15 @@ const ActionPageComponent = () => {
 						<h1>UPLOAD YOUR ART</h1>
 						{/* // POST to sql database goes here? */}
 						
-						<div onClick={handleClick} style={{
+						<button onClick={handleClick} style={{
+
 							textAlign: 'center',
 							width: '100px',
 							border: '1px solid gray', 
 							borderRadius: '5px' 
 							}}>
-							{/* Send data to backend */}
-						</div>
+							{ "Send data to backend"}
+						</button>
 						<h5>And upload your masterpiece to the virutal Munch art gallery</h5>
 					</div>
 					<div className="col-sm">
