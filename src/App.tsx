@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { TakePicturePage, PictureChoicePage, ChooseBackgroundPage, ActionPage, LandingPage, PreviewResultsPage,  } from "./pages";
+import { TakePicturePage, PictureChoicePage, ChooseBackgroundPage, ActionPage, LandingPage, PreviewResultsPage, MunchifyPicturePage,  } from "./pages";
 import HeaderComponent from "./components/Header/Header";
 import './css/App.css'
 
@@ -14,7 +14,7 @@ function App() {
             <Route path="/picturePage" element={< TakePicturePage/>}></Route>
             <Route path="/choicePage" element={<PictureChoicePage />}></Route>
             <Route path="/backgroundPage" element={<ChooseBackgroundPage />}></Route>
-            {/* Munchify picture page here? */}
+            <Route path="/munchifyPage" element={<MunchifyPicturePage />}></Route>
             <Route path="/previewResultsPage" element={<PreviewResultsPage />}></Route>
             <Route path="/actionPage" element ={<ActionPage />}></Route>
           </Routes>

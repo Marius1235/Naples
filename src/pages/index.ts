@@ -5,5 +5,6 @@ import RemovedBackgroundPage from "./RemovedBackgroundPage";
 import ActionPage from "./ActionPage";
 import LandingPage from "./LandingPage";
 import PreviewResultsPage from "./PreviewResultsPage";
+import MunchifyPicturePage from "./MunchifyPicturePage";
 
-export { TakePicturePage, PictureChoicePage, ChooseBackgroundPage, RemovedBackgroundPage, ActionPage, LandingPage, PreviewResultsPage }
+export { TakePicturePage, PictureChoicePage, ChooseBackgroundPage, RemovedBackgroundPage, ActionPage, LandingPage, PreviewResultsPage, MunchifyPicturePage }
