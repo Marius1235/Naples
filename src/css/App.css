@@ -2,3 +2,13 @@ body {
     background-color: #0F2334;
     color: #FFFFFF;
 }
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #EBA299;
+    text-decoration: none;
+}
