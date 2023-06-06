@@ -1,6 +1,9 @@
 import { useContext } from "react";
 import { CapturedImageContext } from "../contexts/CapturedImageContext";
 import { useNavigate } from "react-router-dom";
+import { faCaretSquareLeft, faDeleteLeft, faSquareCaretLeft, faSquareCheck, faSquareUpRight, fas } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import "../../src/css/RemoveBackgroundPage.css";
 
 
 const RemoveImageComponent = () => {
@@ -12,13 +15,13 @@ const RemoveImageComponent = () => {
             image.removeBackground();
             setTimeout(() => {
                 navigate("/backgroundPage");
-              }, 200);     
+              }, 1000);     
         }
     }
 
     return(
         <div>
-            <button onClick={startRemoveBackground}>Remove background</button>
+            <FontAwesomeIcon onClick={startRemoveBackground} className="remover-btn" icon={faSquareCheck} />
         </div>
     )
 }

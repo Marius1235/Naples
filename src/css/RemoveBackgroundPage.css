@@ -1,0 +1,38 @@
+.img-canvas {
+    position: relative;
+    height: 600px;
+    margin-top: 80px;
+    border-radius: 10px;
+    border: 7px solid #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+}
+
+.retake-btn {
+    height: 100px;
+    margin-top: 25px;
+    cursor: pointer;
+    float: left;
+    color: #ffffff;
+    transition: color 0.3s ease, transform 0.3s ease;
+  }
+
+.remover-btn {
+    height: 90px;
+    margin-top: 30px;
+    cursor: pointer;
+    float: right;
+    color: #ffffff;
+    transition: color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .remover-btn.hovered,
+  .remover-btn:hover {
+    color: rgb(235, 163, 152);
+    transform: scale(1.05);
+  }
+  
+  .retake-btn.hovered,
+  .retake-btn:hover {
+    color: rgb(235, 163, 152);
+    transform: scale(1.05);
+  }
