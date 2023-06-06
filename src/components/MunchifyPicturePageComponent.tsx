@@ -7,14 +7,16 @@ import React, { useEffect, useState } from 'react';
 import { loadGraphModel } from '@tensorflow/tfjs-converter';
 
 
+
 const MunchifyPicturePageComponent: React.FC = () => {
+
 const capturedImage = useContext(CapturedImageContext);
 const [image, setImage] = useState<tf.Tensor3D | null>(null);
 
 useEffect(() => {
     const processImage = async () => {
     if (capturedImage && capturedImage.capturedImage) {
-       const image = await convertBase64toImageData(capturedImage);
+       const image = await convertBase64toImageData(capturedImage.capturedImage);
        munchifyImage(image);
     }
     };
@@ -27,18 +29,34 @@ const munchifyImage = async (imageData: ImageData): Promise<tf.Tensor> => {
     //send the image to preprocess function for resizing
     const preprocessedImage = preprocessImage(imageData);
     //Apply model prediction to the image
-    const munchifiedImage = model.predict(preprocessedImage) as tf.Tensor;
-    setImage(munchifiedImage);
+    const munchifiedImage = model.predict(preprocessedImage) as tf.Tensor3D;
+    
+    //Convert tensor to data URL
+    const canvas = document.createElement('canvas');
+    const ctx = canvas.getContext('2d');
+    if (ctx) {
+        const pixels = await tf.browser.toPixels(munchifiedImage);
+        const imageData = new ImageData(pixels, munchifiedImage.shape[1], munchifiedImage.shape[0]);
+        ctx.putImageData(imageData, 0, 0);
+        const dataUrl = canvas.toDataURL();
+        
+        //Set captured image and state
+        capturedImage?.setCapturedImage(dataUrl);
+        setImage(munchifiedImage);
+        console.log(munchifiedImage)
+    }
+    
     return munchifiedImage;
     
 }
 
 const loadModel = async (): Promise<tf.LayersModel> => {
     //load the model from the path
-    const model = await tf.loadLayersModel("C:\Users\yosef\Documents\GitHub\Naples\tfjs\tfjs\model.json")
+    const model = await tf.loadLayersModel(require('../assets/models/model.json'));
     return model
 }
 
+// Convert base64 to ImageData
 const convertBase64toImageData = async (base64: string): Promise<ImageData> => {
     return new Promise((resolve, reject) => {
         const img = new Image();
@@ -61,17 +79,16 @@ const convertBase64toImageData = async (base64: string): Promise<ImageData> => {
     });
 }
 
-
-
+// Resize the image to the size expected by the model(256x256)
 const preprocessImage = (image:ImageData): tf.Tensor3D => {
     let tensorImage = tf.browser.fromPixels(image);
-    // resizing the image to the size expected by the model(256x256)
     tensorImage = tf.image.resizeBilinear(tensorImage, [256, 256]);
     //Normalize pixel values to [-1,1]
     tensorImage = tensorImage.div(127.5).sub(1);
     //Insert a batch dimension
     return tensorImage.expandDims(0) as tf.Tensor3D
 }
+
     return (
         <div>
             // Display the image
