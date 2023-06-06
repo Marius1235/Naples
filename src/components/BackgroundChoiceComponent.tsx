@@ -44,7 +44,7 @@ const BackgroundChoiceComponent: React.FC = () => {
 
         // Load the selected image
         const image = new Image();
-        image.src = testImage;
+        image.src = capturedImageContext?.capturedImage!;
         image.onload = () => {
           // Calculate the position to center the selected image on the canvas
           const x = (canvas.width - image.width) / 2;
@@ -68,7 +68,7 @@ const BackgroundChoiceComponent: React.FC = () => {
       <div className="selected-image-container">
         <div className="image-wrapper">
           <img className="selected-background" src={selectedBackground} alt="Selected Background" />
-          <img className="selected-image" src={testImage} alt="Captured" />
+          <img className="selected-image" src={capturedImageContext?.capturedImage!} alt="Captured" />
         </div>
         <div className="combine-btn" onClick={createCombinedImage}>Combine Images</div>
       </div>

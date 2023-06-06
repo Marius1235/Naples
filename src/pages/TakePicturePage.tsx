@@ -6,12 +6,12 @@ import BackgroundChoiceComponent from "../components/BackgroundChoiceComponent";
 // Add more comments here as more components are added // [CODEREVIEW]
 const TakePicturePage = () => {
     return (
-        <div className="container mt-5">
+        <div className="container">
             <div className="row">
                 <div className="col-sm">
                     
                 </div>
-                <div className="col-sm mt-5">
+                <div className="col-sm">
                     <CameraComponent/>
                 </div>
                 <div className="col-sm">

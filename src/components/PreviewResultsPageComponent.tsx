@@ -10,6 +10,8 @@ const PreviewResultsPageComponent = () => {
     
 	let imgRef = useRef<HTMLImageElement>(null);
 	const [imgIsResized, setImgIsResized] = useState(false);
+	// Image from context, after it is munchified
+	const capturedImage = useContext(CapturedImageContext);
 	
 	// Function to enlarge image
 	const enlargePicture = () => {
@@ -28,9 +30,7 @@ const PreviewResultsPageComponent = () => {
 			setImgIsResized(false);
 		}
 	};
-
-    // Image from context, after it is munchified
-    const capturedImage = useContext(CapturedImageContext);
+   
     return (
         <div>
             <div className="container mt-5">

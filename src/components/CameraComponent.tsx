@@ -2,6 +2,9 @@
 import { useRef, useEffect, useState, useContext } from "react";
 import { CapturedImageContext } from "../contexts/CapturedImageContext";
 import { useNavigate } from "react-router-dom";
+import { faCamera, faDeleteLeft, faSquareCheck, fas } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import "../../src/css/TakePicturePage.css";
 
 // Camera component for video streaming, picture taking and countdown.
 const CameraComponent: React.FC = () => {
@@ -10,6 +13,7 @@ const CameraComponent: React.FC = () => {
   const capturedImageContext = useContext(CapturedImageContext);
   const [countdown, setCountdown] = useState(5);
   const [isCounting, setIsCounting] = useState(false);
+  const [isBlinking, setIsBlinking] = useState(false);
   const navigate = useNavigate();
 
   // Starts a timer that counts down from 5 to 0.
@@ -31,7 +35,7 @@ const CameraComponent: React.FC = () => {
       takePicture();
       setTimeout(() => {
         navigate("/choicePage");
-      }, 50);
+      }, 5);
     }
   }, [countdown, isCounting, capturedImageContext]);
 
@@ -123,13 +127,13 @@ const CameraComponent: React.FC = () => {
 
   // Returns the video input from the camera and a button that starts a countdown for the picture to be taken.
   return (
-    <div>
-      <video ref={videoRef} autoPlay muted />
-      <canvas ref={canvasRef} style={{ display: "none" }} />
+    <div className="container">
+      <video className={`video-ref ${isCounting ? "blinking" : ""}`} ref={videoRef} autoPlay muted />
+      <canvas className={`canvas-ref ${isCounting ? 'hidden' : ''}`} ref={canvasRef} style={{ display: "none" }} />
       {isCounting ? (
-        <p>Countdown: {countdown}</p>
+        <p className="countdown">{countdown}</p>
       ) : (
-        <button onClick={startCountdown}>Start Countdown</button>
+        <FontAwesomeIcon onClick={startCountdown} className={`picture-btn ${isCounting ? 'hidden' : ''}`} icon={faCamera} />
       )}
     </div>
   );

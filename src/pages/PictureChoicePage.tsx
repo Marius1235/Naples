@@ -5,10 +5,10 @@ import RemoveImageComponent from "../components/RemoveBackgroundComponent";
 // Add more comments here as more components are added // [CODEREVIEW]
 const PictureChoicePage = () => {
   return (
-    <div className="container mt-5">
-      <div className="row mt-5">
+    <div className="container">
+      <div className="row">
         <div className="col-sm"></div>
-        <div className="col-sm mt-5">
+        <div className="col-sm">
           <ImageChoiceComponent />
           <RemoveImageComponent />
         </div>
