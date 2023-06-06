@@ -55,7 +55,7 @@ const BackgroundChoiceComponent: React.FC = () => {
 
         // Load the selected image
         const image = new Image();
-        image.src = testImage;
+        image.src = capturedImageContext?.capturedImage!;
         image.onload = () => {
           // Calculate the position to center the selected image on the canvas
           const x = (canvas.width - image.width) / 2;
