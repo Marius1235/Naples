@@ -14,8 +14,9 @@ function App() {
             <Route path="/picturePage" element={< TakePicturePage/>}></Route>
             <Route path="/choicePage" element={<PictureChoicePage />}></Route>
             <Route path="/backgroundPage" element={<ChooseBackgroundPage />}></Route>
-            <Route path="/PreviewResultsPage" element={<PreviewResultsPage />}></Route>
-            <Route path="ActionPage" element ={<ActionPage />}></Route>
+            {/* Munchify picture page here? */}
+            <Route path="/previewResultsPage" element={<PreviewResultsPage />}></Route>
+            <Route path="/actionPage" element ={<ActionPage />}></Route>
           </Routes>
         </main>
       </BrowserRouter>
