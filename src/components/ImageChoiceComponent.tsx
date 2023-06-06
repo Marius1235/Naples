@@ -6,22 +6,22 @@ import ConfirmIcon from "./Buttons/ConfirmIcon";
 
 // Fetches the image in the useState and displays it in a canvasRef.
 const ImageChoiceComponent: React.FC = () => {
-  const capturedImageContext = useContext(CapturedImageContext);
-  const canvasRef = useRef<HTMLCanvasElement>(null);
+    const capturedImageContext = useContext(CapturedImageContext);
+    const canvasRef = useRef<HTMLCanvasElement>(null);
 
-  // Html elements with img output and Link(button) to the previous page
-  return (
-    <div>
+     // Html elements with img output and Link(button) to the previous page
+    return (
+        <div>
       
-      {capturedImageContext?.capturedImage && (
-        <img src={capturedImageContext.capturedImage} alt="Captured" />
-      )}
-      <canvas ref={canvasRef} style={{ display: "none" }} />  
-      <div>
-      <Link to="/picturePage"><ConfirmIcon/></Link>      
-      </div>
-    </div>
-  );
+            {capturedImageContext?.capturedImage && (
+                <img src={capturedImageContext.capturedImage} alt="Captured" />
+            )}
+            <canvas ref={canvasRef} style={{ display: "none" }} />  
+            <div>
+            <Link to="/picturePage"><ConfirmIcon/></Link>      
+            </div>
+        </div>
+    );
 };
 
 // Export for use in pages

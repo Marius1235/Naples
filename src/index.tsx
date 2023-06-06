@@ -6,14 +6,14 @@ import reportWebVitals from './reportWebVitals';
 import CapturedImageProvider from './contexts/CapturedImageContext';
 
 const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
+    document.getElementById('root') as HTMLElement
 );
 root.render(
-  <React.StrictMode>
-    <CapturedImageProvider>
-      <App />
-    </CapturedImageProvider>
-  </React.StrictMode>
+    <React.StrictMode>
+        <CapturedImageProvider>
+            <App />
+        </CapturedImageProvider>
+    </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function
