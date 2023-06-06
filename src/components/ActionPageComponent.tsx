@@ -11,31 +11,45 @@ import { CapturedImageContext } from "../contexts/CapturedImageContext";
 const ActionPageComponent = () => {
 	// Image from context, after it is munchified
 	const capturedImage = useContext(CapturedImageContext);
+	
 
 	const handleClick = async () => {
 		
 
-    fetch("http://localhost:3002/MunchifiedPicture", {
-	method: "GET",
-	headers: {
-        "Content-Type": "application/json",
-	},
-	
-    })
-	.then((response) => response.json())
-	.then((data) => {
-        console.log(data);
-	})
-	.catch((error) => {
-        console.error(error);
-    });
-
-
-
-
+		
+		fetch("http://localhost:3001/MunchifiedPicture", {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify({
+				"picture": testImage,
+			}),
+		})
+		.then((response) => response.json())
+		.then((data) => {
+			console.log(data);
+		})
+		.catch((error) => {
+			console.error(error);
+		});
 		// Send data to the backend via fetch
 		
 	};
+	/*fetch("http://localhost:3001/MunchifiedPicture", {
+
+	headers: {
+		"Content-Type": "application/json",
+		
+	},
+	})
+	.then((response) => response.json())
+	.then((data) => {
+		console.log(data);
+	})
+	.catch((error) => {
+		console.error(error);
+	});*/
     return (
         // Grid layout for the page
 		<div>
