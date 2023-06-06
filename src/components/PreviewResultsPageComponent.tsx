@@ -40,7 +40,7 @@ const PreviewResultsPageComponent = () => {
                         {capturedImage?.capturedImage && (
 								<img src={capturedImage.capturedImage} ref={imgRef} onClick={enlargePicture} alt="Munchified Image" />
 						)}
-						{/* Renders the button if the image has been resized. */}
+						{/* Renders the button if the image has been */}
                         {imgIsResized && (
 						<Link to="/ActionPage">
 							<button>Go to ActionPage</button>
