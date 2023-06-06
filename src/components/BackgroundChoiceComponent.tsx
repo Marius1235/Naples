@@ -9,11 +9,22 @@ const BackgroundChoiceComponent: React.FC = () => {
   const [selectedBackground, setSelectedBackground] = useState<string>(require("../assets/images/Background4.png"));
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const capturedImageContext = useContext(CapturedImageContext);
-  const testImage = require("../assets/images/josef.png");
+  const testImage = require("../assets/images/josef.png")
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+
 
   const changeBackground = (imageUrl: string) => {
     setSelectedBackground(imageUrl);
   };
+
+  // Move image function
+  const moveImage = (xOffset: number, yOffset: number) => {
+    setPosition({
+      x: position.x + xOffset,
+      y: position.y + yOffset,
+    });
+  }
+
 
   const backgroundOptions: IImage[] = [
     { imageUrl: require("../assets/images/Background4.png"), alt: "Background 1" },
@@ -68,8 +79,23 @@ const BackgroundChoiceComponent: React.FC = () => {
       <div className="selected-image-container">
         <div className="image-wrapper">
           <img className="selected-background" src={selectedBackground} alt="Selected Background" />
-          <img className="selected-image" src={testImage} alt="Captured" />
+         
+         {/* Use of inline styling, maybe change? */}
+          <img className="selected-image" src={testImage} alt="Captured" style={{
+          position: "absolute",
+          left: `${position.x}px`,
+          top: `${position.y}px`,
+        }} />
+          
         </div>
+
+        <div>
+          <button onClick={() => moveImage(10, 0)}>Move Right</button>
+          <button onClick={() => moveImage(-10, 0)}>Move Left</button>
+          <button onClick={() => moveImage(0, 10)}>Move Down</button>
+          <button onClick={() => moveImage(0, -10)}>Move Up</button>
+        </div>
+
         <div className="combine-btn" onClick={createCombinedImage}>Combine Images</div>
       </div>
       <div className="background-bar">
