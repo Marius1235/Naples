@@ -5,16 +5,16 @@ body {
 }
 
 a {
-    color: #EBA299;
+    color: #ffffff;
     text-decoration: none;
+    transition: color 0.3s ease, transform 0.3s ease;
 }
 
-a:hover {
-    color: white;
-    text-decoration: none;
-    transition: 0.5s;
-    transition-timing-function: ease-in-out;
-}
+.a.hovered,
+.a:hover {
+    color: rgb(235, 163, 152);
+    transform: scale(1.05);
+  }
 
 @font-face {
     font-family: "aktiv-grotesk";

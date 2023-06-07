@@ -14,7 +14,7 @@ const MunchifyPicturePageComponent: React.FC = () => {
     useEffect(() => {
         const loadModel = async () => {
             try {
-              const model = await tf.loadLayersModel('/models/model.json');
+              const model = await tf.loadGraphModel('/models/model.json');
             } catch (error) {
               console.error(error);
             }

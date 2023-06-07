@@ -37,7 +37,7 @@ const BackgroundChoiceComponent: React.FC = () => {
 	];
 
 	const createCombinedImage = () => {
-		if (canvasRef.current && testImage) {
+		if (canvasRef.current && capturedImageContext?.capturedImage) {
 			const canvas = canvasRef.current;
 			const ctx = canvas.getContext("2d");
 
