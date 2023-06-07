@@ -9,7 +9,7 @@ const LandingPageComponent = () => {
         <div className="container mt-5">
             <div className="row mt-5">
                 <div className="col-sm mt-5">
-                    <Link to="/picturePage"><h1 className="custom-link">ENTER THE MUNCHIVERSE
+                    <Link to="/picturePage" className="text-center"><h1>ENTER THE MUNCHIVERSE
                     <h5>Unleash your inner artist with our AI-powered Munchifier to transform a picture of yourself 
                         into a personalized Munch painting.</h5></h1>
                     </Link>                    
