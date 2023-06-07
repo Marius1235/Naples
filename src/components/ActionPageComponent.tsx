@@ -1,11 +1,8 @@
 // Imports:
-import 'bootstrap/dist/css/bootstrap.min.css';
 import { useContext } from "react";
 import { CapturedImageContext } from "../contexts/CapturedImageContext";
-import ConfirmIcon from './Buttons/ConfirmIcon';
-
-
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCloudArrowUp } from '@fortawesome/free-solid-svg-icons'
 
 // Component for ActionPage with the name of the art and the image 
 // object
@@ -56,9 +53,9 @@ const ActionPageComponent = () => {
 		<div>
 			<div className="container mt-5">
 				<div className="row">
-					<div className="col-sm">
+					<div className="col-sm-2">
 					</div>
-					<div className="col-sm mt-5">
+					<div className="col-sm-8 mt-5 text-center">
 						
 						<h1>NAME YOUR ART</h1>
 						<div className="form-group">
@@ -67,10 +64,11 @@ const ActionPageComponent = () => {
 								<img src={capturedImage.capturedImage} alt="Munchified Image" />
 							)}
 						</div>
-						<h1>UPLOAD YOUR ART</h1>
+						<img id="upload-art-image" src={require(`../assets/images/placeholder.jpg`)} alt="Placeholder image"/>
+						<h1 onClick={handleClick}>UPLOAD YOUR ART<FontAwesomeIcon icon={faCloudArrowUp}/></h1>
 						{/* // POST to sql database goes here? */}
 						
-						<button onClick={handleClick} style={{
+						{/* <button onClick={handleClick} style={{
 
 							textAlign: 'center',
 							width: '100px',
@@ -78,10 +76,10 @@ const ActionPageComponent = () => {
 							borderRadius: '5px' 
 							}}>
 							{ "Send data to backend"}
-						</button>
+						</button> */}
 						<h5>And upload your masterpiece to the virutal Munch art gallery</h5>
 					</div>
-					<div className="col-sm">
+					<div className="col-sm-2">
 					</div>
 				</div>
 			</div>
@@ -89,15 +87,17 @@ const ActionPageComponent = () => {
 			{/* Divs for the munch pictures */}
 			<div className="container mt-5">
             <div className="row">
-                <div className="col-sm">
+                <div className="col-sm-1 text-center">
 					{/* Remember to animate to hidden/visible in css. */}
-                    <img id="painting-1" className="munch-paintings" src={require(`../assets/images/skriket.jpg`)} alt="Skrik by Edvard Munch"  />
+                    
                 </div>
-                <div className="col-sm">
+                <div className="col-sm-10 text-center">
+					<img id="painting-1" className="munch-paintings" src={require(`../assets/images/skriket.jpg`)} alt="Skrik by Edvard Munch"  />
 					<img id="painting-2" className="munch-paintings" src={require(`../assets/images/vampyren.jpg`)} alt="Vampyr av Edvard Munch" />
-                </div>
-                <div className="col-sm">
 					<img id="painting-3" className="munch-paintings" src={require(`../assets/images/museet.jpg`)} alt="Munchmuseet" />
+                </div>
+                <div className="col-sm-1 text-center">
+					
 
                 </div>
             </div>

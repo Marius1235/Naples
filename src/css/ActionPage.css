@@ -1,8 +1,13 @@
 .munch-paintings{
-    width: 100%;
+    width: 25%;
+    margin: 2%;
     height: auto;
     opacity: 0;
     animation: fadeIn forwards;
+}
+
+#upload-art-image{
+  margin: 1%;
 }
 
 @keyframes fadeIn {
@@ -12,9 +17,9 @@
     100% {
       opacity: 1;
     }
-  }
+}
 
-  #painting-1 {
+#painting-1 {
     animation-delay: 0s;
     animation-duration: 5s;
   }
