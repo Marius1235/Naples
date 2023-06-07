@@ -9,8 +9,8 @@ import { faCloudArrowUp } from '@fortawesome/free-solid-svg-icons'
 const ActionPageComponent = () => {
 	// Image from context, after it is munchified
 	var image = useContext(CapturedImageContext);
-	let base64String = image;
-	let base64Data = base64String.split(",")[1];
+	let base64String = image!.capturedImage;
+	let base64Data = base64String!.split(",")[1];
 	
 
 	const handleClick = async () => {
