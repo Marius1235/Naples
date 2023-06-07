@@ -23,7 +23,7 @@ const ActionPageComponent = () => {
 				"Content-Type": "application/json",
 			},
 			body: JSON.stringify({
-				"picture": capturedImage?.capturedImage,
+				"picture": "aGFsbG8=",
 			}),
 		})
 		.then((response) => response.json())
