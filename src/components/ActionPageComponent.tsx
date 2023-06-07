@@ -8,9 +8,17 @@ import { faCloudArrowUp } from '@fortawesome/free-solid-svg-icons'
 // object
 const ActionPageComponent = () => {
 	// Image from context, after it is munchified
-	const capturedImage = useContext(CapturedImageContext);
+	var image = useContext(CapturedImageContext);
+	let base64String = "data:image/png;base64,";
+	let base64Data = base64String.split(",")[1];
+	
 
 	const handleClick = async () => {
+		// Get the image from the context
+		
+
+		// Send data to the backend via fetch
+		
 		
 		fetch("http://localhost:3001/MunchifiedPicture", {
 			method: "POST",
@@ -18,7 +26,7 @@ const ActionPageComponent = () => {
 				"Content-Type": "application/json",
 			},
 			body: JSON.stringify({
-				"picture": capturedImage?.capturedImage,
+				"picture": base64Data,
 			}),
 		})
 		.then((response) => response.json())
@@ -48,17 +56,17 @@ const ActionPageComponent = () => {
     return (
         // Grid layout for the page
 		<div>
-			<div className="container mt-5">
+			<div className="container">
 				<div className="row">
 					<div className="col-sm-2">
 					</div>
-					<div className="col-sm-8 mt-5 text-center">
+					<div className="col-sm-8 text-center">
 						
 						<h1>NAME YOUR ART</h1>
 						<div className="form-group">
 							<input type="text" id="artNameText"/>
-							{capturedImage?.capturedImage && (
-								<img src={capturedImage.capturedImage} alt="Munchified Image" />
+							{image?.capturedImage && (
+								<img src={image.capturedImage} alt="Munchified Image" />
 							)}
 						</div>
 						<img id="upload-art-image" src={require(`../assets/images/placeholder.jpg`)} alt="Placeholder image"/>
@@ -82,7 +90,7 @@ const ActionPageComponent = () => {
 			</div>
 
 			{/* Divs for the munch pictures */}
-			<div className="container mt-5">
+			<div className="container">
             <div className="row">
                 <div className="col-sm-1 text-center">
 					{/* Remember to animate to hidden/visible in css. */}
