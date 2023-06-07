@@ -90,13 +90,13 @@ const ActionPageComponent = () => {
             <div className="row">
                 <div className="col-sm">
 					{/* Remember to animate to hidden/visible in css. */}
-                    <img src={require(`../assets/images/skriket.jpg`)} alt="Skrik by Edvard Munch" />
+                    <img src={require(`../assets/images/skriket.jpg`)} alt="Skrik by Edvard Munch" style={{ width: '100%', height: 'auto' }} />
                 </div>
                 <div className="col-sm">
-					<img src={require(`../assets/images/vampyren.jpg`)} alt="Vampyr av Edvard Munch"/>
+					<img src={require(`../assets/images/vampyren.jpg`)} alt="Vampyr av Edvard Munch" style={{ width: '100%', height: 'auto' }}/>
                 </div>
                 <div className="col-sm">
-					<img src={require(`../assets/images/museet.jpg`)} alt="Munchmuseet"/>
+					<img src={require(`../assets/images/museet.jpg`)} alt="Munchmuseet" style={{ width: '100%', height: 'auto' }}/>
 
                 </div>
             </div>
