@@ -9,21 +9,21 @@ import ConfirmIcon from "./Buttons/ConfirmIcon";
 
 // Fetches the image in the useState and displays it in a canvasRef.
 const ImageChoiceComponent: React.FC = () => {
-  const capturedImageContext = useContext(CapturedImageContext);
-  const canvasRef = useRef<HTMLCanvasElement>(null);
+    const capturedImageContext = useContext(CapturedImageContext);
+    const canvasRef = useRef<HTMLCanvasElement>(null);
 
   // Html elements with img output and Link(button) to the previous page
   return (
     <div>
-      {capturedImageContext?.capturedImage && (
-        <img className="img-canvas" src={capturedImageContext.capturedImage} alt="Captured" />
-      )}
-      <canvas ref={canvasRef} style={{ display: "none" }} />  
-      <div>
-        <Link to="/picturePage">
-          <FontAwesomeIcon className={"retake-btn"} icon={faDeleteLeft} />
-        </Link>
-      </div>
+        {capturedImageContext?.capturedImage && (
+            <img className="img-canvas" src={capturedImageContext.capturedImage} alt="Captured" />
+        )}
+        <canvas ref={canvasRef} style={{ display: "none" }} />  
+        <div>
+            <Link to="/picturePage">
+            <FontAwesomeIcon className={"retake-btn"} icon={faDeleteLeft} />
+            </Link>
+        </div>
     </div>
   );
 };

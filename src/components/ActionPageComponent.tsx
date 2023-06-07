@@ -11,31 +11,45 @@ import { CapturedImageContext } from "../contexts/CapturedImageContext";
 const ActionPageComponent = () => {
 	// Image from context, after it is munchified
 	const capturedImage = useContext(CapturedImageContext);
+	
 
 	const handleClick = async () => {
 		
 
-    fetch("http://localhost:3002/MunchifiedPicture", {
-	method: "GET",
-	headers: {
-        "Content-Type": "application/json",
-	},
-	
-    })
-	.then((response) => response.json())
-	.then((data) => {
-        console.log(data);
-	})
-	.catch((error) => {
-        console.error(error);
-    });
-
-
-
-
+		
+		fetch("http://localhost:3001/MunchifiedPicture", {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify({
+				"picture": capturedImage?.capturedImage,
+			}),
+		})
+		.then((response) => response.json())
+		.then((data) => {
+			console.log(data);
+		})
+		.catch((error) => {
+			console.error(error);
+		});
 		// Send data to the backend via fetch
 		
 	};
+	/*fetch("http://localhost:3001/MunchifiedPicture", {
+
+	headers: {
+		"Content-Type": "application/json",
+		
+	},
+	})
+	.then((response) => response.json())
+	.then((data) => {
+		console.log(data);
+	})
+	.catch((error) => {
+		console.error(error);
+	});*/
     return (
         // Grid layout for the page
 		<div>
@@ -76,13 +90,13 @@ const ActionPageComponent = () => {
             <div className="row">
                 <div className="col-sm">
 					{/* Remember to animate to hidden/visible in css. */}
-                    <img src={require(`../assets/images/skriket.jpg`)} alt="Skrik by Edvard Munch" />
+                    <img src={require(`../assets/images/skriket.jpg`)} alt="Skrik by Edvard Munch" style={{ width: '100%', height: 'auto' }} />
                 </div>
                 <div className="col-sm">
-					<img src={require(`../assets/images/vampyren.jpg`)} alt="Vampyr av Edvard Munch"/>
+					<img src={require(`../assets/images/vampyren.jpg`)} alt="Vampyr av Edvard Munch" style={{ width: '100%', height: 'auto' }}/>
                 </div>
                 <div className="col-sm">
-					<img src={require(`../assets/images/museet.jpg`)} alt="Munchmuseet"/>
+					<img src={require(`../assets/images/museet.jpg`)} alt="Munchmuseet" style={{ width: '100%', height: 'auto' }}/>
 
                 </div>
             </div>
