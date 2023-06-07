@@ -13,7 +13,6 @@ const CameraComponent: React.FC = () => {
   const capturedImageContext = useContext(CapturedImageContext);
   const [countdown, setCountdown] = useState(5);
   const [isCounting, setIsCounting] = useState(false);
-  const [isBlinking, setIsBlinking] = useState(false);
   const navigate = useNavigate();
 
   // Starts a timer that counts down from 5 to 0.
@@ -34,7 +33,7 @@ const CameraComponent: React.FC = () => {
     if (countdown === 0 && isCounting) {
       takePicture();
       setTimeout(() => {
-        navigate("/choicePage");
+        navigate("/munchifyPage");
       }, 5);
     }
   }, [countdown, isCounting, capturedImageContext]);
@@ -46,32 +45,19 @@ const CameraComponent: React.FC = () => {
     setIsCounting(true);
   };
 
-  const isMac = () => {
-    return navigator.platform.toUpperCase().indexOf("MAC") >= 0;
-  };
-
   // Function that runs in the background on startup. Finds the selected external device on the computer.
-  useEffect(() => {    
+  useEffect(() => {
     const findCamera = async (): Promise<MediaDeviceInfo | null> => {
       try {
         const devices = await navigator.mediaDevices.enumerateDevices();
         let camera: MediaDeviceInfo | null = null;
-    
-        // Platform-specific checks for macOS and Windows
-        if (navigator.platform.includes("Mac")) {
-          // macOS-specific logic
-          camera = devices.find(
-            (device) =>
-              device.kind === "videoinput" && device.label.includes("C920")
-          ) || null;
-        } else if (navigator.platform.includes("Win")) {
-          // Windows-specific logic
-          camera = devices.find(
-            (device) =>
-              device.kind === "videoinput" && device.label.includes("C920")
-          ) || null;
-        }
-    
+
+        // Find the webcam based on label
+        camera = devices.find(
+          (device) =>
+            device.kind === "videoinput" && device.label.includes("C920")
+        ) || null;
+
         return camera;
       } catch (error) {
         console.error("Error enumerating devices:", error);
@@ -79,7 +65,7 @@ const CameraComponent: React.FC = () => {
       }
     };
 
-    // If the camera is found the current media device will stream the video input onto the website.
+    // If the camera is found, the current media device will stream the video input onto the website.
     const startCamera = async (): Promise<void> => {
       const camera = await findCamera();
       if (camera) {
