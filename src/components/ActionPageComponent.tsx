@@ -56,11 +56,11 @@ const ActionPageComponent = () => {
     return (
         // Grid layout for the page
 		<div>
-			<div className="container mt-5">
+			<div className="container">
 				<div className="row">
 					<div className="col-sm-2">
 					</div>
-					<div className="col-sm-8 mt-5 text-center">
+					<div className="col-sm-8 text-center">
 						
 						<h1>NAME YOUR ART</h1>
 						<div className="form-group">
@@ -70,7 +70,7 @@ const ActionPageComponent = () => {
 							)}
 						</div>
 						<img id="upload-art-image" src={require(`../assets/images/placeholder.jpg`)} alt="Placeholder image"/>
-						<h1 onClick={handleClick}>UPLOAD YOUR ART<FontAwesomeIcon icon={faCloudArrowUp}/></h1>
+						<h1 id="upload-btn" onClick={handleClick}>UPLOAD YOUR ART<FontAwesomeIcon icon={faCloudArrowUp}/></h1>
 						{/* // POST to sql database goes here? */}
 						
 						{/* <button onClick={handleClick} style={{
@@ -90,7 +90,7 @@ const ActionPageComponent = () => {
 			</div>
 
 			{/* Divs for the munch pictures */}
-			<div className="container mt-5">
+			<div className="container">
             <div className="row">
                 <div className="col-sm-1 text-center">
 					{/* Remember to animate to hidden/visible in css. */}

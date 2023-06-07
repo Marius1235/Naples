@@ -33,3 +33,15 @@
     animation-delay: 4s;
     animation-duration: 5s;
 }
+
+#upload-btn {
+  cursor: pointer;
+  color: #ffffff;  
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+#upload-btn.hovered,
+#upload-btn:hover {
+  color: rgb(235, 163, 152);
+  transform: scale(1.05);
+}
