@@ -16,8 +16,6 @@ const ActionPageComponent = () => {
 
 	const handleClick = async () => {
 		
-
-		
 		fetch("http://localhost:3001/MunchifiedPicture", {
 			method: "POST",
 			headers: {

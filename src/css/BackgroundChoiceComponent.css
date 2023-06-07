@@ -28,13 +28,16 @@ element::-webkit-scrollbar {
     display: none; /* for Chrome, Safari, and Opera */
 }
 
+
 .selected-background {
+    width: 80% important!;
     border-radius: 10px;
     border: 2px solid #ffffff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .selected-image {
+    width: 38%;
     position: absolute;
     top: 0;
     left: 0;
