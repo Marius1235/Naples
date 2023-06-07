@@ -12,7 +12,6 @@ import ConfirmIcon from './Buttons/ConfirmIcon';
 const ActionPageComponent = () => {
 	// Image from context, after it is munchified
 	const capturedImage = useContext(CapturedImageContext);
-	const testImage = require("../assets/images/josef.png");
 
 	const handleClick = async () => {
 		
