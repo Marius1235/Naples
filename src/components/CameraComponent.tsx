@@ -8,13 +8,13 @@ import "../../src/css/TakePicturePage.css";
 
 // Camera component for video streaming, picture taking and countdown.
 const CameraComponent: React.FC = () => {
-    const videoRef = useRef<HTMLVideoElement>(null); // useRef can be used to store a mutable value that does not cause a re-render when updated.
-    const canvasRef = useRef<HTMLCanvasElement>(null);
-    const capturedImageContext = useContext(CapturedImageContext);
-    const [countdown, setCountdown] = useState(5);
-    const [isCounting, setIsCounting] = useState(false);
-    const [isBlinking, setIsBlinking] = useState(false);
-    const navigate = useNavigate();
+  const videoRef = useRef<HTMLVideoElement>(null); // useRef can be used to store a mutable value that does not cause a re-render when updated.
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const capturedImageContext = useContext(CapturedImageContext);
+  const [countdown, setCountdown] = useState(5);
+  const [isCounting, setIsCounting] = useState(false);
+  const [isBlinking, setIsBlinking] = useState(false);
+  const navigate = useNavigate();
 
   // Starts a timer that counts down from 5 to 0.
     useEffect(() => {
@@ -30,14 +30,14 @@ const CameraComponent: React.FC = () => {
     }, [isCounting]);
 
   // When the countdown reaches 0, the takePicture function is called and the image is stored in a useState.
-    useEffect(() => {
-        if (countdown === 0 && isCounting) {
-        takePicture();
-        setTimeout(() => {
-            navigate("/choicePage");
-        }, 50);
-        }
-    }, [countdown, isCounting, capturedImageContext]);
+  useEffect(() => {
+    if (countdown === 0 && isCounting) {
+      takePicture();
+      setTimeout(() => {
+        navigate("/choicePage");
+      }, 5);
+    }
+  }, [countdown, isCounting, capturedImageContext]);
 
   // Runs when the button is clicked. Starts the timer which then initilizes the takePhoto function.
   // After the takePhoto function is called, you then get redirected to the next page.
@@ -46,64 +46,55 @@ const CameraComponent: React.FC = () => {
         setIsCounting(true);
     };
 
-    const isMac = () => {
-        return navigator.platform.toUpperCase().indexOf("MAC") >= 0;
-    };
+  const isMac = () => {
+    return navigator.platform.toUpperCase().indexOf("MAC") >= 0;
+  };
 
   // Function that runs in the background on startup. Finds the selected external device on the computer.
-    useEffect(() =>{    
-        const findCamera = async (): Promise<MediaDeviceInfo | null> => {
-        try {
-            const devices = await navigator.mediaDevices.enumerateDevices();
-            let camera: MediaDeviceInfo | null = null;
-        
-            // Platform-specific checks for macOS and Windows
-            if (navigator.platform.includes("Mac")) {
-            // macOS-specific logic
-            camera = devices.find(
-                (device) =>
-                device.kind === "videoinput" && device.label.includes("C920")
-            ) || null;
-            } else if (navigator.platform.includes("Win")) {
-            // Windows-specific logic
-            camera = devices.find(
-                (device) =>
-                device.kind === "videoinput" && device.label.includes("C920")
-            ) || null;
+  useEffect(() => {
+    const findCamera = async (): Promise<MediaDeviceInfo | null> => {
+      try {
+        const devices = await navigator.mediaDevices.enumerateDevices();
+        let camera: MediaDeviceInfo | null = null;
+
+        // Find the webcam based on label
+        camera = devices.find(
+          (device) =>
+            device.kind === "videoinput" && device.label.includes("C920")
+        ) || null;
+
+        return camera;
+      } catch (error) {
+        console.error("Error enumerating devices:", error);
+        return null;
+      }
+    };
+
+    // If the camera is found, the current media device will stream the video input onto the website.
+    const startCamera = async (): Promise<void> => {
+      const camera = await findCamera();
+      if (camera) {
+        const constraints: MediaStreamConstraints = {
+          video: { deviceId: camera.deviceId },
+        };
+
+        navigator.mediaDevices
+          .getUserMedia(constraints)
+          .then((stream) => {
+            if (videoRef.current) {
+              videoRef.current.srcObject = stream;
             }
-        
-            return camera;
-        } catch (error) {
-            console.error("Error enumerating devices:", error);
-            return null;
-        }
-        };
+          })
+          .catch((error) => {
+            console.error("Error accessing camera:", error);
+          });
+      } else {
+        console.error("Camera not found.");
+      }
+    };
 
-    // If the camera is found the current media device will stream the video input onto the website.
-        const startCamera = async (): Promise<void> => {
-        const camera = await findCamera();
-        if (camera) {
-            const constraints: MediaStreamConstraints = {
-            video: { deviceId: camera.deviceId },
-            };
-
-            navigator.mediaDevices
-            .getUserMedia(constraints)
-            .then((stream) => {
-                if (videoRef.current) {
-                videoRef.current.srcObject = stream;
-                }
-            })
-            .catch((error) => {
-                console.error("Error accessing camera:", error);
-            });
-        } else {
-            console.error("Camera not found.");
-        }
-        };
-
-        startCamera();
-    }, []);
+    startCamera();
+  }, []);
 
   // Takes a picture of the input and stores the image in a background running useState.
     const takePicture = () => {
