@@ -2,6 +2,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useContext } from "react";
 import { CapturedImageContext } from "../contexts/CapturedImageContext";
+import ConfirmIcon from './Buttons/ConfirmIcon';
 
 
 
@@ -90,13 +91,13 @@ const ActionPageComponent = () => {
             <div className="row">
                 <div className="col-sm">
 					{/* Remember to animate to hidden/visible in css. */}
-                    <img src={require(`../assets/images/skriket.jpg`)} alt="Skrik by Edvard Munch" style={{ width: '100%', height: 'auto' }} />
+                    <img id="painting-1" className="munch-paintings" src={require(`../assets/images/skriket.jpg`)} alt="Skrik by Edvard Munch"  />
                 </div>
                 <div className="col-sm">
-					<img src={require(`../assets/images/vampyren.jpg`)} alt="Vampyr av Edvard Munch" style={{ width: '100%', height: 'auto' }}/>
+					<img id="painting-2" className="munch-paintings" src={require(`../assets/images/vampyren.jpg`)} alt="Vampyr av Edvard Munch" />
                 </div>
                 <div className="col-sm">
-					<img src={require(`../assets/images/museet.jpg`)} alt="Munchmuseet" style={{ width: '100%', height: 'auto' }}/>
+					<img id="painting-3" className="munch-paintings" src={require(`../assets/images/museet.jpg`)} alt="Munchmuseet" />
 
                 </div>
             </div>

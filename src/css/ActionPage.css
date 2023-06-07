@@ -1,0 +1,30 @@
+.munch-paintings{
+    width: 100%;
+    height: auto;
+    opacity: 0;
+    animation: fadeIn forwards;
+}
+
+@keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  #painting-1 {
+    animation-delay: 0s;
+    animation-duration: 5s;
+  }
+  
+  #painting-2 {
+    animation-delay: 2s;
+    animation-duration: 5s;
+  }
+  
+  #painting-3 {
+    animation-delay: 4s;
+    animation-duration: 5s;
+}

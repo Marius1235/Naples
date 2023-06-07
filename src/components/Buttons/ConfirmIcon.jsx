@@ -3,7 +3,8 @@ const ConfirmIcon = (props) => {
         <svg className = "icon-confirm"
             width={96}
             height={96}
-            fill="none"
+            fill="currentColor"
+            
             xmlns="http://www.w3.org/2000/svg"
             xmlnsXlink="http://www.w3.org/1999/xlink"
             {...props}
