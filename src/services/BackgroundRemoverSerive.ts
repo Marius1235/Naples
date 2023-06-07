@@ -1,7 +1,3 @@
-import React, { useContext, useEffect } from 'react';
-import { ResponseType } from 'axios';
-import { CapturedImageContext } from '../contexts/CapturedImageContext';
-
 const BackgroundRemoverService = (
     () => {
       const removeBackground = async (image: string): Promise<string> => {

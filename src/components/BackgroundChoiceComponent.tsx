@@ -3,6 +3,8 @@ import IImage from "../interfaces/IImages";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../css/BackgroundChoiceComponent.css'
 import { CapturedImageContext } from "../contexts/CapturedImageContext";
+import { faArrowAltCircleDown, faArrowAltCircleLeft, faArrowAltCircleRight, faArrowAltCircleUp, faCamera, faDeleteLeft, faLongArrowAltDown, faLongArrowAltUp, faSquareCheck, faTriangleCircleSquare, fas } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 
 const BackgroundChoiceComponent: React.FC = () => {
@@ -37,7 +39,7 @@ const BackgroundChoiceComponent: React.FC = () => {
 	];
 
 	const createCombinedImage = () => {
-		if (canvasRef.current && capturedImageContext?.capturedImage) {
+		if (canvasRef.current && testImage) {
 			const canvas = canvasRef.current;
 			const ctx = canvas.getContext("2d");
 
@@ -54,15 +56,15 @@ const BackgroundChoiceComponent: React.FC = () => {
 
 			// Load the selected image
 			const image = new Image();
-				image.src = capturedImageContext?.capturedImage!
+				image.src = testImage
 			//image.src = capturedImageContext?.capturedImage!;
 			image.onload = () => {
 				// Calculate the position to center the selected image on the canvas
-				const x = (canvas.width - image.width) / 2;
-				const y = (canvas.height - image.height) / 2;
+				const x = (canvas.width - image.width);
+				const y = (canvas.height - image.height);
 
 				// Draw the selected image onto the canvas
-				ctx?.drawImage(image, x + position.x, y + position.y);
+				ctx?.drawImage(image, position.x, position.y);
 
 				// Create a new image with the combined images
 				const combinedImageData = canvas.toDataURL("image/png");
@@ -81,7 +83,7 @@ const BackgroundChoiceComponent: React.FC = () => {
 			<img className="selected-background" src={selectedBackground} alt="Selected Background" />
 			
 			{/* Use of inline styling, maybe change? */}
-			<img className="selected-image" src={capturedImageContext?.capturedImage!} alt="Captured" style={{
+			<img className="selected-image" src={testImage} alt="Captured" style={{
 			position: "absolute",
 			left: `${position.x}px`,
 			top: `${position.y}px`,
@@ -89,11 +91,11 @@ const BackgroundChoiceComponent: React.FC = () => {
 			
 		</div>
 
-		<div>
-			<button onClick={() => moveImage(10, 0)}>Move Right</button>
-			<button onClick={() => moveImage(-10, 0)}>Move Left</button>
-			<button onClick={() => moveImage(0, 10)}>Move Down</button>
-			<button onClick={() => moveImage(0, -10)}>Move Up</button>
+		<div id="icon-mover" className="container">
+			<FontAwesomeIcon id="arrow-left" onClick={() => moveImage(-10, 0)} icon={faArrowAltCircleLeft}/>
+			<FontAwesomeIcon id="arrow-right" onClick={() => moveImage(10, 0)} icon={faArrowAltCircleRight}/>
+			<FontAwesomeIcon id="arrow-down" onClick={() => moveImage(0, 10)} icon={faArrowAltCircleUp} rotation={180}/>
+			<FontAwesomeIcon id="arrow-up" onClick={() => moveImage(0, -10)} icon={faArrowAltCircleUp}/>
 		</div>
 
 		<div className="combine-btn" onClick={createCombinedImage}>Combine Images</div>

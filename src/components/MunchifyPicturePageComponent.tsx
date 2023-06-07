@@ -33,3 +33,4 @@ const MunchifyPicturePageComponent: React.FC = () => {
   };
   
   export default MunchifyPicturePageComponent;
+  
