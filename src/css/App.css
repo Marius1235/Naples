@@ -16,6 +16,16 @@ a {
     transform: scale(1.05);
   }
 
+#customized-container {
+    max-width: 80%;
+    margin: 0 auto;
+    margin-top: 0.5vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 @font-face {
     font-family: "aktiv-grotesk";
     src: url("../assets/fonts/AktivGrotesk-Bold.woff") format("woff")

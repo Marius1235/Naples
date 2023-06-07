@@ -75,7 +75,7 @@ const BackgroundChoiceComponent: React.FC = () => {
 	};
 
 	return (
-	<div className="container">
+	<div className="container" id="customized-container">
 		<div className="selected-image-container">
 		<div className="image-wrapper">
 			<img className="selected-background" src={selectedBackground} alt="Selected Background" />
