@@ -60,7 +60,7 @@ const CameraComponent: React.FC = () => {
         // Find the webcam based on label
         camera = devices.find(
           (device) =>
-            device.kind === "videoinput" && device.label.includes("C920")
+            device.kind === "videoinput" && device.label.includes('1')
         ) || null;
 
         return camera;

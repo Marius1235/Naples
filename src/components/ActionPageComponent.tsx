@@ -11,7 +11,7 @@ import { CapturedImageContext } from "../contexts/CapturedImageContext";
 const ActionPageComponent = () => {
 	// Image from context, after it is munchified
 	const capturedImage = useContext(CapturedImageContext);
-	
+	const testImage = require("../assets/images/josef.png");
 
 	const handleClick = async () => {
 		
