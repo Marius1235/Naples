@@ -54,7 +54,7 @@ const BackgroundChoiceComponent: React.FC = () => {
 
 			// Load the selected image
 			const image = new Image();
-				image.src = testImage;
+				image.src = capturedImageContext?.capturedImage!
 			//image.src = capturedImageContext?.capturedImage!;
 			image.onload = () => {
 				// Calculate the position to center the selected image on the canvas
@@ -81,7 +81,7 @@ const BackgroundChoiceComponent: React.FC = () => {
 			<img className="selected-background" src={selectedBackground} alt="Selected Background" />
 			
 			{/* Use of inline styling, maybe change? */}
-			<img className="selected-image" src={testImage} alt="Captured" style={{
+			<img className="selected-image" src={capturedImageContext?.capturedImage!} alt="Captured" style={{
 			position: "absolute",
 			left: `${position.x}px`,
 			top: `${position.y}px`,
