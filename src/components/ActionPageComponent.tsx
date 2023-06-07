@@ -9,11 +9,8 @@ import { faCloudArrowUp } from '@fortawesome/free-solid-svg-icons'
 const ActionPageComponent = () => {
 	// Image from context, after it is munchified
 	const capturedImage = useContext(CapturedImageContext);
-	const testImage = require("../assets/images/josef.png");
 
 	const handleClick = async () => {
-		
-
 		
 		fetch("http://localhost:3001/MunchifiedPicture", {
 			method: "POST",
