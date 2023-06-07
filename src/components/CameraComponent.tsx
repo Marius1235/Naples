@@ -118,7 +118,7 @@ const CameraComponent: React.FC = () => {
 
   // Returns the video input from the camera and a button that starts a countdown for the picture to be taken.
   return (
-    <div className="container">
+    <div className="container" id="customized-container">
       <video className={`video-ref ${isCounting ? "blinking" : ""}`} ref={videoRef} autoPlay muted />
       <canvas className={`canvas-ref ${isCounting ? 'hidden' : ''}`} ref={canvasRef} style={{ display: "none" }} />
       {isCounting ? (
