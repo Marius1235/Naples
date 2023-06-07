@@ -19,8 +19,6 @@ const BackgroundChoiceComponent: React.FC = () => {
   // Move image function
 	const moveImage = (xOffset: number, yOffset: number) => {
 		setPosition({
-			
-		
 			x: position.x + xOffset,
 			y: position.y + yOffset,
 		});
