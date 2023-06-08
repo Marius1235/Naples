@@ -39,20 +39,7 @@ const ActionPageComponent = () => {
 		// Send data to the backend via fetch
 		
 	};
-	/*fetch("http://localhost:3001/MunchifiedPicture", {
-
-	headers: {
-		"Content-Type": "application/json",
-		
-	},
-	})
-	.then((response) => response.json())
-	.then((data) => {
-		console.log(data);
-	})
-	.catch((error) => {
-		console.error(error);
-	});*/
+	
     return (
         // Grid layout for the page
 		<div>
@@ -72,16 +59,6 @@ const ActionPageComponent = () => {
 						<img id="upload-art-image" src={require(`../assets/images/placeholder.jpg`)} alt="Placeholder image"/>
 						<h1 id="upload-btn" onClick={handleClick}>UPLOAD YOUR ART<FontAwesomeIcon icon={faCloudArrowUp}/></h1>
 						{/* // POST to sql database goes here? */}
-						
-						{/* <button onClick={handleClick} style={{
-
-							textAlign: 'center',
-							width: '100px',
-							border: '1px solid gray', 
-							borderRadius: '5px' 
-							}}>
-							{ "Send data to backend"}
-						</button> */}
 						<h5>And upload your masterpiece to the virutal Munch art gallery</h5>
 					</div>
 					<div className="col-sm-2">
