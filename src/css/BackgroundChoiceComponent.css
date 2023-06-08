@@ -21,7 +21,8 @@
     position: relative;
     width: 800px;
     overflow: hidden;
-
+    margin-left: 20px;
+        
 }
 
 .background-option.selected {
