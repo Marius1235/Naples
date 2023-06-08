@@ -70,7 +70,7 @@ const BackgroundChoiceComponent: React.FC = () => {
 				ctx?.drawImage(image, position.x, position.y);
 
 				// Create a new image with the combined images
-				const combinedImageData = canvas.toDataURL("image/png");
+				const combinedImageData = canvas.toDataURL("image/JPEG");
 				capturedImageContext?.setCapturedImage(combinedImageData);
 			};
 			};
