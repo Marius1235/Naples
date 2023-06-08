@@ -1,8 +1,5 @@
 .background-bar {
-    display: flex;
-    flex-direction: column;
     justify-content: center;
-    margin-top: 20px;
     margin-right: 5vw;
     max-height: 800px;
     min-width: 10vw;
@@ -22,18 +19,13 @@
 
 .image-wrapper {
     position: relative;
-    min-width: 800px;
+    width: 800px;
     overflow: hidden;
 
 }
 
 .background-option.selected {
     opacity: 1;
-}
-
-#bg-selector {
-    margin-right: 5vw;
-
 }
 
 .selected-image-container {
@@ -51,6 +43,7 @@ element::-webkit-scrollbar {
     width: 800px;
     height: 800px;
     border-radius: 10px;
+    object-fit: contain;
     border: 2px solid #ffffff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
@@ -60,57 +53,89 @@ element::-webkit-scrollbar {
     left: 0;
     object-fit: contain;
     z-index: 1;
-}
-
-.combine-btn {
+	user-select: none;
+  }
+  
+  .combine-btn {
     font-family: girott, sans-serif;
     font-size: 24px;
-    position: absolute;
-    bottom: -5px;
-    right: -250px;
-    margin-right: 10px;
+    position: relative;    
     user-select: none;
     color: white;
     cursor: pointer;
-    transition: color 0.3s ease;
-}
-
-.combine-btn.hovered {
+    transition: color 0.3s ease;    
+  }
+  
+  .combine-btn.hovered {
     color: rgb(235, 163, 152);
-}
-
-.combine-btn:hover {
+  }
+  
+  .combine-btn:hover {
     color: rgb(235, 163, 152);
 }
 
 #icon-mover {
-    position: absolute;
-    height: 100%;
-    top: 89%;
-    left: 92.5%
+    position: relative;
+    height: 250px;
+    width: 250px;     
+	margin-top: 40vh; 
+}
+
+.arrows{
+    cursor: pointer;
+    float: right;
+    color: #ffffff;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.arrows:hover{
+    color: rgb(235, 163, 152);
+    transform: scale(1.05);
 }
 
 #arrow-left {
     position: absolute;
-    height: 5%;
-    left: -1.5%;
+    height: 20%;
+    left: 10%;
+    top:20%;    
 }
 
 #arrow-right {
     position: absolute;
-    height: 5%;
-    left: 3.5%;
+    height: 20%;
+    left: 40%;
+    top:20%;
 }
 
 #arrow-up {
-    position: absolute;
-    color: white;
-    top: -4%;
-    height: 5%;
+    position: absolute;    
+    top: 5%;
+    height: 20%;
+    left: 25%;
 }
 
 #arrow-down {
     position: absolute;
-    top: 4%;
-    height: 5%;
+    top: 35%;
+    height: 20%;
+    left: 25%;    
+}
+
+.background-bar::-webkit-scrollbar {
+	width: 20px;
+}
+
+.background-bar::-webkit-scrollbar-track {
+	background-color: transparent;
+}
+
+.background-bar::-webkit-scrollbar-thumb {
+	background-color: #d6dee1;
+	border-radius: 20px;
+	border: 6px solid transparent;
+	background-clip: content-box;
+}
+
+.background-bar::-webkit-scrollbar-corner {
+	background-color: transparent;
 }
