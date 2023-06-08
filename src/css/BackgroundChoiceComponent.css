@@ -55,6 +55,7 @@ element::-webkit-scrollbar {
     left: 0;
     object-fit: contain;
     z-index: 1;
+	user-select: none;
   }
   
   .combine-btn {
