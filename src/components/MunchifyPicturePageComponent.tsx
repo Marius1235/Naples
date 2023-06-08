@@ -1,36 +1,52 @@
 // Imports:
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { useContext } from "react";
+import { ChangeEvent, useContext } from "react";
 import { CapturedImageContext } from "../contexts/CapturedImageContext";
 import * as tf from '@tensorflow/tfjs';
 import React, { useEffect, useState } from 'react';
 import { loadGraphModel } from '@tensorflow/tfjs-converter';
 
+const MunchifyPicturePageComponent = () => {
+  const [selectedFile, setSelectedFile] = useState<File | null>(null);
 
-
-const MunchifyPicturePageComponent: React.FC = () => {
-    const [generatedImage, setGeneratedImage] = useState<string | null>(null);
-  
-    useEffect(() => {
-        const loadModel = async () => {
-            try {
-              const model = await tf.loadGraphModel('/models/model.json');
-            } catch (error) {
-              console.error(error);
-            }
-          };
-  
-      loadModel();
-    }, []);
-  
-    
-  
-    return (
-      <div>
-        {/* {generatedImage && <img src={generatedImage} alt="Generated Image" />} */}
-      </div>
-    );
+  const onFileChange = (event: ChangeEvent<HTMLInputElement>) => {
+      if(event.target.files && event.target.files[0]) {
+          setSelectedFile(event.target.files[0]);
+      }
   };
+
+  const onFileUpload = async () => {
+      if(selectedFile) {
+          const formData = new FormData();
+          formData.append(
+              'file',
+              selectedFile,
+              selectedFile.name
+          );
+        
+          const response = await fetch('http://localhost:5000/predict', {
+              method: 'POST',
+              body: formData
+          });
+          
+          if(response.ok) {
+              const result = await response.json();
+              console.log(result);
+          } else {
+              console.log('An error occurred');
+          }
+      }
+  };
+
+  return (
+      <div>
+          <input type="file" onChange={onFileChange} />
+          <button onClick={onFileUpload}>
+              Upload!
+          </button>
+      </div>
+  );
+};
   
   export default MunchifyPicturePageComponent;
   

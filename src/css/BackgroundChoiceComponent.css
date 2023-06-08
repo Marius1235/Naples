@@ -45,6 +45,7 @@ element::-webkit-scrollbar {
     width: 800px;
     height: 800px;
     border-radius: 10px;
+    object-fit: contain;
     border: 2px solid #ffffff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
@@ -54,9 +55,9 @@ element::-webkit-scrollbar {
     left: 0;
     object-fit: contain;
     z-index: 1;
-}
-
-.combine-btn {
+  }
+  
+  .combine-btn {
     font-family: girott, sans-serif;
     font-size: 24px;
     position: relative;
@@ -67,13 +68,13 @@ element::-webkit-scrollbar {
     color: white;
     cursor: pointer;
     transition: color 0.3s ease;    
-}
-
-.combine-btn.hovered {
+  }
+  
+  .combine-btn.hovered {
     color: rgb(235, 163, 152);
-}
-
-.combine-btn:hover {
+  }
+  
+  .combine-btn:hover {
     color: rgb(235, 163, 152);
 }
 

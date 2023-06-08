@@ -130,7 +130,10 @@ const BackgroundChoiceComponent: React.FC = () => {
 		</div>
 		<canvas ref={canvasRef} style={{ display: "none" }} />
 	</div>
+
+	
 	);
 };
 
 export default BackgroundChoiceComponent;
+
