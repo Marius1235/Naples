@@ -123,14 +123,14 @@ const BackgroundChoiceComponent: React.FC = () => {
 			<div className="col-sm-2">
 
 				<div id="icon-mover" className="container">
-					<FontAwesomeIcon id="arrow-left" onClick={() => moveImage(-10, 0)} icon={faArrowAltCircleLeft}/>
-					<FontAwesomeIcon id="arrow-right" onClick={() => moveImage(10, 0)} icon={faArrowAltCircleRight}/>
-					<FontAwesomeIcon id="arrow-down" onClick={() => moveImage(0, 10)} icon={faArrowAltCircleUp} rotation={180}/>
-					<FontAwesomeIcon id="arrow-up" onClick={() => moveImage(0, -10)} icon={faArrowAltCircleUp}/>
+					<FontAwesomeIcon className="arrows" id="arrow-left" onClick={() => moveImage(-10, 0)} icon={faArrowAltCircleLeft}/>
+					<FontAwesomeIcon className="arrows" id="arrow-right" onClick={() => moveImage(10, 0)} icon={faArrowAltCircleRight}/>
+					<FontAwesomeIcon className="arrows" id="arrow-down" onClick={() => moveImage(0, 10)} icon={faArrowAltCircleDown}/>
+					<FontAwesomeIcon className="arrows" id="arrow-up" onClick={() => moveImage(0, -10)} icon={faArrowAltCircleUp}/>
 				</div>
 
 				<div className="combine-btn" onClick={createCombinedImage}>Combine Images</div>
-
+						
 
 			</div>
 
