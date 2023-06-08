@@ -1,5 +1,5 @@
 // Imports:
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { CapturedImageContext } from "../contexts/CapturedImageContext";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCloudArrowUp } from '@fortawesome/free-solid-svg-icons'
@@ -8,8 +8,11 @@ import { faCloudArrowUp } from '@fortawesome/free-solid-svg-icons'
 // object
 const ActionPageComponent = () => {
 	// Image from context, after it is munchified
-	var image = useContext(CapturedImageContext);
+	const image = useContext(CapturedImageContext);
+	
+	console.log(image);
 	var base64String = image?.capturedImage;
+
 	base64String = base64String?.replace("data:image/png;base64,", "");
 	
 
@@ -73,6 +76,7 @@ const ActionPageComponent = () => {
 					{/* Remember to animate to hidden/visible in css. */}
                     
                 </div>
+				
                 <div className="col-sm-10 text-center">
 					<img id="painting-1" className="munch-paintings" src={require(`../assets/images/skriket.jpg`)} alt="Skrik by Edvard Munch"  />
 					<img id="painting-2" className="munch-paintings" src={require(`../assets/images/vampyren.jpg`)} alt="Vampyr av Edvard Munch" />
