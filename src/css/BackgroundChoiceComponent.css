@@ -1,38 +1,62 @@
 .background-bar {
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    margin-top: 55px;
-  }
-  
-  .background-option {
+    margin-top: 20px;
+    margin-right: 5vw;
+    max-height: 800px;
+    min-width: 10vw;
+    overflow: scroll;
+}
+
+.background-option {
     width: 150px;
     height: 100px;
-    margin: 0 10px;
+    margin-top: 10px;
     cursor: pointer;
     border-radius: 10px;
     opacity: 0.5;
     transition: opacity 0.3s ease;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  .background-option.selected {
+}
+
+.image-wrapper {
+    position: relative;
+    min-width: 800px;
+    overflow: hidden;
+
+}
+
+.background-option.selected {
     opacity: 1;
-  }
-  
-  .selected-image-container {
+}
+
+#bg-selector {
+    margin-right: 5vw;
+
+}
+
+.selected-image-container {
     position: relative;
     margin-top: 20px;
-  }
-  
-  .selected-background {
+}
+
+element::-webkit-scrollbar {
+    display: none; /* for Chrome, Safari, and Opera */
+}
+
+
+.selected-background {
+    position: relative;
+    width: 800px;
+    height: 800px;
     border-radius: 10px;
     object-fit: contain;
     border: 2px solid #ffffff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  .selected-image {
-    position: absolute;
+}
+
+.selected-image {
     top: 0;
     left: 0;
     object-fit: contain;

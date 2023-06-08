@@ -8,7 +8,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 
 const BackgroundChoiceComponent: React.FC = () => {
-	const [selectedBackground, setSelectedBackground] = useState<string>(require("../assets/images/Background4.png"));
+	const [selectedBackground, setSelectedBackground] = useState<string>(require("../assets/images/Background4.jpg"));
 	const canvasRef = useRef<HTMLCanvasElement | null>(null);
 	const capturedImageContext = useContext(CapturedImageContext);
 	const testImage = require("../assets/images/josef.png")
@@ -28,8 +28,11 @@ const BackgroundChoiceComponent: React.FC = () => {
 
 
 	const backgroundOptions: IImage[] = [
-		{ imageUrl: require("../assets/images/Background4.png"), alt: "Background 1" },
-		{ imageUrl: require("../assets/images/Background5.png"), alt: "Background 2" },
+		{ imageUrl: require("../assets/images/Background1.jpg"), alt: "Background 1" },
+		{ imageUrl: require("../assets/images/Background2.jpg"), alt: "Background 2" },
+		{ imageUrl: require("../assets/images/Background3.jpg"), alt: "Background 3" },
+		{ imageUrl: require("../assets/images/Background4.jpg"), alt: "Background 1" },
+		{ imageUrl: require("../assets/images/Background5.jpg"), alt: "Background 2" },
 		{ imageUrl: require("../assets/images/Background6.jpg"), alt: "Background 3" },
 		{ imageUrl: require("../assets/images/Background7.jpg"), alt: "Background 4" },
 		{ imageUrl: require("../assets/images/Background8.jpg"), alt: "Background 5" },
@@ -57,7 +60,7 @@ const BackgroundChoiceComponent: React.FC = () => {
 			// Load the selected image
 			const image = new Image();
 				image.src = testImage
-			//image.src = capturedImageContext?.capturedImage!;
+			// image.src = capturedImageContext?.capturedImage!;
 			image.onload = () => {
 				// Calculate the position to center the selected image on the canvas
 				const x = (canvas.width - image.width);
@@ -78,41 +81,53 @@ const BackgroundChoiceComponent: React.FC = () => {
 
 	return (
 	<div className="container" id="customized-container">
-		<div className="selected-image-container">
-		<div className="img-fluid">
-			<img className="selected-background" src={selectedBackground} alt="Selected Background" />
-			
-			{/* Use of inline styling, maybe change? */}
-			<img className="selected-image" src={testImage} alt="Captured" style={{
-			left: `${position.x}px`,
-			top: `${position.y}px`,
-		}} />
-			
-		</div>
 
-		<div id="icon-mover" className="container">
-			<FontAwesomeIcon id="arrow-left" onClick={() => moveImage(-10, 0)} icon={faArrowAltCircleLeft}/>
-			<FontAwesomeIcon id="arrow-right" onClick={() => moveImage(10, 0)} icon={faArrowAltCircleRight}/>
-			<FontAwesomeIcon id="arrow-down" onClick={() => moveImage(0, 10)} icon={faArrowAltCircleUp} rotation={180}/>
-			<FontAwesomeIcon id="arrow-up" onClick={() => moveImage(0, -10)} icon={faArrowAltCircleUp}/>
-		</div>
+		<div className="row">
 
-		<div className="combine-btn" onClick={createCombinedImage}>Combine Images</div>
+			<div className="col-sm-2" id="bg-selector">
+				<div className="background-bar">
+					{backgroundOptions.map((option: IImage) => (
+						<img key={option.imageUrl}
+						className={`background-option ${option.imageUrl === selectedBackground ? "selected" : ""}`}
+						src={option.imageUrl} alt={option.alt} onClick={() => changeBackground(option.imageUrl)}
+						/>
+					))}
+				</div>
+			</div>
+
+			<div className="col-sm-8">
+				<div className="image-wrapper">
+					<img className="selected-background" src={selectedBackground} alt="Selected Background" />
+					
+					{/* Use of inline styling, maybe change? */}
+					<img className="selected-image" src={testImage} alt="Captured" style={{
+					position: "absolute",
+					left: `${position.x}px`,
+					top: `${position.y}px`,
+					}} />
+
+					{capturedImageContext?.capturedImage && (
+						<img src={capturedImageContext.capturedImage} alt="Captured" />
+					)}
+				</div>
+
+			</div>
+
+			<div className="col-sm-2">
+
+				<div id="icon-mover" className="container">
+					<FontAwesomeIcon id="arrow-left" onClick={() => moveImage(-10, 0)} icon={faArrowAltCircleLeft}/>
+					<FontAwesomeIcon id="arrow-right" onClick={() => moveImage(10, 0)} icon={faArrowAltCircleRight}/>
+					<FontAwesomeIcon id="arrow-down" onClick={() => moveImage(0, 10)} icon={faArrowAltCircleUp} rotation={180}/>
+					<FontAwesomeIcon id="arrow-up" onClick={() => moveImage(0, -10)} icon={faArrowAltCircleUp}/>
+				</div>
+
+				<div className="combine-btn" onClick={createCombinedImage}>Combine Images</div>
+
+
+			</div>
+
 		</div>
-		<div className="background-bar">
-		{backgroundOptions.map((option: IImage) => (
-			<img
-			key={option.imageUrl}
-			className={`background-option ${option.imageUrl === selectedBackground ? "selected" : ""}`}
-			src={option.imageUrl}
-			alt={option.alt}
-			onClick={() => changeBackground(option.imageUrl)}
-			/>
-		))}
-		</div>
-		{capturedImageContext?.capturedImage && (
-		<img src={capturedImageContext.capturedImage} alt="Captured" />
-		)}
 		<canvas ref={canvasRef} style={{ display: "none" }} />
 	</div>
 
