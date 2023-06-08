@@ -80,7 +80,7 @@ const BackgroundChoiceComponent: React.FC = () => {
 	};
 
 	return (
-	<div className="container" id="customized-container">
+	<div className="container">
 
 		<div className="row">
 

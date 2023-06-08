@@ -2,7 +2,6 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-top: 20px;
     margin-right: 5vw;
     max-height: 800px;
     min-width: 10vw;
@@ -29,11 +28,6 @@
 
 .background-option.selected {
     opacity: 1;
-}
-
-#bg-selector {
-    margin-right: 5vw;
-
 }
 
 .selected-image-container {
@@ -66,14 +60,14 @@ element::-webkit-scrollbar {
   .combine-btn {
     font-family: girott, sans-serif;
     font-size: 24px;
-    position: absolute;
-    bottom: -5px;
+    position: relative;
+    /* bottom: -5px;
     right: -250px;
-    margin-right: 10px;
+    margin-right: 10px; */
     user-select: none;
     color: white;
     cursor: pointer;
-    transition: color 0.3s ease;
+    transition: color 0.3s ease;    
   }
   
   .combine-btn.hovered {
@@ -82,36 +76,39 @@ element::-webkit-scrollbar {
   
   .combine-btn:hover {
     color: rgb(235, 163, 152);
-  }
-  
-  #icon-mover {
+}
+
+#icon-mover {
+    position: relative;
+    height: 250px;
+    width: 250px;      
+}
+
+#arrow-left {
     position: absolute;
-    height: 100%;
-    top: 89%;
-    left: 92.5%;
-  }
-  
-  #arrow-left {
+    height: 20%;
+    left: 10%;
+    top:20%;
+}
+
+#arrow-right {
     position: absolute;
-    height: 5%;
-    left: -1.5%;
-  }
-  
-  #arrow-right {
-    position: absolute;
-    height: 5%;
-    left: 3.5%;
-  }
-  
-  #arrow-up {
+    height: 20%;
+    left: 40%;
+    top:20%;
+}
+
+#arrow-up {
     position: absolute;
     color: white;
-    top: -4%;
-    height: 5%;
-  }
-  
-  #arrow-down {
+    top: 5%;
+    height: 20%;
+    left: 25%;
+}
+
+#arrow-down {
     position: absolute;
-    top: 4%;
-    height: 5%;
-  }
+    top: 35%;
+    height: 20%;
+    left: 25%;
+}
