@@ -13,7 +13,6 @@ const CameraComponent: React.FC = () => {
   const capturedImageContext = useContext(CapturedImageContext);
   const [countdown, setCountdown] = useState(5);
   const [isCounting, setIsCounting] = useState(false);
-  const [isBlinking, setIsBlinking] = useState(false);
   const navigate = useNavigate();
 
   // Starts a timer that counts down from 5 to 0.
@@ -45,10 +44,6 @@ const CameraComponent: React.FC = () => {
         setCountdown(5);
         setIsCounting(true);
     };
-
-  const isMac = () => {
-    return navigator.platform.toUpperCase().indexOf("MAC") >= 0;
-  };
 
   // Function that runs in the background on startup. Finds the selected external device on the computer.
   useEffect(() => {
@@ -108,7 +103,7 @@ const CameraComponent: React.FC = () => {
         const context = canvas.getContext("2d");
         context?.drawImage(video, 0, 0, canvas.width, canvas.height);
 
-        const dataUrl = canvas.toDataURL("image/png");
+        const dataUrl = canvas.toDataURL("image/JPEG");
 
         if (capturedImageContext) {
             capturedImageContext.setCapturedImage(dataUrl);

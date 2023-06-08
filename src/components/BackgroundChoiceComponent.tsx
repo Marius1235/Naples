@@ -5,6 +5,7 @@ import '../css/BackgroundChoiceComponent.css'
 import { CapturedImageContext } from "../contexts/CapturedImageContext";
 import { faArrowAltCircleDown, faArrowAltCircleLeft, faArrowAltCircleRight, faArrowAltCircleUp, faCamera, faDeleteLeft, faLongArrowAltDown, faLongArrowAltUp, faSquareCheck, faTriangleCircleSquare, fas } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useNavigate } from "react-router-dom";
 
 
 const BackgroundChoiceComponent: React.FC = () => {
@@ -13,6 +14,7 @@ const BackgroundChoiceComponent: React.FC = () => {
 	const capturedImageContext = useContext(CapturedImageContext);
 	const testImage = require("../assets/images/josef.png")
 	const [position, setPosition] = useState({ x: 0, y: 0 });
+	const navigate = useNavigate();
 
 	const changeBackground = (imageUrl: string) => {
 		setSelectedBackground(imageUrl);
@@ -42,7 +44,7 @@ const BackgroundChoiceComponent: React.FC = () => {
 	];
 
 	const createCombinedImage = () => {
-		if (canvasRef.current && testImage) {
+		if (canvasRef.current && capturedImageContext?.capturedImage) {
 			const canvas = canvasRef.current;
 			const ctx = canvas.getContext("2d");
 
@@ -59,7 +61,7 @@ const BackgroundChoiceComponent: React.FC = () => {
 
 			// Load the selected image
 			const image = new Image();
-				image.src = testImage
+				image.src = capturedImageContext.capturedImage!
 			// image.src = capturedImageContext?.capturedImage!;
 			image.onload = () => {
 				// Calculate the position to center the selected image on the canvas
@@ -72,6 +74,11 @@ const BackgroundChoiceComponent: React.FC = () => {
 				// Create a new image with the combined images
 				const combinedImageData = canvas.toDataURL("image/JPEG");
 				capturedImageContext?.setCapturedImage(combinedImageData);
+
+				setTimeout(() => {
+					navigate("/munchifiedPage");
+				  }, 5);
+				
 			};
 			};
 		}else{
@@ -100,7 +107,7 @@ const BackgroundChoiceComponent: React.FC = () => {
 					<img className="selected-background" src={selectedBackground} alt="Selected Background" />
 					
 					{/* Use of inline styling, maybe change? */}
-					<img className="selected-image" src={testImage} alt="Captured" style={{
+					<img className="selected-image" src={capturedImageContext?.capturedImage!} alt="Captured" style={{
 					position: "absolute",
 					left: `${position.x}px`,
 					top: `${position.y}px`,
