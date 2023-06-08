@@ -4,6 +4,7 @@ import { CapturedImageContext } from "../contexts/CapturedImageContext";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCloudArrowUp } from '@fortawesome/free-solid-svg-icons'
 
+
 // Component for ActionPage with the name of the art and the image 
 // object
 const ActionPageComponent = () => {
@@ -76,7 +77,7 @@ const ActionPageComponent = () => {
 					{/* Remember to animate to hidden/visible in css. */}
                     
                 </div>
-				
+
                 <div className="col-sm-10 text-center">
 					<img id="painting-1" className="munch-paintings" src={require(`../assets/images/skriket.jpg`)} alt="Skrik by Edvard Munch"  />
 					<img id="painting-2" className="munch-paintings" src={require(`../assets/images/vampyren.jpg`)} alt="Vampyr av Edvard Munch" />
