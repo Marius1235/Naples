@@ -79,12 +79,11 @@ const BackgroundChoiceComponent: React.FC = () => {
 	return (
 	<div className="container" id="customized-container">
 		<div className="selected-image-container">
-		<div className="image-wrapper">
+		<div className="img-fluid">
 			<img className="selected-background" src={selectedBackground} alt="Selected Background" />
 			
 			{/* Use of inline styling, maybe change? */}
 			<img className="selected-image" src={testImage} alt="Captured" style={{
-			position: "absolute",
 			left: `${position.x}px`,
 			top: `${position.y}px`,
 		}} />
@@ -116,7 +115,10 @@ const BackgroundChoiceComponent: React.FC = () => {
 		)}
 		<canvas ref={canvasRef} style={{ display: "none" }} />
 	</div>
+
+	
 	);
 };
 
 export default BackgroundChoiceComponent;
+
