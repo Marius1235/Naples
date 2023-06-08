@@ -27,6 +27,9 @@ a:hover {
     justify-content: center;
 }
 
+.Logo{
+    margin-left: 2%;
+}
 
 @font-face {
     font-family: "aktiv-grotesk";
