@@ -1,15 +1,18 @@
 .background-bar {
     display: flex;
-
-    max-width: 80vw;
+    flex-direction: column;
     justify-content: center;
-    margin-top: 55px;
+    margin-top: 20px;
+    margin-right: 5vw;
+    max-height: 800px;
+    min-width: 10vw;
+    overflow: scroll;
 }
 
 .background-option {
     width: 150px;
     height: 100px;
-    margin: 0 10px;
+    margin-top: 10px;
     cursor: pointer;
     border-radius: 10px;
     opacity: 0.5;
@@ -17,8 +20,20 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+.image-wrapper {
+    position: relative;
+    min-width: 800px;
+    overflow: hidden;
+
+}
+
 .background-option.selected {
     opacity: 1;
+}
+
+#bg-selector {
+    margin-right: 5vw;
+
 }
 
 .selected-image-container {
@@ -32,6 +47,7 @@ element::-webkit-scrollbar {
 
 
 .selected-background {
+    position: relative;
     width: 800px;
     height: 800px;
     border-radius: 10px;
@@ -40,8 +56,6 @@ element::-webkit-scrollbar {
 }
 
 .selected-image {
-
-    position: absolute;
     top: 0;
     left: 0;
     object-fit: contain;
