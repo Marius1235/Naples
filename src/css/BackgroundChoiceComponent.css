@@ -19,7 +19,7 @@
 
 .image-wrapper {
     position: relative;
-    min-width: 800px;
+    width: 800px;
     overflow: hidden;
 
 }
