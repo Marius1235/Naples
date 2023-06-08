@@ -1,5 +1,7 @@
 .background-bar {
     display: flex;
+
+    max-width: 80vw;
     justify-content: center;
     margin-top: 55px;
 }
@@ -30,6 +32,8 @@ element::-webkit-scrollbar {
 
 
 .selected-background {
+    width: 800px;
+    height: 800px;
     border-radius: 10px;
     border: 2px solid #ffffff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);

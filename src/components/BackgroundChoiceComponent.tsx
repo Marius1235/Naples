@@ -8,7 +8,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 
 const BackgroundChoiceComponent: React.FC = () => {
-	const [selectedBackground, setSelectedBackground] = useState<string>(require("../assets/images/Background4.png"));
+	const [selectedBackground, setSelectedBackground] = useState<string>(require("../assets/images/Background4.jpg"));
 	const canvasRef = useRef<HTMLCanvasElement | null>(null);
 	const capturedImageContext = useContext(CapturedImageContext);
 	const testImage = require("../assets/images/josef.png")
@@ -28,8 +28,11 @@ const BackgroundChoiceComponent: React.FC = () => {
 
 
 	const backgroundOptions: IImage[] = [
-		{ imageUrl: require("../assets/images/Background4.png"), alt: "Background 1" },
-		{ imageUrl: require("../assets/images/Background5.png"), alt: "Background 2" },
+		{ imageUrl: require("../assets/images/Background1.jpg"), alt: "Background 1" },
+		{ imageUrl: require("../assets/images/Background2.jpg"), alt: "Background 2" },
+		{ imageUrl: require("../assets/images/Background3.jpg"), alt: "Background 3" },
+		{ imageUrl: require("../assets/images/Background4.jpg"), alt: "Background 1" },
+		{ imageUrl: require("../assets/images/Background5.jpg"), alt: "Background 2" },
 		{ imageUrl: require("../assets/images/Background6.jpg"), alt: "Background 3" },
 		{ imageUrl: require("../assets/images/Background7.jpg"), alt: "Background 4" },
 		{ imageUrl: require("../assets/images/Background8.jpg"), alt: "Background 5" },
@@ -57,7 +60,7 @@ const BackgroundChoiceComponent: React.FC = () => {
 			// Load the selected image
 			const image = new Image();
 				image.src = testImage
-			//image.src = capturedImageContext?.capturedImage!;
+			// image.src = capturedImageContext?.capturedImage!;
 			image.onload = () => {
 				// Calculate the position to center the selected image on the canvas
 				const x = (canvas.width - image.width);
