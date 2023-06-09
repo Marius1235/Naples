@@ -56,7 +56,7 @@ const PreviewResultsPageComponent = () => {
 			img.style.transform = "translate(0%, 0%)";
 		}
 	};
-   
+
     return (
 		<div className="container">
 			<div className="row text-center">
@@ -92,18 +92,18 @@ const PreviewResultsPageComponent = () => {
 					)}
 					
 				
-					{/* Result 1 */}
+					{/* Result 2 */}
 					{capturedImage?.capturedImage && (
 						<img src={capturedImage.capturedImage} ref={imgRef} onClick={enlargePicture} alt="Munchified Image" />
 					)}
 				
-					{/* Result 1 */}
+					{/* Result 3 */}
 					{capturedImage?.capturedImage && (
 						<img src={capturedImage.capturedImage} ref={imgRef} onClick={enlargePicture} alt="Munchified Image" />
 					)}
 				
 				
-					{/* Result 1 */}
+					{/* Result 4 */}
 					{capturedImage?.capturedImage && (
 						<img src={capturedImage.capturedImage} ref={imgRef} onClick={enlargePicture} alt="Munchified Image" />
 					)}
