@@ -3,11 +3,12 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { useContext, useRef, useState } from "react";
 import { CapturedImageContext } from "../contexts/CapturedImageContext";
 import { Link } from "react-router-dom";
+import '../css/PreviewResultsPageComponent.css';
 
 // Component for ActionPage with the name of the art and the image 
 // object
 const PreviewResultsPageComponent = () => {
-    let testImage = require("../assets/images/josef.png");
+    let testImage = require("../assets/images/Background1.jpg");
 	let imgRef = useRef<HTMLImageElement>(null);
 	const [imgIsResized, setImgIsResized] = useState(false);
 	// Image from context, after it is munchified
@@ -32,24 +33,27 @@ const PreviewResultsPageComponent = () => {
 	};
    
     return (
-        <div>
-            <div className="container mt-5">
-                <div className="row">
-                    <div className="col-sm">
-                        {/* Result 1 */}
-                        {capturedImage?.capturedImage && (
-								<img src={capturedImage.capturedImage} ref={imgRef} onClick={enlargePicture} alt="Munchified Image" />
+		<div className="container">
+			<div className="row text-center">
+				<div className="col" id="image-wrapper-2">
+					{/* Result 1 */}
+					<div className="image-wrapper-2 mx-auto">
+						{capturedImage?.capturedImage && (
+							<img id="result-img-1" src={capturedImage.capturedImage} ref={imgRef} onClick={enlargePicture} alt="Munchified Image" />
 						)}
-						{/* Renders the button if the image has been */}
-                        {imgIsResized && (
+						{testImage && (
+							<img src={testImage} ref={imgRef} onClick={enlargePicture} alt="Munchified Image" />
+						)}
+					</div>
+					{/* Renders the button if the image has been */}
+					{imgIsResized && (
 						<Link to="/ActionPage">
-							<button>Go to ActionPage</button>
-						</Link>
-					)}
-                    </div>
-                </div>
-            </div>
-        </div>
+						<button>Go to ActionPage</button>
+					</Link>
+				)}
+				</div>
+			</div>
+		</div>
     );
 };
 

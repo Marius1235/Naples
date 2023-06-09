@@ -1,0 +1,16 @@
+.image-wrapper-2 {
+    position: relative;
+    width: 800px;
+    border-radius: 10px;
+    object-fit: contain;
+    border: 2px solid #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.image-wrapper-2 > img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: contain;
+    z-index: 1;
+    user-select: none;
+}
