@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCloudArrowUp } from '@fortawesome/free-solid-svg-icons'
 
 
+
 // Component for ActionPage with the name of the art and the image 
 // object
 const ActionPageComponent = () => {
@@ -22,24 +23,40 @@ const ActionPageComponent = () => {
 		
 
 		// Send data to the backend via fetch
-		
-		
-		fetch("http://localhost:3001/MunchifiedPicture", {
-			method: "POST",
-			headers: {
-				"Content-Type": "application/json",
-			},
-			body: JSON.stringify({
-				"picture": base64String,
-			}),
+
+		const formData = new FormData();
+		const imageBlob = await fetch(image?.capturedImage!).then(r => r.blob());
+		formData.append('picture', imageBlob);
+
+		fetch('http://localhost:3001/MunchifiedPicture', {
+			method: 'POST',
+			body: formData
 		})
-		.then((response) => response.json())
-		.then((data) => {
+		.then(response => response.json())
+		.then(data => {
 			console.log(data);
 		})
-		.catch((error) => {
+		.catch(error => {
 			console.error(error);
 		});
+		
+		
+		// fetch("http://localhost:3001/MunchifiedPicture", {
+		// 	method: "POST",
+		// 	headers: {
+		// 		"Content-Type": "application/json",
+		// 	},
+		// 	body: JSON.stringify({
+		// 		"picture": base64String,
+		// 	}),
+		// })
+		// .then((response) => response.json())
+		// .then((data) => {
+		// 	console.log(data);
+		// })
+		// .catch((error) => {
+		// 	console.error(error);
+		// });
 		// Send data to the backend via fetch
 		
 	};
