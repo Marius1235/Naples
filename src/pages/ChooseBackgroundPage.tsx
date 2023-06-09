@@ -4,7 +4,7 @@ const ChooseBackgroundPage = () => {
     return(
         <div className="container">
             <BackgroundChoiceComponent/>
-            <Link to="/actionPage">heihei</Link>
+            {/* <Link to="/actionPage">heihei</Link> */}
         </div>
     )
 }
