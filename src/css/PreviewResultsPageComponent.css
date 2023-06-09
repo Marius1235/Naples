@@ -8,10 +8,11 @@
     width: 80vw;
     height: 85vh;
 }
-#results-wrapper > img {
+#results-wrapper > * {
     margin: 1em 1em 0 0;
     user-select: none;
     height: 39vh;
+    width: 39vh;
 }
 
 #next-icon {
@@ -19,4 +20,11 @@
     height: 15vh;
     bottom: 5vh;
     right: 5vw;
+}
+
+#choose-your-masterpiece {
+    display: flex;
+    align-items: center;
+    background-color: #194842;
+    border-radius: 1em;
 }

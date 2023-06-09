@@ -21,18 +21,18 @@ const PreviewResultsPageComponent = () => {
 	const enlargePicture = () => {
 		let img = imgRef.current as HTMLImageElement;
 		if(!imgIsResized) { // If image is not enlarged already scale it up.
-			// Set image height 
-			img.style.height = "90%";
+			// scale image up
+			img.style.scale = "1.5";
 			// Animation effect
 			img.style.transition = "transform 0.25s ease";
-			// Set position absolulte
-			img.style.position = "absolute";
 			// Set z-index to 1
 			img.style.zIndex = "1";
-			// Set image to center of screen
-			img.style.left = "50%";
-			img.style.top = "50%";
+			// Center image
 			img.style.transform = "translate(-50%, -50%)";
+			img.style.position = "absolute";
+			img.style.top = "50%";
+			img.style.left = "50%";
+			
 			// set border to 5px and solid
 			img.style.border = "5px solid white";
 
@@ -45,9 +45,13 @@ const PreviewResultsPageComponent = () => {
 			// Reset position
 			img.style.position = "static";
 			// Reset size
-			img.style.height = "39vh";
+			img.style.scale = "1";
 			// Reset border
 			img.style.border = "none";
+			// Reset z-index
+			img.style.zIndex = "0";
+			// Reset transform translate
+			img.style.transform = "translate(0%, 0%)";
 		}
 	};
    
@@ -55,16 +59,36 @@ const PreviewResultsPageComponent = () => {
 		<div className="container">
 			<div className="row text-center">
 				<div className="col" id="results-wrapper">
-					{/* Result 1 */}
-					<div id='choose-your-masterpiece'>
-
-						
-					</div>
+		
+					<div id='choose-your-masterpiece' ><h1>CHOOSE YOUR MASTERPIECE</h1></div>
 			
 					{/* Result 1 */}
 					{capturedImage?.capturedImage && (
 						<img src={capturedImage.capturedImage} ref={imgRef} onClick={enlargePicture} alt="Munchified Image" />
 					)}
+
+					{/* Result 1 */}
+					{testImage && (
+						<img src={testImage} ref={imgRef} onClick={enlargePicture} alt="Munchified Image" />
+					)}
+
+						{/* Result 1 */}
+						{testImage && (
+						<img src={testImage} ref={imgRef} onClick={enlargePicture} alt="Munchified Image" />
+					)}
+						{/* Result 1 */}
+						{testImage && (
+						<img src={testImage} ref={imgRef} onClick={enlargePicture} alt="Munchified Image" />
+					)}
+						{/* Result 1 */}
+						{testImage && (
+						<img src={testImage} ref={imgRef} onClick={enlargePicture} alt="Munchified Image" />
+					)}
+						{/* Result 1 */}
+						{testImage && (
+						<img src={testImage} ref={imgRef} onClick={enlargePicture} alt="Munchified Image" />
+					)}
+					
 				
 					{/* Result 1 */}
 					{capturedImage?.capturedImage && (
