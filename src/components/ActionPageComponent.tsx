@@ -26,7 +26,9 @@ const ActionPageComponent = () => {
 
 		const formData = new FormData();
 		const imageBlob = await fetch(image?.capturedImage!).then(r => r.blob());
+		const pictureName = (document.querySelector('#artNameText') as HTMLInputElement).value;
 		formData.append('picture', imageBlob);
+		formData.append('pictureName',pictureName);
 
 		fetch('http://localhost:3001/MunchifiedPicture', {
 			method: 'POST',
