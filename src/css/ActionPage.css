@@ -21,7 +21,7 @@
 
 #qr-code-image {
     position: absolute;
-    right: 15vh;
+    right: 10vw;
     top: 10vh;
     width: 7%;
     height: auto;
@@ -29,7 +29,7 @@
 
 #qr-text {
   position: absolute;
-  right: 5vh;
+  right: 5vw;
   top: 25vh; 
 }
 
