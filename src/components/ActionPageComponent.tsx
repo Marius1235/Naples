@@ -84,7 +84,13 @@ const ActionPageComponent = () => {
 					<img id="painting-3" className="munch-paintings" src={require(`../assets/images/museet.jpg`)} alt="Munchmuseet" />
                 </div>
                 <div className="col-sm-1 text-center">
-					
+				<div>
+          			{image?.capturedImage && (
+            	<div>
+              		<img src={image?.capturedImage} alt="Processed" />
+            	</div>
+          		)}
+        </div>
 
                 </div>
             </div>

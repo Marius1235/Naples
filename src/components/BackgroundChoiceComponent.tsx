@@ -1,4 +1,4 @@
-import { useState, useRef, useContext } from "react";
+import { useState, useRef, useContext, useEffect } from "react";
 import IImage from "../interfaces/IImages";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../css/BackgroundChoiceComponent.css'
@@ -15,6 +15,7 @@ const BackgroundChoiceComponent: React.FC = () => {
 	const testImage = require("../assets/images/josef.png")
 	const [position, setPosition] = useState({ x: 0, y: 0 });
 	const navigate = useNavigate();
+	const previousCapturedImageRef = useRef(capturedImageContext?.capturedImage);
 
 	const changeBackground = (imageUrl: string) => {
 		setSelectedBackground(imageUrl);
@@ -27,7 +28,6 @@ const BackgroundChoiceComponent: React.FC = () => {
 			y: position.y + yOffset,
 		});
 	}
-
 
 	const backgroundOptions: IImage[] = [
 		{ imageUrl: require("../assets/images/Background1.jpg"), alt: "Background 1" },
@@ -73,18 +73,22 @@ const BackgroundChoiceComponent: React.FC = () => {
 
 				// Create a new image with the combined images
 				const combinedImageData = canvas.toDataURL("image/JPEG");
-				capturedImageContext?.setCapturedImage(combinedImageData);
-
-				setTimeout(() => {
-					navigate("/munchifiedPage");
-				  }, 5);
-				
-			};
-			};
+				capturedImageContext?.setCapturedImage(combinedImageData);				
+		};
+	};
 		}else{
 			console.log("There is no image to combine with");
-		}
+	}
+
 	};
+
+	useEffect(() => {
+		if (capturedImageContext?.capturedImage !== previousCapturedImageRef.current) {
+			navigate("/munchifiedPage")
+		}
+		// Update the previousCapturedImageRef with the current capturedImage state
+		previousCapturedImageRef.current = capturedImageContext?.capturedImage;
+	  }, [capturedImageContext?.capturedImage]);
 
 	return (
 	<div className="container">
@@ -113,9 +117,6 @@ const BackgroundChoiceComponent: React.FC = () => {
 					top: `${position.y}px`,
 					}} />
 
-					{capturedImageContext?.capturedImage && (
-						<img src={capturedImageContext.capturedImage} alt="Captured" />
-					)}
 				</div>
 
 			</div>

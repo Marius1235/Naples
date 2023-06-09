@@ -1,17 +1,17 @@
-// Imports:
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { ChangeEvent, useContext } from "react";
-import { CapturedImageContext } from "../contexts/CapturedImageContext";
-import * as tf from '@tensorflow/tfjs';
-import React, { useEffect, useState } from 'react';
-import { loadGraphModel } from '@tensorflow/tfjs-converter';
+import React, { useState, useEffect, useContext, useRef, useCallback } from 'react';
+import { Navigate, useNavigate } from 'react-router-dom';
+import { CapturedImageContext } from '../contexts/CapturedImageContext';
+import '../css/MunchifiedPage.css'
 
 const MunchifyPicturePageComponent = () => {
-  const [image, setImage] = useState<string | null>(null);
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
-  const capturedImage = useContext(CapturedImageContext)
+  const capturedImage = useContext(CapturedImageContext);
+  const [loading, setLoading] = useState(true);
+  const isConvertedRef = useRef(false);
+  const navigate = useNavigate();
+  const previousCapturedImageRef = useRef(capturedImage?.capturedImage);
 
-  const convertToImageFile = () => {
+  const convertToImageFile = useCallback(() => {
     fetch(capturedImage?.capturedImage!)
       .then((response) => response.blob())
       .then((blob) => {
@@ -21,45 +21,82 @@ const MunchifyPicturePageComponent = () => {
       .catch((error) => {
         console.log('An error occurred:', error);
       });
-  };
+    isConvertedRef.current = true;
+  }, [capturedImage]);
 
-  const onFileUpload = async () => {
+  const onFileUpload = useCallback(async () => {
     if (selectedFile) {
+      setLoading(true);
+
       const formData = new FormData();
       formData.append('file', selectedFile, selectedFile.name);
 
-      const response = await fetch('http://localhost:5000/predict', {
-        method: 'POST',
-        body: formData,
-      });
+      try {
+        const response = await fetch('http://localhost:5000/predict', {
+          method: 'POST',
+          body: formData,
+        });
 
-      if (response.ok) {
-        const result = await response.json();
-        console.log(result);
-        capturedImage?.setCapturedImage("data:image/png;base64," + result.result);
-      } else {
-        console.log('An error occurred');
+        if (response.ok) {
+          const result = await response.json();
+          console.log(result);
+          capturedImage?.setCapturedImage("data:image/png;base64," + result.result);
+          setLoading(false);
+          navigate('/new-page'); // Replace '/new-page' with your desired route
+        } else {
+          console.log('An error occurred');
+        }
+      } catch (error) {
+        console.error(error);
       }
     }
-  };
+  }, [capturedImage, selectedFile, navigate]);
 
   useEffect(() => {
-    convertToImageFile();
-    
-  }, []); // Run this effect only once, when the component mounts
+    if (!isConvertedRef.current) {
+      convertToImageFile();
+    }
+  }, [convertToImageFile]);
+
+  useEffect(() => {
+    if (selectedFile) {
+      onFileUpload();
+    }
+  }, [selectedFile, onFileUpload]);
+
+  useEffect(() => {
+    if (capturedImage?.capturedImage !== previousCapturedImageRef.current) {
+      navigate("/actionPage");
+    }
+
+    // Update the previousCapturedImageRef with the current capturedImage state
+    previousCapturedImageRef.current = capturedImage?.capturedImage;
+  }, [capturedImage?.capturedImage]);
 
   return (
-    <div>
-      <button onClick={onFileUpload}>the fuck????</button>
-      {capturedImage?.capturedImage && (
+    <div id="container">
+      {loading ? (
+        <div className="loading-spinner"></div>
+      ) : (
         <div>
-          <img src={capturedImage.capturedImage} alt="Processed" />
+          {capturedImage?.capturedImage && (
+            <div>
+              <img src={capturedImage.capturedImage} alt="Processed" />
+            </div>
+          )}
         </div>
       )}
     </div>
   );
-};
   
+};
+
 export default MunchifyPicturePageComponent;
+
+
+
+
+
+
 
 

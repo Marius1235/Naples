@@ -20,6 +20,8 @@
 .image-wrapper {
     position: relative;
     width: 800px;
+    display: flex;
+    justify-content: center;
     overflow: hidden;
     margin-left: 20px;
         
