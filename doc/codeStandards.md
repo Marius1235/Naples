@@ -1,7 +1,7 @@
 # Python Code Standard Sheet
 
 ## Naming Conventions
-- Use `camelCase` for variable and function names
+- Use `snake_case` for variable and function names
 - Use `PascalCase` for class names
 - Use `UPPERCASE` for constants
 
