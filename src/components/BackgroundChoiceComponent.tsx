@@ -12,7 +12,6 @@ const BackgroundChoiceComponent: React.FC = () => {
 	const [selectedBackground, setSelectedBackground] = useState<string>(require("../assets/images/Background4.jpg"));
 	const canvasRef = useRef<HTMLCanvasElement | null>(null);
 	const capturedImageContext = useContext(CapturedImageContext);
-	const testImage = require("../assets/images/josef.png")
 	const [position, setPosition] = useState({ x: 0, y: 0 });
 	const navigate = useNavigate();
 
@@ -62,9 +61,9 @@ const BackgroundChoiceComponent: React.FC = () => {
 			// Load the selected image
 			const image = new Image();
 				image.src = capturedImageContext.capturedImage!
-			// image.src = capturedImageContext?.capturedImage!;
 			image.onload = () => {
 				// Calculate the position to center the selected image on the canvas
+				//Const x and y are not used at the moment, but may be useful in the future
 				const x = (canvas.width - image.width);
 				const y = (canvas.height - image.height);
 
