@@ -57,12 +57,14 @@ router.post('/MunchifiedPicture', upload.single('picture'), async (req, res) => 
     try {
         await poolConnect;
         let picture = req.file.buffer;
+        let pictureName = req.body.name;
         let result = await pool
         .request()
         .input('picture', sql.VarBinary(MAX), picture)
+        .input('pictureName', sql.VarChar(50), pictureName)
         .query(`INSERT INTO MunchifiedPicture
         (PictureBlob, PictureName, DateTime, BoothId)
-        VALUES (@picture, 'testName', getdate(), 10);`);
+        VALUES (@picture, @pictureName, getdate(), 10);`);
         console.log("recieved data:", req.body);
         console.log("recieved file:", req.file);
         console.log("recieved file:", req.file.buffer);
