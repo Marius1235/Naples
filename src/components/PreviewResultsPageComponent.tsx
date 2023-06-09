@@ -40,7 +40,6 @@ const PreviewResultsPageComponent = () => {
 		}
 		else // Reset image size to original
 		{
-			img.style.transform = "scale(1)";
 			img.style.transition = "transform 0.25s ease";
 			setImgIsResized(false);
 			// Reset position
