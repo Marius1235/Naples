@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 // Component for ActionPage with the name of the art and the image 
 // object
 const PreviewResultsPageComponent = () => {
-    
+    let testImage = require("../assets/images/josef.png");
 	let imgRef = useRef<HTMLImageElement>(null);
 	const [imgIsResized, setImgIsResized] = useState(false);
 	// Image from context, after it is munchified
