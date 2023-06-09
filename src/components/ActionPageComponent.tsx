@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCloudArrowUp } from '@fortawesome/free-solid-svg-icons'
 
 
+
 // Component for ActionPage with the name of the art and the image 
 // object
 const ActionPageComponent = () => {
@@ -22,24 +23,42 @@ const ActionPageComponent = () => {
 		
 
 		// Send data to the backend via fetch
-		
-		
-		fetch("http://localhost:3001/MunchifiedPicture", {
-			method: "POST",
-			headers: {
-				"Content-Type": "application/json",
-			},
-			body: JSON.stringify({
-				"picture": base64String,
-			}),
+
+		const formData = new FormData();
+		const imageBlob = await fetch(image?.capturedImage!).then(r => r.blob());
+		const pictureName = (document.querySelector('#artNameText') as HTMLInputElement).value;
+		formData.append('picture', imageBlob);
+		formData.append('pictureName',pictureName);
+
+		fetch('http://localhost:3001/MunchifiedPicture', {
+			method: 'POST',
+			body: formData
 		})
-		.then((response) => response.json())
-		.then((data) => {
+		.then(response => response.json())
+		.then(data => {
 			console.log(data);
 		})
-		.catch((error) => {
+		.catch(error => {
 			console.error(error);
 		});
+		
+		
+		// fetch("http://localhost:3001/MunchifiedPicture", {
+		// 	method: "POST",
+		// 	headers: {
+		// 		"Content-Type": "application/json",
+		// 	},
+		// 	body: JSON.stringify({
+		// 		"picture": base64String,
+		// 	}),
+		// })
+		// .then((response) => response.json())
+		// .then((data) => {
+		// 	console.log(data);
+		// })
+		// .catch((error) => {
+		// 	console.error(error);
+		// });
 		// Send data to the backend via fetch
 		
 	};
@@ -57,10 +76,13 @@ const ActionPageComponent = () => {
 						<div className="form-group">
 							<input type="text" id="artNameText"/>
 							{image?.capturedImage && (
-								<img src={image.capturedImage} alt="Munchified Image" />
+								<img src={image.capturedImage} alt="Munchified Image" id="munchified-picture"/>
 							)}
 						</div>
-						<img id="upload-art-image" src={require(`../assets/images/placeholder.jpg`)} alt="Placeholder image"/>
+						{!image?.capturedImage && (
+							<img id="upload-art-image" src={require(`../assets/images/placeholder.jpg`)} alt="Placeholder image"/>
+						)}
+						
 						<h1 id="upload-btn" onClick={handleClick}>UPLOAD YOUR ART<FontAwesomeIcon icon={faCloudArrowUp}/></h1>
 						{/* // POST to sql database goes here? */}
 						<h5>And become a part of the virtual Munch art gallery</h5>

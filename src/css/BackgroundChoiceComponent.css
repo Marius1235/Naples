@@ -23,8 +23,7 @@
     display: flex;
     justify-content: center;
     overflow: hidden;
-    margin-left: 20px;
-        
+    margin-left: 20px;    
 }
 
 .background-option.selected {
@@ -122,23 +121,4 @@ element::-webkit-scrollbar {
     top: 35%;
     height: 20%;
     left: 25%;    
-}
-
-.background-bar::-webkit-scrollbar {
-	width: 20px;
-}
-
-.background-bar::-webkit-scrollbar-track {
-	background-color: transparent;
-}
-
-.background-bar::-webkit-scrollbar-thumb {
-	background-color: #d6dee1;
-	border-radius: 20px;
-	border: 6px solid transparent;
-	background-clip: content-box;
-}
-
-.background-bar::-webkit-scrollbar-corner {
-	background-color: transparent;
 }

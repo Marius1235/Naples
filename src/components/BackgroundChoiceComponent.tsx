@@ -7,12 +7,11 @@ import { faArrowAltCircleDown, faArrowAltCircleLeft, faArrowAltCircleRight, faAr
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useNavigate } from "react-router-dom";
 
-
+// Component for choosing background and merging it with the user image
 const BackgroundChoiceComponent: React.FC = () => {
 	const [selectedBackground, setSelectedBackground] = useState<string>(require("../assets/images/Background4.jpg"));
 	const canvasRef = useRef<HTMLCanvasElement | null>(null);
 	const capturedImageContext = useContext(CapturedImageContext);
-	const testImage = require("../assets/images/josef.png")
 	const [position, setPosition] = useState({ x: 0, y: 0 });
 	const navigate = useNavigate();
 	const previousCapturedImageRef = useRef(capturedImageContext?.capturedImage);
@@ -29,6 +28,7 @@ const BackgroundChoiceComponent: React.FC = () => {
 		});
 	}
 
+	// Array of background images
 	const backgroundOptions: IImage[] = [
 		{ imageUrl: require("../assets/images/Background1.jpg"), alt: "Background 1" },
 		{ imageUrl: require("../assets/images/Background2.jpg"), alt: "Background 2" },
@@ -43,6 +43,7 @@ const BackgroundChoiceComponent: React.FC = () => {
 		{ imageUrl: require("../assets/images/Background11.jpg"), alt: "Background 8" },
 	];
 
+	// Function for merging the background and the user image
 	const createCombinedImage = () => {
 		if (canvasRef.current && capturedImageContext?.capturedImage) {
 			const canvas = canvasRef.current;
@@ -62,9 +63,9 @@ const BackgroundChoiceComponent: React.FC = () => {
 			// Load the selected image
 			const image = new Image();
 				image.src = capturedImageContext.capturedImage!
-			// image.src = capturedImageContext?.capturedImage!;
 			image.onload = () => {
 				// Calculate the position to center the selected image on the canvas
+				//Const x and y are not used at the moment, but may be useful in the future
 				const x = (canvas.width - image.width);
 				const y = (canvas.height - image.height);
 
