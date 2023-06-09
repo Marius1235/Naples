@@ -76,10 +76,13 @@ const ActionPageComponent = () => {
 						<div className="form-group">
 							<input type="text" id="artNameText"/>
 							{image?.capturedImage && (
-								<img src={image.capturedImage} alt="Munchified Image" />
+								<img src={image.capturedImage} alt="Munchified Image" id="munchified-picture"/>
 							)}
 						</div>
-						<img id="upload-art-image" src={require(`../assets/images/placeholder.jpg`)} alt="Placeholder image"/>
+						{!image?.capturedImage && (
+							<img id="upload-art-image" src={require(`../assets/images/placeholder.jpg`)} alt="Placeholder image"/>
+						)}
+						
 						<h1 id="upload-btn" onClick={handleClick}>UPLOAD YOUR ART<FontAwesomeIcon icon={faCloudArrowUp}/></h1>
 						{/* // POST to sql database goes here? */}
 						<h5>And become a part of the virtual Munch art gallery</h5>

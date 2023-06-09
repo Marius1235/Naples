@@ -1,47 +1,52 @@
 .munch-paintings{
-    width: 25%;
-    margin: 2%;
-    height: auto;
-    opacity: 0;
-    animation: fadeIn forwards;
+		width: 25%;
+		margin: 2%;
+		height: auto;
+		opacity: 0;
+		animation: fadeIn forwards;
 }
 
 #upload-art-image{
-    margin: 1%;
+		margin: 1%;
 }
 
 @keyframes fadeIn {
-    0% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
+		0% {
+			opacity: 0;
+		}
+		100% {
+			opacity: 1;
+		}
 }
 
 #painting-1 {
-    animation-delay: 0s;
-    animation-duration: 5s;
-  }
-  
-  #painting-2 {
-    animation-delay: 2s;
-    animation-duration: 5s;
-  }
-  
-  #painting-3 {
-    animation-delay: 4s;
-    animation-duration: 5s;
+		animation-delay: 0s;
+		animation-duration: 5s;
+	}
+	
+	#painting-2 {
+		animation-delay: 2s;
+		animation-duration: 5s;
+	}
+	
+	#painting-3 {
+		animation-delay: 4s;
+		animation-duration: 5s;
 }
 
 #upload-btn {
-    cursor: pointer;
-    color: #ffffff;  
-    transition: color 0.3s ease, transform 0.3s ease;
+		cursor: pointer;
+		color: #ffffff;  
+		transition: color 0.3s ease, transform 0.3s ease;
 }
 
 #upload-btn.hovered,
 #upload-btn:hover {
-    color: rgb(235, 163, 152);
-    transform: scale(1.05);
+		color: rgb(235, 163, 152);
+		transform: scale(1.05);
+}
+
+#munchified-picture {
+	height: 45vh;
+	width: 45vh;
 }
