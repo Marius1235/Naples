@@ -84,6 +84,8 @@ const ActionPageComponent = () => {
 							<img id="upload-art-image" src={require(`../assets/images/placeholder.jpg`)} alt="Placeholder image"/>
 						)}
 						
+						<img id="qr-code-image" src={require('../assets/images/qrCode.png')} alt="User feedback qr code"></img>
+						<p id="qr-text">Scan the QR code to give feedback</p>
 						<h1 id="upload-btn" onClick={handleClick}>UPLOAD YOUR ART<FontAwesomeIcon icon={faCloudArrowUp}/></h1>
 						{/* // POST to sql database goes here? */}
 						<h5>And become a part of the virtual Munch art gallery</h5>

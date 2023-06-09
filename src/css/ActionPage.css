@@ -19,6 +19,21 @@
 		}
 }
 
+#qr-code-image {
+    position: absolute;
+    right: 15vh;
+    top: 10vh;
+    width: 7%;
+    height: auto;
+}
+
+#qr-text {
+  position: absolute;
+  right: 5vh;
+  top: 25vh; 
+
+}
+
 #painting-1 {
 		animation-delay: 0s;
 		animation-duration: 5s;
