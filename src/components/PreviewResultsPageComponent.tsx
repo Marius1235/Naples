@@ -22,14 +22,15 @@ const PreviewResultsPageComponent = () => {
 		let img = imgRef.current as HTMLImageElement;
 		if(!imgIsResized) { // If image is not enlarged already scale it up.
 			// scale image up
-			img.style.scale = "1.5";
+			img.style.height = "65vh";
+			img.style.width = "65vh";
 			// Animation effect
 			img.style.transition = "transform 0.25s ease";
 			// Set z-index to 1
 			img.style.zIndex = "1";
 			// Center image
-			img.style.transform = "translate(-50%, -50%)";
 			img.style.position = "absolute";
+			img.style.transform = "translate(-50%, -50%)";
 			img.style.top = "50%";
 			img.style.left = "50%";
 			
@@ -45,7 +46,8 @@ const PreviewResultsPageComponent = () => {
 			// Reset position
 			img.style.position = "static";
 			// Reset size
-			img.style.scale = "1";
+			img.style.height = "39vh";
+			img.style.width = "39vh";
 			// Reset border
 			img.style.border = "none";
 			// Reset z-index
