@@ -75,10 +75,11 @@ const ActionPageComponent = () => {
 						<h1>NAME YOUR ART</h1>
 						<div className="form-group">
 							<input type="text" id="artNameText"/>
-							{image?.capturedImage && (
+							
+						</div>
+						{image?.capturedImage && (
 								<img src={image.capturedImage} alt="Munchified Image" id="munchified-picture"/>
 							)}
-						</div>
 						{!image?.capturedImage && (
 							<img id="upload-art-image" src={require(`../assets/images/placeholder.jpg`)} alt="Placeholder image"/>
 						)}
@@ -107,11 +108,7 @@ const ActionPageComponent = () => {
                 </div>
                 <div className="col-sm-1 text-center">
 				<div>
-          			{image?.capturedImage && (
-            	<div>
-              		<img src={image?.capturedImage} alt="Processed" />
-            	</div>
-          		)}
+
         </div>
 
                 </div>

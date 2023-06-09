@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext, useRef, useCallback } from 'rea
 import { Navigate, useNavigate } from 'react-router-dom';
 import { CapturedImageContext } from '../contexts/CapturedImageContext';
 import '../css/MunchifiedPage.css'
+import { div } from '@tensorflow/tfjs';
 
 const MunchifyPicturePageComponent = () => {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
@@ -42,7 +43,7 @@ const MunchifyPicturePageComponent = () => {
           console.log(result);
           capturedImage?.setCapturedImage("data:image/png;base64," + result.result);
           setLoading(false);
-          navigate('/new-page'); // Replace '/new-page' with your desired route
+          navigate("/previewResultsPage")// Replace '/new-page' with your desired route
         } else {
           console.log('An error occurred');
         }
@@ -66,7 +67,7 @@ const MunchifyPicturePageComponent = () => {
 
   useEffect(() => {
     if (capturedImage?.capturedImage !== previousCapturedImageRef.current) {
-      navigate("/actionPage");
+      navigate("/previewResultsPage");
     }
 
     // Update the previousCapturedImageRef with the current capturedImage state
@@ -86,6 +87,7 @@ const MunchifyPicturePageComponent = () => {
           )}
         </div>
       )}
+
     </div>
   );
   
