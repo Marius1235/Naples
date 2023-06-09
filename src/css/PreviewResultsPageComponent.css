@@ -1,16 +1,22 @@
-.image-wrapper-2 {
+#results-wrapper {
     position: relative;
-    width: 800px;
-    border-radius: 10px;
-    object-fit: contain;
-    border: 2px solid #ffffff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    overflow: scroll;
+    justify-content: center;
+    width: 80vw;
+    height: 85vh;
 }
-.image-wrapper-2 > img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    object-fit: contain;
-    z-index: 1;
+#results-wrapper > img {
+    margin: 1em 1em 0 0;
     user-select: none;
+    height: 39vh;
+}
+
+#next-icon {
+    position: absolute;
+    height: 15vh;
+    bottom: 5vh;
+    right: 5vw;
 }

@@ -21,7 +21,7 @@ const ImageChoiceComponent: React.FC = () => {
         <canvas ref={canvasRef} style={{ display: "none" }} />  
         <div>
             <Link to="/picturePage">
-            <FontAwesomeIcon className={"retake-btn"} icon={faDeleteLeft} />
+              <FontAwesomeIcon className={"retake-btn"} icon={faDeleteLeft} />
             </Link>
         </div>
     </div>

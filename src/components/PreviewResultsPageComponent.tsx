@@ -4,6 +4,9 @@ import { useContext, useRef, useState } from "react";
 import { CapturedImageContext } from "../contexts/CapturedImageContext";
 import { Link } from "react-router-dom";
 import '../css/PreviewResultsPageComponent.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faDeleteLeft, faSquareCheck, fas } from '@fortawesome/free-solid-svg-icons';
+
 
 // Component for ActionPage with the name of the art and the image 
 // object
@@ -18,10 +21,21 @@ const PreviewResultsPageComponent = () => {
 	const enlargePicture = () => {
 		let img = imgRef.current as HTMLImageElement;
 		if(!imgIsResized) { // If image is not enlarged already scale it up.
-			// Set image size to 1.5 times original
-			img.style.transform = "scale(1.5)";
+			// Set image height 
+			img.style.height = "90%";
 			// Animation effect
 			img.style.transition = "transform 0.25s ease";
+			// Set position absolulte
+			img.style.position = "absolute";
+			// Set z-index to 1
+			img.style.zIndex = "1";
+			// Set image to center of screen
+			img.style.left = "50%";
+			img.style.top = "50%";
+			img.style.transform = "translate(-50%, -50%)";
+			// set border to 5px and solid
+			img.style.border = "5px solid white";
+
 			setImgIsResized(true);
 		}
 		else // Reset image size to original
@@ -29,30 +43,54 @@ const PreviewResultsPageComponent = () => {
 			img.style.transform = "scale(1)";
 			img.style.transition = "transform 0.25s ease";
 			setImgIsResized(false);
+			// Reset position
+			img.style.position = "static";
+			// Reset size
+			img.style.height = "39vh";
+			// Reset border
+			img.style.border = "none";
 		}
 	};
    
     return (
 		<div className="container">
 			<div className="row text-center">
-				<div className="col" id="image-wrapper-2">
+				<div className="col" id="results-wrapper">
 					{/* Result 1 */}
-					<div className="image-wrapper-2 mx-auto">
-						{capturedImage?.capturedImage && (
-							<img id="result-img-1" src={capturedImage.capturedImage} ref={imgRef} onClick={enlargePicture} alt="Munchified Image" />
-						)}
-						{testImage && (
-							<img src={testImage} ref={imgRef} onClick={enlargePicture} alt="Munchified Image" />
-						)}
+					<div id='choose-your-masterpiece'>
+
+						
 					</div>
+			
+					{/* Result 1 */}
+					{capturedImage?.capturedImage && (
+						<img src={capturedImage.capturedImage} ref={imgRef} onClick={enlargePicture} alt="Munchified Image" />
+					)}
+				
+					{/* Result 1 */}
+					{capturedImage?.capturedImage && (
+						<img src={capturedImage.capturedImage} ref={imgRef} onClick={enlargePicture} alt="Munchified Image" />
+					)}
+				
+					{/* Result 1 */}
+					{capturedImage?.capturedImage && (
+						<img src={capturedImage.capturedImage} ref={imgRef} onClick={enlargePicture} alt="Munchified Image" />
+					)}
+				
+				
+					{/* Result 1 */}
+					{capturedImage?.capturedImage && (
+						<img src={capturedImage.capturedImage} ref={imgRef} onClick={enlargePicture} alt="Munchified Image" />
+					)}
+				
 					{/* Renders the button if the image has been */}
-					{imgIsResized && (
-						<Link to="/ActionPage">
-						<button>Go to ActionPage</button>
-					</Link>
-				)}
 				</div>
 			</div>
+			{imgIsResized && (
+				<Link to="/actionPage">
+					<FontAwesomeIcon icon={faSquareCheck} id='next-icon'/>
+				</Link>
+			)}
 		</div>
     );
 };
