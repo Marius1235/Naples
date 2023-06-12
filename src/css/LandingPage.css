@@ -11,10 +11,35 @@
 
 #under-text {
     font-size: 30px;
+    position: absolute;
+    color:rgb(255, 255, 255);
+    z-index: 1;
+    top: 400px;
+    left: 20vw;
+    animation: test 2s ease;
+    justify-content: center;
+    text-align: center;
+    align-self: center;
+
+}
+
+@keyframes test {
+    from {
+        transform: scale(0.95);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
 }
 
 #text-wrapper:hover #over-text {
   transform: scale(1.05);
+}
+
+#text-wrapper:hover #under-text {
+  transition: color 0.3s ease, transform 0.3s ease
 }
 
 #animated-bg {
@@ -56,6 +81,7 @@
     position: relative;
     z-index: -3;
     justify-items: center;
+    /* border-radius: 10px; */
     align-items: center;
   }
   
@@ -66,6 +92,10 @@
     object-fit: cover;
     clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
     grid-column: span 2;
+    opacity: 0;
+    animation: opacity 3s ease;
+    animation-delay: 0s;
+    animation-fill-mode: forwards;
   }
 
   #tile-2 {
@@ -77,6 +107,10 @@
     object-fit: cover;
     clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
     grid-column: span 2;
+    opacity: 0;
+    animation: opacity 3s ease;
+    animation-delay: 1s;
+    animation-fill-mode: forwards;
   }
 
   #tile-3 {
@@ -88,6 +122,11 @@
     object-fit: cover;
     clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
     grid-column: span 2;
+    opacity: 0;
+    animation: opacity 3s ease;
+    animation-delay: 8s;
+    animation-fill-mode: forwards;
+
   }
 
   #tile-4 {
@@ -99,6 +138,10 @@
     object-fit: cover;
     clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
     grid-column: span 2;
+    opacity: 0;
+    animation: opacity 3s ease;
+    animation-delay: 2s;
+    animation-fill-mode: forwards;
   }
 
   #tile-5 {
@@ -110,6 +153,10 @@
     object-fit: cover;
     clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
     grid-column: span 2;
+    opacity: 0;
+    animation: opacity 3s ease;
+    animation-delay: 3s;
+    animation-fill-mode: forwards;
   }
 
   #tile-6 {
@@ -121,6 +168,11 @@
     object-fit: cover;
     clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
     grid-column: span 2;
+    opacity: 0;
+    animation-play-state: running;
+    animation: opacity 3s ease;
+    animation-delay: 7s;
+    animation-fill-mode: forwards;
   }
 
   #tile-7 {
@@ -132,6 +184,11 @@
     object-fit: cover;
     clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
     grid-column: span 2;
+    opacity: 0;
+    animation-play-state: running;
+    animation: opacity 3s ease;
+    animation-delay: 4s;
+    animation-fill-mode: forwards;
   }
 
   #tile-8 {
@@ -143,6 +200,12 @@
     object-fit: cover;
     clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
     grid-column: span 2;
+    opacity: 0;
+    animation-play-state: running;
+    animation: opacity 3s ease;
+    animation-delay: 5s;
+    animation-fill-mode: forwards;
+
   }
 
   #tile-9 {
@@ -154,4 +217,20 @@
     object-fit: cover;
     clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
     grid-column: span 2;
+    opacity: 0;
+    animation-play-state: running;
+    animation: opacity 3s ease;
+    animation-delay: 6s;
+    animation-fill-mode: forwards;
   }
+
+  @keyframes opacity {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+  
