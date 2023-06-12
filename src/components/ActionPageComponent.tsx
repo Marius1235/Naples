@@ -3,6 +3,7 @@ import { useContext, useState } from "react";
 import { CapturedImageContext } from "../contexts/CapturedImageContext";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCloudArrowUp } from '@fortawesome/free-solid-svg-icons'
+import { BlobServiceClient } from "@azure/storage-blob";
 
 
 
@@ -18,7 +19,7 @@ const ActionPageComponent = () => {
 	base64String = base64String?.replace("data:image/png;base64,", "");
 	
 
-	const handleClick = async () => {
+	/*const handleClick = async () => {
 		// Get the image from the context
 		
 
@@ -40,7 +41,7 @@ const ActionPageComponent = () => {
 		})
 		.catch(error => {
 			console.error(error);
-		});
+		});*/
 		
 		
 		// fetch("http://localhost:3001/MunchifiedPicture", {
@@ -61,7 +62,43 @@ const ActionPageComponent = () => {
 		// });
 		// Send data to the backend via fetch
 		
-	};
+		
+	const handleClick = async () => {
+		// Get the image from the context
+		const image = useContext(CapturedImageContext);
+		var base64String = image?.capturedImage;
+		base64String = base64String?.replace("data:image/png;base64,", "");
+		
+		// Convert base64 string to Uint8Array
+		let bytes;
+		if (base64String) {
+		bytes = new Uint8Array(
+			atob(base64String)
+			.split("")
+			.map((char) => char.charCodeAt(0))
+			);
+		// rest of your code
+		} else {
+		// handle the case where base64String is undefined
+		}
+			// Create a blob service client
+		const blobServiceClient = BlobServiceClient.fromConnectionString(
+			"BlobEndpoint=https://munchimagesblob.blob.core.windows.net/;QueueEndpoint=https://munchimagesblob.queue.core.windows.net/;FileEndpoint=https://munchimagesblob.file.core.windows.net/;TableEndpoint=https://munchimagesblob.table.core.windows.net/;SharedAccessSignature=sv=2022-11-02&ss=bf&srt=o&sp=wactfx&se=2023-07-31T17:21:53Z&st=2023-06-12T09:21:53Z&spr=https,http&sig=lhCxnGwk9ZQfM9WcAUrKoLPoxNoRPDyvPL0Vi%2BTBSq8%3D"
+			);
+			
+			// Get a reference to a container
+			const containerClient = blobServiceClient.getContainerClient("fileuploads");
+			
+			// Get a block blob client
+			const blockBlobClient = containerClient.getBlockBlobClient("munchifiedimagesblob");
+			
+			if (bytes) {
+				// Upload data to the blob
+				await blockBlobClient.uploadData(bytes);
+			} else {
+				// handle the case where bytes is undefined
+			}
+	};	
 	
     return (
         // Grid layout for the page
