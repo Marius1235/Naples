@@ -34,7 +34,68 @@ const LandingPage = () => {
           fill="#00635D"
           d="m-18.5,67.5c17.62-9.42,44.89-3.3,55,16,5.06,9.65,6.57,24.02-1,35-10.4,15.09-32.94,16.48-48,9-14.59-7.24-26.32-24.84-22-41,3.05-11.4,12.82-17.3,16-19Z"
         />
+        <path
+          className="in-bottom"
+          fill="#00635D"
+          d="m-18.5,67.5c17.62-9.42,44.89-3.3,55,16,5.06,9.65,6.57,24.02-1,35-10.4,15.09-32.94,16.48-48,9-14.59-7.24-26.32-24.84-22-41,3.05-11.4,12.82-17.3,16-19Z"
+        />
       </svg>
+      <div className="hexaTiles">
+        <img
+          id="tile-1"
+          className="hexaTiles"
+          src={require(`../assets/images/1.jpg`)}
+          alt="1"
+        />
+        <img
+          id="tile-2"
+          className="hexaTiles"
+          src={require(`../assets/images/2.jpg`)}
+          alt="2"
+        />
+        <img
+          id="tile-3"
+          className="hexaTiles"
+          src={require(`../assets/images/3.jpg`)}
+          alt="3"
+        />
+        <img
+          id="tile-4"
+          className="hexaTiles"
+          src={require(`../assets/images/4.jpg`)}
+          alt="4"
+        />
+        <img
+          id="tile-5"
+          className="hexaTiles"
+          src={require(`../assets/images/5.jpg`)}
+          alt="5"
+        />
+        <img
+          id="tile-6"
+          className="hexaTiles"
+          src={require(`../assets/images/6.jpg`)}
+          alt="6"
+        />
+        <img
+          id="tile-7"
+          className="hexaTiles"
+          src={require(`../assets/images/7.jpg`)}
+          alt="7"
+        />
+        <img
+          id="tile-8"
+          className="hexaTiles"
+          src={require(`../assets/images/8.jpg`)}
+          alt="8"
+        />
+        <img
+          id="tile-9"
+          className="hexaTiles"
+          src={require(`../assets/images/9.jpg`)}
+          alt="9"
+        />
+      </div>
     </div>
   );
 };
