@@ -1,3 +1,21 @@
 #text-wrapper {
     margin-top: 20vh;
+    position: relative;
+    z-index: 1;
+}
+
+#over-text {
+    font-size: 62px;
+}
+
+#under-text {
+    font-size: 30px;
+}
+
+#animted-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }
