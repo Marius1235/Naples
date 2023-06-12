@@ -7,6 +7,7 @@ import { BlobServiceClient } from "@azure/storage-blob";
 
 
 
+
 // Component for ActionPage with the name of the art and the image 
 // object
 const ActionPageComponent = () => {
@@ -65,9 +66,9 @@ const ActionPageComponent = () => {
 		
 	const handleClick = async () => {
 		// Get the image from the context
-		const image = useContext(CapturedImageContext);
-		var base64String = image?.capturedImage;
-		base64String = base64String?.replace("data:image/png;base64,", "");
+		//const image = useContext(CapturedImageContext);
+		//var base64String = image?.capturedImage;
+		//base64String = base64String?.replace("data:image/png;base64,", "");
 		
 		// Convert base64 string to Uint8Array
 		let bytes;
@@ -82,22 +83,26 @@ const ActionPageComponent = () => {
 		// handle the case where base64String is undefined
 		}
 			// Create a blob service client
-		const blobServiceClient = BlobServiceClient.fromConnectionString(
-			"BlobEndpoint=https://munchimagesblob.blob.core.windows.net/;QueueEndpoint=https://munchimagesblob.queue.core.windows.net/;FileEndpoint=https://munchimagesblob.file.core.windows.net/;TableEndpoint=https://munchimagesblob.table.core.windows.net/;SharedAccessSignature=sv=2022-11-02&ss=bf&srt=o&sp=wactfx&se=2023-07-31T17:21:53Z&st=2023-06-12T09:21:53Z&spr=https,http&sig=lhCxnGwk9ZQfM9WcAUrKoLPoxNoRPDyvPL0Vi%2BTBSq8%3D"
-			);
+		// Move this to a config file and import it later
+		const sasToken = process.env.storagesastoken || "sp=racw&st=2023-06-12T11:25:03Z&se=2023-07-31T19:25:03Z&sv=2022-11-02&sr=c&sig=jKQWgqZHYiXqzcDRqXegyDBVZckjrsGoQMG48UCxKxU%3D";
+		const containerName = "fileuploads";
+		const storageAccountName = process.env.storageresourcename || "munchimagesblob";
+		const blobUrl = `https://${storageAccountName}.blob.core.windows.net/?${sasToken}`
+		const blobService = new BlobServiceClient(blobUrl)
 			
-			// Get a reference to a container
-			const containerClient = blobServiceClient.getContainerClient("fileuploads");
-			
-			// Get a block blob client
-			const blockBlobClient = containerClient.getBlockBlobClient("munchifiedimagesblob");
-			
-			if (bytes) {
-				// Upload data to the blob
-				await blockBlobClient.uploadData(bytes);
-			} else {
-				// handle the case where bytes is undefined
-			}
+		// Get a reference to a container
+		const containerClient = blobService.getContainerClient(containerName);
+		
+		// Get a block blob client
+		const blockBlobClient = containerClient.getBlockBlobClient("munchimagesblob");
+		
+		if (bytes) {
+			// Upload data to the blob
+			await blockBlobClient.uploadData(bytes);
+		} else {
+			// handle the case where bytes is undefined
+			return;
+		}
 	};	
 	
     return (
