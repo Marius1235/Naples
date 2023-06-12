@@ -15,6 +15,7 @@ const LandingPageComponent = () => {
                         <p className='text-center'>Unleash your inner artist with our AI-powered Munchifier to transform a picture of yourself 
                             into a personalized Munch painting.</p> 
                     </Link>
+                     
                 </div>
             </div>
         </div>

@@ -11,6 +11,12 @@ const MunchifyPicturePageComponent = () => {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const capturedImage = useContext(CapturedImageContext)
 
+  const onFileChange = (event: ChangeEvent<HTMLInputElement>) => {
+    if(event.target.files && event.target.files[0]) {
+        setSelectedFile(event.target.files[0]);
+    }
+};
+
   const convertToImageFile = () => {
     fetch(capturedImage?.capturedImage!)
       .then((response) => response.blob())
@@ -51,6 +57,7 @@ const MunchifyPicturePageComponent = () => {
   return (
     <div>
       <button onClick={onFileUpload}>the fuck????</button>
+      <input type="file" onChange={onFileChange}/>
       {capturedImage?.capturedImage && (
         <div>
           <img src={capturedImage.capturedImage} alt="Processed" />

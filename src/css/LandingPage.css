@@ -1,3 +1,77 @@
-#text-wrapper {
-    margin-top: 20vh;
-}
+
+.hexaTiles {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-gap: 1rem;
+    justify-items: center;
+    align-items: center;
+  }
+  
+  IMG {
+    width: 50%;
+    height: 100%;
+    object-fit: cover;
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    grid-column: span 2;
+  }
+
+  #tile-1 {
+    position: relative;
+  }
+
+  #tile-2 {
+    position: relative;
+    left: -75%;
+    top: 55%;
+  }
+
+  #tile-3 {
+    position: relative;
+    top: 0%;
+    left: 15%;
+  }
+
+  #tile-4 {
+    position: relative;
+    top: -105%;
+    left:55%;
+  }
+
+  #tile-5 {
+    position: relative;
+    top:-50%;
+    left:-20%;
+  }
+
+  #tile-6 {
+    position: relative;
+    top: -50%;
+    left:-12.5%;
+  }
+
+  #tile-7 {
+    position: relative;
+    top: -210%;
+    left:110%;
+  }
+
+  #tile-8 {
+    position: relative;
+    top: -155%;
+    left:35%;
+  }
+
+  #tile-9 {
+    position: relative;
+    top: -210%;
+    left:-40%;
+  }
+
+
+
+
+  
+
+
+
+
