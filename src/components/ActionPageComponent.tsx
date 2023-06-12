@@ -41,6 +41,10 @@ const ActionPageComponent = () => {
 		
 		
 	const handleClick = async () => {
+		// Get the image from the context
+	
+		var base64String = image?.capturedImage;
+		base64String = base64String?.replace("data:image/png;base64,", "");
 		
 		// Convert base64 string to Uint8Array
 		let bytes;
