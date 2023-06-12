@@ -56,12 +56,12 @@ router.get('/MunchifiedPicture', async (req, res) => {
 router.post('/MunchifiedPicture', upload.single('picture'), async (req, res) => {
     try {
         await poolConnect;
-        let pictureURL = rec.body.blobUrl;
+        let pictureURL = req.body.blobUrl;
         let pictureName = req.body.name;
         let result = await pool
         .request()
         .input('PictureURL', sql.VarChar(1024), pictureURL)
-        .input('pictureName', sql.VarChar(50), pictureName)
+        .input('pictureName', sql.VarChar(256), pictureName)
         .query(`INSERT INTO MunchifiedPicture
         (PictureURL, PictureName, DateTime, BoothId)
         VALUES (@PictureURL, @pictureName, getdate(), 10);`);
