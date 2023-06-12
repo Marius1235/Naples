@@ -82,7 +82,8 @@ element::-webkit-scrollbar {
     position: relative;
     height: 120px;
     width: 120px;     
-	margin-top: 40vh; 
+	margin-top: 40vh;
+    user-select: none; 
 }
 
 .arrows{
