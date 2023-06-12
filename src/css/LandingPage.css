@@ -13,9 +13,8 @@
     font-size: 30px;
 }
 
-#text-wrapper:hover #over-text,
-#text-wrapper:hover #under-text {
-  transform: scale(1.2);
+#text-wrapper:hover #over-text {
+  transform: scale(1.05);
 }
 
 #animated-bg {
@@ -60,7 +59,8 @@
     align-items: center;
   }
   
-  IMG {
+  #tile-1 {
+    position: relative;
     width: 50%;
     height: 100%;
     object-fit: cover;
@@ -68,54 +68,90 @@
     grid-column: span 2;
   }
 
-  #tile-1 {
-    position: relative;
-  }
-
   #tile-2 {
     position: relative;
     left: -75%;
     top: 55%;
+    width: 50%;
+    height: 100%;
+    object-fit: cover;
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    grid-column: span 2;
   }
 
   #tile-3 {
     position: relative;
     top: 0%;
     left: 15%;
+    width: 50%;
+    height: 100%;
+    object-fit: cover;
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    grid-column: span 2;
   }
 
   #tile-4 {
     position: relative;
     top: -105%;
     left:55%;
+    width: 50%;
+    height: 100%;
+    object-fit: cover;
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    grid-column: span 2;
   }
 
   #tile-5 {
     position: relative;
     top:-50%;
     left:-20%;
+    width: 50%;
+    height: 100%;
+    object-fit: cover;
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    grid-column: span 2;
   }
 
   #tile-6 {
     position: relative;
     top: -50%;
     left:-12.5%;
+    width: 50%;
+    height: 100%;
+    object-fit: cover;
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    grid-column: span 2;
   }
 
   #tile-7 {
     position: relative;
     top: -210%;
     left:110%;
+    width: 50%;
+    height: 100%;
+    object-fit: cover;
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    grid-column: span 2;
   }
 
   #tile-8 {
     position: relative;
     top: -155%;
     left:35%;
+    width: 50%;
+    height: 100%;
+    object-fit: cover;
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    grid-column: span 2;
   }
 
   #tile-9 {
     position: relative;
     top: -210%;
     left:-40%;
+    width: 50%;
+    height: 100%;
+    object-fit: cover;
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    grid-column: span 2;
   }
