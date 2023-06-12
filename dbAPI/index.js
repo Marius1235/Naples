@@ -4,8 +4,6 @@ const cors = require('cors');
 const { sql, poolConnect, pool } = require('./connectDB');
 const { MAX } = require('mssql');
 const router = express.Router();
-const multer = require('multer');
-const upload = multer();
 const bodyParser = require('body-parser');
 
 //Setting up cors to allow the api to be used by the frontend
@@ -53,28 +51,24 @@ router.get('/MunchifiedPicture', async (req, res) => {
 //This is the post function where the api does a query on the database
 //We insert the picture as a base64 string and then convert it to a buffer for validation
 //The database will receive the picture as hex
-router.post('/MunchifiedPicture', upload.single('picture'), async (req, res) => {
+router.post('/MunchifiedPicture', async (req, res) => {
     try {
         await poolConnect;
-        let pictureURL = req.body.blobUrl;
-        let pictureName = req.body.name;
+        let PictureURL = req.body.PictureURL;
+        let PictureName = req.body.PictureName;
         let result = await pool
         .request()
-        .input('PictureURL', sql.VarChar(1024), pictureURL)
-        .input('pictureName', sql.VarChar(256), pictureName)
+        .input('PictureURL', sql.VarChar(1024), PictureURL)
+        .input('pictureName', sql.VarChar(256), PictureName)
         .query(`INSERT INTO MunchifiedPicture
         (PictureURL, PictureName, DateTime, BoothId)
-        VALUES (@PictureURL, @pictureName, getdate(), 10);`);
+        VALUES (@PictureURL, @PictureName, getdate(), 10);`);
         console.log("recieved data:", req.body);
-        console.log("recieved file:", req.file);
-        console.log("recieved file:", req.file.buffer);
         res.status(200).json(result.recordset);
     } catch (err) {
         console.error("Error: ", err);
         res.status(500).json({message: "Unsuccessful POST."});
-    }finally{
-		pool.close();
-	}
+    }
 });
 
 //App.listen is used to connect to the server on port 3001 the port declared in the top of the file
