@@ -133,7 +133,8 @@ const BackgroundChoiceComponent: React.FC = () => {
 					<FontAwesomeIcon className="arrows" id="arrow-up" onClick={() => moveImage(0, -10)} icon={faArrowAltCircleUp}/>
 				</div>
 
-				<div className="combine-btn text-center" onClick={createCombinedImage}>Combine Images</div>
+				<div className="combine-btn text-center" onClick={createCombinedImage}>Combine<br /> Images {/* <FontAwesomeIcon icon={faSquareCheck} /> */}
+				</div>
 						
 
 			</div>
