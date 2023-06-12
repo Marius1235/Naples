@@ -13,9 +13,8 @@
     font-size: 30px;
 }
 
-#text-wrapper:hover #over-text,
-#text-wrapper:hover #under-text {
-  transform: scale(1.2);
+#text-wrapper:hover #over-text {
+  transform: scale(1.05);
 }
 
 #animated-bg {
