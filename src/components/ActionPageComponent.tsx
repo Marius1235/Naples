@@ -19,18 +19,12 @@ const ActionPageComponent = () => {
 
 	base64String = base64String?.replace("data:image/png;base64,", "");
 	
-
-	/*const handleClick = async () => {
-		// Get the image from the context
-		
-
-		// Send data to the backend via fetch
-
+	const sendToDb = async (url:string) => {
 		const formData = new FormData();
-		const imageBlob = await fetch(image?.capturedImage!).then(r => r.blob());
+		const blobUrl = url;
 		const pictureName = (document.querySelector('#artNameText') as HTMLInputElement).value;
-		formData.append('picture', imageBlob);
-		formData.append('pictureName',pictureName);
+		formData.append('PictureURL', blobUrl);
+		formData.append('PictureName',pictureName);
 
 		fetch('http://localhost:3001/MunchifiedPicture', {
 			method: 'POST',
@@ -42,26 +36,8 @@ const ActionPageComponent = () => {
 		})
 		.catch(error => {
 			console.error(error);
-		});*/
-		
-		
-		// fetch("http://localhost:3001/MunchifiedPicture", {
-		// 	method: "POST",
-		// 	headers: {
-		// 		"Content-Type": "application/json",
-		// 	},
-		// 	body: JSON.stringify({
-		// 		"picture": base64String,
-		// 	}),
-		// })
-		// .then((response) => response.json())
-		// .then((data) => {
-		// 	console.log(data);
-		// })
-		// .catch((error) => {
-		// 	console.error(error);
-		// });
-		// Send data to the backend via fetch
+		});
+	};
 		
 		
 	const handleClick = async () => {
@@ -89,16 +65,21 @@ const ActionPageComponent = () => {
 		const storageAccountName = process.env.storageresourcename || "munchimagesblob";
 		const blobUrl = `https://${storageAccountName}.blob.core.windows.net/?${sasToken}`
 		const blobService = new BlobServiceClient(blobUrl)
-			
+		let pictureName = (document.querySelector('#artNameText') as HTMLInputElement).value;
+		if(pictureName === "") {
+			pictureName = "unnamed" + Math.floor(Math.random() * 1000000);
+		}
 		// Get a reference to a container
 		const containerClient = blobService.getContainerClient(containerName);
 		
 		// Get a block blob client
-		const blockBlobClient = containerClient.getBlockBlobClient("munchimagesblob");
-		
+		const blockBlobClient = containerClient.getBlockBlobClient(pictureName);
+		let urlName = `https://munchimagesblob.blob.core.windows.net/fileuploads/${pictureName}`
 		if (bytes) {
 			// Upload data to the blob
 			await blockBlobClient.uploadData(bytes);
+			// https://munchimagesblob.blob.core.windows.net/fileuploads/feck
+			sendToDb(urlName);
 		} else {
 			// handle the case where bytes is undefined
 			return;
