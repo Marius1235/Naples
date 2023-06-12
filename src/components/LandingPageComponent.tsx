@@ -12,8 +12,6 @@ const LandingPageComponent = () => {
                 <div className="col-sm" id='text-wrapper'>
                     <Link to="/picturePage" className="text-center">
                         <h1 id="over-text">ENTER THE MUNCHIVERSE</h1>
-                        <p className='text-center' id="under-text">Unleash your inner artist with our AI-powered Munchifier to transform a picture of yourself 
-                            into a personalized Munch painting.</p> 
                     </Link>
                 </div>
             </div>
