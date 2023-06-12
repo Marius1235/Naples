@@ -41,6 +41,22 @@ const BackgroundChoiceComponent: React.FC = () => {
 		{ imageUrl: require("../assets/images/Background9.jpg"), alt: "Background 6" },
 		{ imageUrl: require("../assets/images/Background10.jpg"), alt: "Background 7" },
 		{ imageUrl: require("../assets/images/Background11.jpg"), alt: "Background 8" },
+		{ imageUrl: require("../assets/images/Background12.jpg"), alt: "Background 9" },
+		{ imageUrl: require("../assets/images/Background13.jpg"), alt: "Background 10" },
+		{ imageUrl: require("../assets/images/Background14.jpg"), alt: "Background 11" },
+		{ imageUrl: require("../assets/images/Background15.jpg"), alt: "Background 12" },
+		{ imageUrl: require("../assets/images/Background16.jpg"), alt: "Background 13" },
+		{ imageUrl: require("../assets/images/Background17.jpg"), alt: "Background 14" },
+		{ imageUrl: require("../assets/images/Background18.jpg"), alt: "Background 15" },
+		{ imageUrl: require("../assets/images/Background19.jpg"), alt: "Background 16" },
+		{ imageUrl: require("../assets/images/Background20.jpg"), alt: "Background 17" },
+		{ imageUrl: require("../assets/images/Background21.jpg"), alt: "Background 18" },
+		{ imageUrl: require("../assets/images/Background22.jpg"), alt: "Background 19" },
+		{ imageUrl: require("../assets/images/Background23.jpg"), alt: "Background 20" },
+		{ imageUrl: require("../assets/images/Background24.jpg"), alt: "Background 21" },
+		{ imageUrl: require("../assets/images/Background25.jpg"), alt: "Background 22" },
+		{ imageUrl: require("../assets/images/Background26.jpg"), alt: "Background 23" },
+		{ imageUrl: require("../assets/images/Background27.jpg"), alt: "Background 24" },
 	];
 
 	// Function for merging the background and the user image
