@@ -63,11 +63,7 @@ const ActionPageComponent = () => {
 		// Send data to the backend via fetch
 		
 		
-	const HandleClick = async () => {
-		// Get the image from the context
-		const image = useContext(CapturedImageContext);
-		var base64String = image?.capturedImage;
-		base64String = base64String?.replace("data:image/png;base64,", "");
+	const handleClick = async () => {
 		
 		// Convert base64 string to Uint8Array
 		let bytes;
@@ -123,7 +119,7 @@ const ActionPageComponent = () => {
 						
 						<img id="qr-code-image" src={require('../assets/images/qrCode.png')} alt="User feedback qr code"></img>
 						<p id="qr-text">Scan the QR code to give feedback</p>
-						<h1 id="upload-btn" onClick={HandleClick}>UPLOAD YOUR ART<FontAwesomeIcon icon={faCloudArrowUp}/></h1>
+						<h1 id="upload-btn" onClick={handleClick}>UPLOAD YOUR ART<FontAwesomeIcon icon={faCloudArrowUp}/></h1>
 						{/* // POST to sql database goes here? */}
 						<h5>And become a part of the virtual Munch art gallery</h5>
 					</div>
