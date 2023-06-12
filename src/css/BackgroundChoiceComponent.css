@@ -61,6 +61,7 @@ element::-webkit-scrollbar {
   
   .combine-btn {
     font-family: girott, sans-serif;
+    margin-top: 20px;
     font-size: 24px;
     position: relative;    
     user-select: none;
@@ -79,8 +80,8 @@ element::-webkit-scrollbar {
 
 #icon-mover {
     position: relative;
-    height: 250px;
-    width: 250px;     
+    height: 120px;
+    width: 120px;     
 	margin-top: 40vh; 
 }
 
@@ -98,28 +99,28 @@ element::-webkit-scrollbar {
 
 #arrow-left {
     position: absolute;
-    height: 20%;
-    left: 10%;
-    top:20%;    
+    height: 40%;
+    left: 0%;
+    top:30%;    
 }
 
 #arrow-right {
     position: absolute;
-    height: 20%;
-    left: 40%;
-    top:20%;
+    height: 40%;
+    left: 60%;
+    top:30%;
 }
 
 #arrow-up {
     position: absolute;    
-    top: 5%;
-    height: 20%;
-    left: 25%;
+    top: 0%;
+    height: 40%;
+    left: 30%;
 }
 
 #arrow-down {
     position: absolute;
-    top: 35%;
-    height: 20%;
-    left: 25%;    
+    top: 60%;
+    height: 40%;
+    left: 30%;    
 }
