@@ -6,6 +6,8 @@
     overflow: scroll;
 }
 
+
+
 .background-option {
     width: 150px;
     height: 100px;
@@ -52,8 +54,9 @@ element::-webkit-scrollbar {
 }
 
 .selected-image {
+    position: absolute;
     top: 0;
-    left: 0;
+    left: -50;
     object-fit: contain;
     z-index: 1;
 	user-select: none;
