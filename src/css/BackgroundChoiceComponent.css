@@ -61,7 +61,7 @@ element::-webkit-scrollbar {
   
   .combine-btn {
     font-family: girott, sans-serif;
-    margin-top: 20px;
+    margin-top: 30vh;
     font-size: 24px;
     font-weight: bold;
     position: relative;    
@@ -84,7 +84,8 @@ element::-webkit-scrollbar {
     position: relative;
     height: 120px;
     width: 120px;     
-	margin-top: 40vh;
+	margin-top: 30vh;
+    margin-bottom: 10vh;
     user-select: none; 
 }
 
@@ -127,3 +128,28 @@ element::-webkit-scrollbar {
     height: 40%;
     left: 30%;    
 }
+
+.zoom {
+    cursor: pointer;
+    color: #ffffff;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+#zoom-in {
+    position: absolute;   
+    height: 6%;
+    right: 15%;
+    
+}
+
+#zoom-out {
+    position: absolute;   
+    height: 6%;
+    right: 20%;
+}
+
+.zoom:hover{
+    color: rgb(235, 163, 152);
+    transform: scale(1.05);
+}
+
