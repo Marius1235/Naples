@@ -5,7 +5,11 @@ const HeaderComponent = () => {
         <div>
             {/* <ul className="HeaderNav">
                 <li className="HeaderNavItem"> */}
-                    <a href="/" className="Logo">Munch</a>
+                <div className="container-fluid">
+                    <div className="row">
+                        <a href="/" className="Logo">Munch</a>
+                    </div>
+                </div>
                 {/* </li>
             </ul> */}
         </div>
