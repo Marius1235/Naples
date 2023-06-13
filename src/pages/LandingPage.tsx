@@ -3,7 +3,7 @@ import "../css/LandingPage.css";
 
 const LandingPage = () => {
   return (
-    <div>
+    <div id="overflow">
       <LandingPageComponent />
       <svg
         id="animated-bg"

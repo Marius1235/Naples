@@ -3,7 +3,7 @@ import IImage from "../interfaces/IImages";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../css/BackgroundChoiceComponent.css'
 import { CapturedImageContext } from "../contexts/CapturedImageContext";
-import { faArrowAltCircleDown, faArrowAltCircleLeft, faArrowAltCircleRight, faArrowAltCircleUp, faCamera, faDeleteLeft, faLongArrowAltDown, faLongArrowAltUp, faSquareCheck, faTriangleCircleSquare, fas } from '@fortawesome/free-solid-svg-icons';
+import { faArrowAltCircleDown, faArrowAltCircleLeft, faArrowAltCircleRight, faArrowAltCircleUp, faCamera, faDeleteLeft, faLongArrowAltDown, faLongArrowAltUp, faMagnifyingGlass, faMagnifyingGlassMinus, faMagnifyingGlassPlus, faSquareCheck, faTriangleCircleSquare, fas } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useNavigate } from "react-router-dom";
 
@@ -147,6 +147,11 @@ const BackgroundChoiceComponent: React.FC = () => {
 					<FontAwesomeIcon className="arrows" id="arrow-right" onClick={() => moveImage(10, 0)} icon={faArrowAltCircleRight}/>
 					<FontAwesomeIcon className="arrows" id="arrow-down" onClick={() => moveImage(0, 10)} icon={faArrowAltCircleDown}/>
 					<FontAwesomeIcon className="arrows" id="arrow-up" onClick={() => moveImage(0, -10)} icon={faArrowAltCircleUp}/>
+				</div>
+
+				<div>
+					<FontAwesomeIcon className="" id="zoom-in" icon={faMagnifyingGlassPlus}/>
+					<FontAwesomeIcon className="" id="zoom-out" icon={faMagnifyingGlassMinus}/>
 				</div>
 
 				<div className="combine-btn text-center" onClick={createCombinedImage}>Combine<br /> Images {/* <FontAwesomeIcon icon={faSquareCheck} /> */}

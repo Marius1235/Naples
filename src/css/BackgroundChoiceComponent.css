@@ -63,20 +63,21 @@ element::-webkit-scrollbar {
     font-family: girott, sans-serif;
     margin-top: 20px;
     font-size: 24px;
+    font-weight: bold;
     position: relative;    
     user-select: none;
-    color: white;
-    cursor: pointer;    
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    background-color: #ffffff;    
     border: 6px solid white;
-    border-radius: 20%;
-    transition: color 0.3s ease;    
+    border-radius: 10px;
+    transition: color 0.3s ease, transform 0.3s ease;  
   }
    
   .combine-btn:hover {
-    color: rgb(235, 163, 152);
-    border: 6px solid  rgb(235, 163, 152);
-    border-radius: 20%;
-    transition: color 0.5s ease;
+    background-color: rgb(235, 163, 152);
+    border-color: rgb(235, 163, 152);
+    transform: scale(1.05);  
 }
 
 #icon-mover {
