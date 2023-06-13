@@ -19,22 +19,24 @@ const ActionPageComponent = () => {
 
 	base64String = base64String?.replace("data:image/png;base64,", "");
 	
-	const sendToDb = async (url:string) => {
-		const formData = new FormData();
-		const blobUrl = url;
-		const pictureName = (document.querySelector('#artNameText') as HTMLInputElement).value;
-		formData.append('PictureURL', blobUrl);
-		formData.append('PictureName',pictureName);
-
-		fetch('http://localhost:3001/MunchifiedPicture', {
-			method: 'POST',
-			body: formData
+	const sendToDb = async (url:string, pictureName: string) => {
+		const PictureURL = url;
+		
+		fetch("http://localhost:3001/MunchifiedPicture", {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify({
+				"PictureURL": PictureURL,
+				"PictureName": pictureName,
+			}),
 		})
-		.then(response => response.json())
-		.then(data => {
+		.then((response) => response.json())
+		.then((data) => {
 			console.log(data);
 		})
-		.catch(error => {
+		.catch((error) => {
 			console.error(error);
 		});
 	};
@@ -42,9 +44,6 @@ const ActionPageComponent = () => {
 		
 	const handleClick = async () => {
 		// Get the image from the context
-	
-		var base64String = image?.capturedImage;
-		base64String = base64String?.replace("data:image/png;base64,", "");
 		
 		// Convert base64 string to Uint8Array
 		let bytes;
@@ -79,7 +78,7 @@ const ActionPageComponent = () => {
 			// Upload data to the blob
 			await blockBlobClient.uploadData(bytes);
 			// https://munchimagesblob.blob.core.windows.net/fileuploads/feck
-			sendToDb(urlName);
+			sendToDb(urlName, pictureName);
 		} else {
 			// handle the case where bytes is undefined
 			return;

@@ -2,7 +2,7 @@ const BackgroundRemoverService = (
     () => {
       const removeBackground = async (image: string): Promise<string> => {
         image = image.replace("data:image/png;base64,", "");
-        console.log(image)
+        //console.log(image)
         const formData = new FormData();
         formData.append('size', 'auto');
         formData.append('image_file_b64', image);

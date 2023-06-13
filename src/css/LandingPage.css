@@ -15,7 +15,12 @@
     color:rgb(255, 255, 255);
     z-index: 1;
     top: 400px;
+    left: 20vw;
     animation: test 2s ease;
+    justify-content: center;
+    text-align: center;
+    align-self: center;
+
 }
 
 @keyframes test {
