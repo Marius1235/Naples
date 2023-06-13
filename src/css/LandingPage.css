@@ -14,8 +14,8 @@
     position: absolute;
     color:rgb(255, 255, 255);
     z-index: 1;
-    top: 400px;
-    left: 20vw;
+    top: 40vh;
+    left: 23.5vw;
     animation: test 2s ease;
     justify-content: center;
     text-align: center;
@@ -35,11 +35,11 @@
 }
 
 #text-wrapper:hover #over-text {
-  transform: scale(1.05);
+    transform: scale(1.05);
 }
 
 #text-wrapper:hover #under-text {
-  transition: color 0.3s ease, transform 0.3s ease
+    transition: color 0.3s ease, transform 0.3s ease
 }
 
 #animated-bg {

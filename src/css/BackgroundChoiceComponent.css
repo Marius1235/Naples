@@ -6,6 +6,8 @@
     overflow: scroll;
 }
 
+
+
 .background-option {
     width: 150px;
     height: 100px;
@@ -53,8 +55,9 @@ element::-webkit-scrollbar {
 }
 
 .selected-image {
+    position: absolute;
     top: 0;
-    left: 0;
+    left: -50;
     object-fit: contain;
     z-index: 1;
 	user-select: none;
@@ -62,29 +65,31 @@ element::-webkit-scrollbar {
   
   .combine-btn {
     font-family: girott, sans-serif;
-    margin-top: 20px;
+    margin-top: 30vh;
     font-size: 24px;
+    font-weight: bold;
     position: relative;    
     user-select: none;
-    color: white;
-    cursor: pointer;    
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    background-color: #ffffff;    
     border: 6px solid white;
-    border-radius: 20%;
-    transition: color 0.3s ease;    
+    border-radius: 10px;
+    transition: color 0.3s ease, transform 0.3s ease;  
   }
    
   .combine-btn:hover {
-    color: rgb(235, 163, 152);
-    border: 6px solid  rgb(235, 163, 152);
-    border-radius: 20%;
-    transition: color 0.5s ease;
+    background-color: rgb(235, 163, 152);
+    border-color: rgb(235, 163, 152);
+    transform: scale(1.05);  
 }
 
 #icon-mover {
     position: relative;
     height: 120px;
     width: 120px;     
-	margin-top: 40vh;
+	margin-top: 30vh;
+    margin-bottom: 10vh;
     user-select: none; 
 }
 
@@ -126,4 +131,32 @@ element::-webkit-scrollbar {
     top: 60%;
     height: 40%;
     left: 30%;    
+}
+
+.zoom {
+    cursor: pointer;
+    color: #ffffff;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+#zoom-in {
+    position: absolute;   
+    height: 6%;
+    right: 15%;
+    
+}
+
+#zoom-out {
+    position: absolute;   
+    height: 6%;
+    right: 20%;
+}
+
+.zoom:hover{
+    color: rgb(235, 163, 152);
+    transform: scale(1.05);
+}
+
+#instructional-text {
+    user-select: none;
 }

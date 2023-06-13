@@ -5,9 +5,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCloudArrowUp } from '@fortawesome/free-solid-svg-icons'
 import { BlobServiceClient } from "@azure/storage-blob";
 
-
-
-
 // Component for ActionPage with the name of the art and the image 
 // object
 const ActionPageComponent = () => {
@@ -20,7 +17,7 @@ const ActionPageComponent = () => {
 	base64String = base64String?.replace("data:image/png;base64,", "");
 	
 	const sendToDb = async (url:string, pictureName: string) => {
-		const PictureURL = url;
+		const pictureURL = url;
 		
 		fetch("http://localhost:3001/MunchifiedPicture", {
 			method: "POST",
@@ -28,7 +25,7 @@ const ActionPageComponent = () => {
 				"Content-Type": "application/json",
 			},
 			body: JSON.stringify({
-				"PictureURL": PictureURL,
+				"PictureURL": pictureURL,
 				"PictureName": pictureName,
 			}),
 		})
@@ -56,18 +53,20 @@ const ActionPageComponent = () => {
 		// rest of your code
 		} else {
 		// handle the case where base64String is undefined
+			return;
 		}
-			// Create a blob service client
-		// Move this to a config file and import it later
+		// Create a blob service client
 		const sasToken = process.env.storagesastoken || "sp=racw&st=2023-06-12T11:25:03Z&se=2023-07-31T19:25:03Z&sv=2022-11-02&sr=c&sig=jKQWgqZHYiXqzcDRqXegyDBVZckjrsGoQMG48UCxKxU%3D";
 		const containerName = "fileuploads";
 		const storageAccountName = process.env.storageresourcename || "munchimagesblob";
 		const blobUrl = `https://${storageAccountName}.blob.core.windows.net/?${sasToken}`
 		const blobService = new BlobServiceClient(blobUrl)
-		let pictureName = (document.querySelector('#artNameText') as HTMLInputElement).value;
+		// strip everything ecxept letters and numbers from pictureName to prevent sql injection
+		let pictureName = (document.querySelector('#artNameText') as HTMLInputElement).value.replace(/[^a-zA-Z0-9]/g, "");
 		if(pictureName === "") {
 			pictureName = "unnamed" + Math.floor(Math.random() * 1000000);
 		}
+		
 		// Get a reference to a container
 		const containerClient = blobService.getContainerClient(containerName);
 		
@@ -77,7 +76,7 @@ const ActionPageComponent = () => {
 		if (bytes) {
 			// Upload data to the blob
 			await blockBlobClient.uploadData(bytes);
-			// https://munchimagesblob.blob.core.windows.net/fileuploads/feck
+			// Send the url and name to the database
 			sendToDb(urlName, pictureName);
 		} else {
 			// handle the case where bytes is undefined
