@@ -3,7 +3,7 @@ import IImage from "../interfaces/IImages";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../css/BackgroundChoiceComponent.css'
 import { CapturedImageContext } from "../contexts/CapturedImageContext";
-import { faArrowAltCircleDown, faArrowAltCircleLeft, faArrowAltCircleRight, faArrowAltCircleUp, faCamera, faDeleteLeft, faLongArrowAltDown, faLongArrowAltUp, faSquareCheck, faTriangleCircleSquare, fas } from '@fortawesome/free-solid-svg-icons';
+import { faArrowAltCircleDown, faArrowAltCircleLeft, faArrowAltCircleRight, faArrowAltCircleUp, faCamera, faDeleteLeft, faLongArrowAltDown, faLongArrowAltUp, faMagnifyingGlass, faMagnifyingGlassMinus, faMagnifyingGlassPlus, faSquareCheck, faTriangleCircleSquare, fas } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useNavigate } from "react-router-dom";
 
@@ -33,30 +33,30 @@ const BackgroundChoiceComponent: React.FC = () => {
 		{ imageUrl: require("../assets/images/Background1.jpg"), alt: "Background 1" },
 		{ imageUrl: require("../assets/images/Background2.jpg"), alt: "Background 2" },
 		{ imageUrl: require("../assets/images/Background3.jpg"), alt: "Background 3" },
-		{ imageUrl: require("../assets/images/Background4.jpg"), alt: "Background 1" },
-		{ imageUrl: require("../assets/images/Background5.jpg"), alt: "Background 2" },
-		{ imageUrl: require("../assets/images/Background6.jpg"), alt: "Background 3" },
-		{ imageUrl: require("../assets/images/Background7.jpg"), alt: "Background 4" },
-		{ imageUrl: require("../assets/images/Background8.jpg"), alt: "Background 5" },
-		{ imageUrl: require("../assets/images/Background9.jpg"), alt: "Background 6" },
-		{ imageUrl: require("../assets/images/Background10.jpg"), alt: "Background 7" },
-		{ imageUrl: require("../assets/images/Background11.jpg"), alt: "Background 8" },
-		{ imageUrl: require("../assets/images/Background12.jpg"), alt: "Background 9" },
-		{ imageUrl: require("../assets/images/Background13.jpg"), alt: "Background 10" },
-		{ imageUrl: require("../assets/images/Background14.jpg"), alt: "Background 11" },
-		{ imageUrl: require("../assets/images/Background15.jpg"), alt: "Background 12" },
-		{ imageUrl: require("../assets/images/Background16.jpg"), alt: "Background 13" },
-		{ imageUrl: require("../assets/images/Background17.jpg"), alt: "Background 14" },
-		{ imageUrl: require("../assets/images/Background18.jpg"), alt: "Background 15" },
-		{ imageUrl: require("../assets/images/Background19.jpg"), alt: "Background 16" },
-		{ imageUrl: require("../assets/images/Background20.jpg"), alt: "Background 17" },
-		{ imageUrl: require("../assets/images/Background21.jpg"), alt: "Background 18" },
-		{ imageUrl: require("../assets/images/Background22.jpg"), alt: "Background 19" },
-		{ imageUrl: require("../assets/images/Background23.jpg"), alt: "Background 20" },
-		{ imageUrl: require("../assets/images/Background24.jpg"), alt: "Background 21" },
-		{ imageUrl: require("../assets/images/Background25.jpg"), alt: "Background 22" },
-		{ imageUrl: require("../assets/images/Background26.jpg"), alt: "Background 23" },
-		{ imageUrl: require("../assets/images/Background27.jpg"), alt: "Background 24" },
+		{ imageUrl: require("../assets/images/Background4.jpg"), alt: "Background 4" },
+		{ imageUrl: require("../assets/images/Background5.jpg"), alt: "Background 5" },
+		{ imageUrl: require("../assets/images/Background6.jpg"), alt: "Background 6" },
+		{ imageUrl: require("../assets/images/Background7.jpg"), alt: "Background 7" },
+		{ imageUrl: require("../assets/images/Background8.jpg"), alt: "Background 8" },
+		{ imageUrl: require("../assets/images/Background9.jpg"), alt: "Background 9" },
+		{ imageUrl: require("../assets/images/Background10.jpg"), alt: "Background 10" },
+		{ imageUrl: require("../assets/images/Background11.jpg"), alt: "Background 11" },
+		{ imageUrl: require("../assets/images/Background12.jpg"), alt: "Background 12" },
+		{ imageUrl: require("../assets/images/Background13.jpg"), alt: "Background 13" },
+		{ imageUrl: require("../assets/images/Background14.jpg"), alt: "Background 14" },
+		{ imageUrl: require("../assets/images/Background15.jpg"), alt: "Background 15" },
+		{ imageUrl: require("../assets/images/Background16.jpg"), alt: "Background 16" },
+		{ imageUrl: require("../assets/images/Background17.jpg"), alt: "Background 17" },
+		{ imageUrl: require("../assets/images/Background18.jpg"), alt: "Background 18" },
+		{ imageUrl: require("../assets/images/Background19.jpg"), alt: "Background 19" },
+		{ imageUrl: require("../assets/images/Background20.jpg"), alt: "Background 20" },
+		{ imageUrl: require("../assets/images/Background21.jpg"), alt: "Background 21" },
+		{ imageUrl: require("../assets/images/Background22.jpg"), alt: "Background 22" },
+		{ imageUrl: require("../assets/images/Background23.jpg"), alt: "Background 23" },
+		{ imageUrl: require("../assets/images/Background24.jpg"), alt: "Background 24" },
+		{ imageUrl: require("../assets/images/Background25.jpg"), alt: "Background 25" },
+		{ imageUrl: require("../assets/images/Background26.jpg"), alt: "Background 26" },
+		{ imageUrl: require("../assets/images/Background27.jpg"), alt: "Background 27" },
 	];
 
 	// Function for merging the background and the user image
@@ -147,6 +147,11 @@ const BackgroundChoiceComponent: React.FC = () => {
 					<FontAwesomeIcon className="arrows" id="arrow-right" onClick={() => moveImage(10, 0)} icon={faArrowAltCircleRight}/>
 					<FontAwesomeIcon className="arrows" id="arrow-down" onClick={() => moveImage(0, 10)} icon={faArrowAltCircleDown}/>
 					<FontAwesomeIcon className="arrows" id="arrow-up" onClick={() => moveImage(0, -10)} icon={faArrowAltCircleUp}/>
+				</div>
+
+				<div id="zoom-btn">
+					<FontAwesomeIcon className="zoom" id="zoom-in" icon={faMagnifyingGlassPlus}/>
+					<FontAwesomeIcon className="zoom" id="zoom-out" icon={faMagnifyingGlassMinus}/>
 				</div>
 
 				<div className="combine-btn text-center" onClick={createCombinedImage}>Combine<br /> Images {/* <FontAwesomeIcon icon={faSquareCheck} /> */}
