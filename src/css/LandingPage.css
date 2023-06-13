@@ -35,11 +35,11 @@
 }
 
 #text-wrapper:hover #over-text {
-  transform: scale(1.05);
+    transform: scale(1.05);
 }
 
 #text-wrapper:hover #under-text {
-  transition: color 0.3s ease, transform 0.3s ease
+    transition: color 0.3s ease, transform 0.3s ease
 }
 
 #animated-bg {
