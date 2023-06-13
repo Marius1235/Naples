@@ -156,3 +156,6 @@ element::-webkit-scrollbar {
     transform: scale(1.05);
 }
 
+#instructional-text {
+    user-select: none;
+}

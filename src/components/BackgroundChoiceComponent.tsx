@@ -277,7 +277,7 @@ const BackgroundChoiceComponent: React.FC = () => {
         </div>
 
         <div className="col-sm-2">
-          <p className="text-center">Position yourself using the arrows</p>
+          <p className="text-center" id="instructional-text">Position yourself using the arrows</p>
 
           <div id="icon-mover" className="container">
             <FontAwesomeIcon

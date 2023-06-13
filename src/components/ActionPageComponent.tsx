@@ -5,9 +5,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCloudArrowUp } from '@fortawesome/free-solid-svg-icons'
 import { BlobServiceClient } from "@azure/storage-blob";
 
-
-
-
 // Component for ActionPage with the name of the art and the image 
 // object
 const ActionPageComponent = () => {
@@ -20,7 +17,7 @@ const ActionPageComponent = () => {
 	base64String = base64String?.replace("data:image/png;base64,", "");
 	
 	const sendToDb = async (url:string, pictureName: string) => {
-		const PictureURL = url;
+		const pictureURL = url;
 		
 		fetch("http://localhost:3001/MunchifiedPicture", {
 			method: "POST",
@@ -28,7 +25,7 @@ const ActionPageComponent = () => {
 				"Content-Type": "application/json",
 			},
 			body: JSON.stringify({
-				"PictureURL": PictureURL,
+				"PictureURL": pictureURL,
 				"PictureName": pictureName,
 			}),
 		})
