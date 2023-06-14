@@ -248,9 +248,9 @@ const BackgroundChoiceComponent: React.FC = () => {
         </div>
 
         <div className="col-sm-2" id="background-settings">
-          <p className="text-center" id="instructional-text">Position yourself using the arrows</p>
+          <p className="text-center" id="instructional-text">Choose background format. Position yourself using the arrows. Resize your photo with + and -.</p>
 
-		  <div id="icon-cropper" className="container">
+		    <div id="icon-cropper" className="container">
 					<FontAwesomeIcon className="crop arrows" id="portrait" onClick={() => selectPortrait(selectedBackgroundOption!.imageUrl,
             selectedBackgroundOption!.portraitUrl,
             selectedBackgroundOption!.landscapeUrl)} icon={faImagePortrait}

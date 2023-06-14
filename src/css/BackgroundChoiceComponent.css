@@ -83,7 +83,7 @@ element::-webkit-scrollbar {
   
   .combine-btn {
     font-family: girott, sans-serif;
-    margin-top: 10vh;
+    margin-top: 14vh;
     font-size: 24px;
     font-weight: bold;
     position: relative;    
@@ -106,8 +106,37 @@ element::-webkit-scrollbar {
     position: relative;
     height: 120px;
     width: 120px;     
-	margin-top: 30vh;    
+	margin-top: 0;    
     user-select: none; 
+}
+
+#icon-cropper{
+    position: relative;
+    height: 120px;
+    width: 120px;         
+    user-select: none;
+    margin-top: 8vh;
+    padding: 0;
+}
+
+#portrait{
+    height: 33%;
+    top: 30%;
+    position: relative;
+    margin-right: 7px;
+
+}
+
+#landscape{
+    height: 33%;
+    top: 30%;
+    position: relative;
+}
+
+#square{
+    height: 33%;
+    top: 30%;
+    position: relative;
 }
 
 .arrows{
