@@ -1,27 +1,23 @@
 #text-wrapper {
-    margin-top: 0vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     position: relative;
-    z-index: 1;
 }
 
 #over-text {
-    margin-bottom: 45px;
     font-size: 62px;
 }
-
 
 #under-text {
     position: relative;
     font-size: 30px;
     color:rgb(255, 255, 255);
     z-index: 1;
-    top: 45vh;
-    left: 23.5vw;
     animation: test 2s ease;
-    text-align: center;
-    justify-content: center;
-    bottom: 80vh;
-
+    top: 30vh;
+    user-select: none;
 }
 
 @keyframes test {
@@ -35,12 +31,8 @@
     }
 }
 
-#text-wrapper:hover #over-text {
+#over-text:hover {
     transform: scale(1.05);
-}
-
-#text-wrapper:hover #under-text {
-    transition: color 0.3s ease, transform 0.3s ease
 }
 
 #animated-bg {

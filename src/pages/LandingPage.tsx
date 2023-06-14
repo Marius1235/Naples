@@ -96,9 +96,6 @@ const LandingPage = () => {
           alt="9"
         />
       </div>
-      <p className='text-center' id="under-text">
-        Unleash your inner artist with our AI-powered Munchifier<br></br> 
-        to transform a picture of yourself into a personalized Munch painting.</p> 
     </div>
   );
 };
