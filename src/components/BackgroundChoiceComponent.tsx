@@ -11,8 +11,8 @@ import {
   	faArrowAltCircleUp,
   	faMagnifyingGlassMinus,
   	faMagnifyingGlassPlus,
-	  faImagePortrait,
-	  faImage,
+	faImagePortrait,
+	faImage,
     faSquare
 } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router";
