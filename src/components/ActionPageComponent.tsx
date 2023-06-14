@@ -107,7 +107,7 @@ const ActionPageComponent = () => {
 						{!image?.capturedImage && (
 							<img id="upload-art-image" src={require(`../assets/images/placeholder.jpg`)} alt="Placeholder image"/>
 						)}
-						<Link to="/EndingPage" className="text-center">
+						<Link to="/endingPage" className="text-center">
 						<h1 id="upload-btn" onClick={handleClick}>UPLOAD YOUR ART<FontAwesomeIcon icon={faCloudArrowUp}/></h1>
 						</Link>
 						{/* // POST to sql database goes here? */}

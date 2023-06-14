@@ -30,3 +30,11 @@
     width: 50%;
 }
 
+#house-icon {
+    width: 8%;
+    height: auto;
+    user-select: none;
+    color: #f7f7f7;
+    margin-bottom: 50%;
+    
+}
