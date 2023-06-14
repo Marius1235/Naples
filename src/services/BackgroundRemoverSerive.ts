@@ -15,7 +15,7 @@ const BackgroundRemoverService = (
                 method: 'POST',
                 body: formData,
                 headers: {
-                    'X-Api-Key': 'Z8nzRKH4NJFXrgvizMnTkUEq',
+                    'X-Api-Key': 'wv6QnHSQeW7Mev4LzEQUzJ6u',
                 },
             });
 
