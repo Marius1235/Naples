@@ -101,7 +101,7 @@
     grid-column: span 2;
     opacity: 0;
     animation: opacity 3s ease;
-    animation-delay: 1s;
+    animation-delay: 0.5s;
     animation-fill-mode: forwards;
   }
 
@@ -115,7 +115,7 @@
     grid-column: span 2;
     opacity: 0;
     animation: opacity 3s ease;
-    animation-delay: 8s;
+    animation-delay: 4s;
     animation-fill-mode: forwards;
 
   }
@@ -130,7 +130,7 @@
     grid-column: span 2;
     opacity: 0;
     animation: opacity 3s ease;
-    animation-delay: 2s;
+    animation-delay: 1s;
     animation-fill-mode: forwards;
   }
 
@@ -144,7 +144,7 @@
     grid-column: span 2;
     opacity: 0;
     animation: opacity 3s ease;
-    animation-delay: 3s;
+    animation-delay: 1.5s;
     animation-fill-mode: forwards;
   }
 
@@ -159,7 +159,7 @@
     opacity: 0;
     animation-play-state: running;
     animation: opacity 3s ease;
-    animation-delay: 7s;
+    animation-delay: 3.5s;
     animation-fill-mode: forwards;
   }
 
@@ -174,7 +174,7 @@
     opacity: 0;
     animation-play-state: running;
     animation: opacity 3s ease;
-    animation-delay: 4s;
+    animation-delay: 2s;
     animation-fill-mode: forwards;
   }
 
@@ -189,7 +189,7 @@
     opacity: 0;
     animation-play-state: running;
     animation: opacity 3s ease;
-    animation-delay: 5s;
+    animation-delay: 2.5s;
     animation-fill-mode: forwards;
 
   }
@@ -205,7 +205,7 @@
     opacity: 0;
     animation-play-state: running;
     animation: opacity 3s ease;
-    animation-delay: 6s;
+    animation-delay: 3s;
     animation-fill-mode: forwards;
   }
 
