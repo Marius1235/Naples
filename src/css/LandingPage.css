@@ -9,6 +9,7 @@
 #over-text {
     font-size: 62px;
     margin-bottom: 15px;
+    user-select: none;
 }
 
 #under-text {
@@ -77,6 +78,7 @@
     position: relative; 
     z-index: -3;
     border-radius: 10px;
+    user-select: none;
   }
   
   #tile-1 {

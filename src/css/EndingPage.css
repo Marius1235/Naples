@@ -36,5 +36,12 @@
     user-select: none;
     color: #f7f7f7;
     margin-bottom: 50%;
+    transition: color 0.3s ease, transform 0.3s ease;
+    
+}
+
+#house-icon:hover{
+    color: rgb(235, 163, 152);
+    transform: scale(1.05);
     
 }
