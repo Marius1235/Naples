@@ -19,13 +19,22 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.image-wrapper {
+/* .image-wrapper {
     position: relative;
     width: 800px;
     display: flex;
     justify-content: center;
     overflow: hidden;
     margin-top: 175px;
+    margin-left: 20px;    
+} */
+
+.image-wrapper {
+    position: relative;
+    width: 800px;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
     margin-left: 20px;    
 }
 
@@ -43,7 +52,7 @@ element::-webkit-scrollbar {
 }
 
 
-.selected-background {
+/* .selected-background {
     position: relative;
     width: 800px;
     height: 450px;
@@ -52,6 +61,33 @@ element::-webkit-scrollbar {
     border: 2px solid #ffffff;
     user-select: none;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+} */
+
+.selected-background {
+    position: relative;
+    width: 800px;
+    height: 800px;
+    border-radius: 10px;
+    object-fit: contain;
+    border: 2px solid #ffffff;
+    user-select: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.selected-background.landscape {
+    width: 800px;
+    height: 450px;
+    margin-top: 20vh;    
+}
+  
+.selected-background.portrait {
+    width: 500px;
+    height: 800px;
+}
+
+.selected-background.square {
+    width: 800px;
+    height: 800px;
 }
 
 .selected-image {

@@ -11,8 +11,9 @@ import {
   	faArrowAltCircleUp,
   	faMagnifyingGlassMinus,
   	faMagnifyingGlassPlus,
-	faImagePortrait,
-	faImage
+	  faImagePortrait,
+	  faImage,
+    faSquare
 } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router";
 
@@ -36,6 +37,7 @@ const BackgroundChoiceComponent: React.FC = () => {
 
   const changeBackground = (imageUrl: string) => {
     setSelectedBackground(imageUrl);
+    resetToSquare();
   };
 
   // Move image function
@@ -65,7 +67,7 @@ const BackgroundChoiceComponent: React.FC = () => {
   };
       // Array of background images
 	  const backgroundOptions: IImage[] = [
-		{ imageUrl: require("../assets/images/Background1.jpg"), portraitUrl:require("../assets/images/Background1Portrait.jpg"), landscapeUrl:require("../assets/images/Background1Landscape.jpg"),  alt: "Background 1" },
+		    { imageUrl: require("../assets/images/Background1.jpg"), portraitUrl:require("../assets/images/Background1Portrait.jpg"), landscapeUrl:require("../assets/images/Background1Landscape.jpg"),  alt: "Background 1" },
         { imageUrl: require("../assets/images/Background2.jpg"), portraitUrl:require("../assets/images/Background2Portrait.jpg"), landscapeUrl:require("../assets/images/Background2Landscape.jpg"), alt: "Background 2" },
         { imageUrl: require("../assets/images/Background3.jpg"), portraitUrl:require("../assets/images/Background3Portrait.jpg"), landscapeUrl:require("../assets/images/Background3Landscape.jpg"), alt: "Background 3" },
         { imageUrl: require("../assets/images/Background4.jpg"), portraitUrl:require("../assets/images/Background4Portrait.jpg"), landscapeUrl:require("../assets/images/Background4Landscape.jpg"), alt: "Background 1" },
@@ -93,25 +95,52 @@ const BackgroundChoiceComponent: React.FC = () => {
         { imageUrl: require("../assets/images/Background26.jpg"), portraitUrl:require("../assets/images/Background26Portrait.jpg"), landscapeUrl:require("../assets/images/Background26Landscape.jpg"), alt: "Background 23" },
         { imageUrl: require("../assets/images/Background27.jpg"), portraitUrl:require("../assets/images/Background27Portrait.jpg"), landscapeUrl:require("../assets/images/Background27Landscape.jpg"), alt: "Background 24" },
     ];
+    
 	const selectedBackgroundOption = backgroundOptions.find(option => 
 		[option.imageUrl, option.portraitUrl, option.landscapeUrl].includes(selectedBackground));
 
 	    const selectPortrait = (imageUrl: string, portraitUrl: string, landscapeUrl: string) => {
-			if (selectedBackground === imageUrl || selectedBackground === landscapeUrl) {
-				setSelectedBackground(portraitUrl);
-			}
+        if (selectedBackground === imageUrl || selectedBackground === landscapeUrl) {
+          setSelectedBackground(portraitUrl);
+          let selectedBackgroundElement = document.querySelector('.selected-background');
+          if (selectedBackgroundElement) {
+            selectedBackgroundElement.classList.remove('landscape');
+            selectedBackgroundElement.classList.remove('square');
+            selectedBackgroundElement.classList.add('portrait');
+          }
+        }
 		}
 		const selectLandscape = (imageUrl: string, portraitUrl: string, landscapeUrl: string) => {
 			if (selectedBackground === imageUrl || selectedBackground === portraitUrl) {
-				setSelectedBackground(landscapeUrl);
-			}
+        setSelectedBackground(landscapeUrl);
+        let selectedBackgroundElement = document.querySelector('.selected-background');
+        if (selectedBackgroundElement) {
+          selectedBackgroundElement.classList.remove('portrait');
+          selectedBackgroundElement.classList.remove('square');
+          selectedBackgroundElement.classList.add('landscape');
+        }
+      }
 		}
 		const selectSquare = (imageUrl: string, portraitUrl: string, landscapeUrl: string) => {
 			if (selectedBackground === portraitUrl || selectedBackground === landscapeUrl) {
-				setSelectedBackground(imageUrl);
-			}
+        setSelectedBackground(imageUrl);
+        let selectedBackgroundElement = document.querySelector('.selected-background');
+        if (selectedBackgroundElement) {
+          selectedBackgroundElement.classList.remove('portrait');
+          selectedBackgroundElement.classList.remove('landscape');
+          selectedBackgroundElement.classList.add('square');
+        }
+      }
 		}
-
+    
+    const resetToSquare = () => {
+      let selectedBackgroundElement = document.querySelector('.selected-background');
+      if (selectedBackgroundElement) {
+        selectedBackgroundElement.classList.remove('portrait');
+        selectedBackgroundElement.classList.remove('landscape');
+        selectedBackgroundElement.classList.add('square');
+      }
+    };
  
 
   // Function for merging the background and the user image
@@ -222,9 +251,13 @@ const BackgroundChoiceComponent: React.FC = () => {
           <p className="text-center" id="instructional-text">Position yourself using the arrows</p>
 
 		  <div id="icon-cropper" className="container">
-					<FontAwesomeIcon className="crop arrows" id="portrait" onClick={() => selectPortrait(selectedBackgroundOption!.imageUrl, selectedBackgroundOption!.portraitUrl, selectedBackgroundOption!.landscapeUrl)} icon={faImagePortrait}/>
+					<FontAwesomeIcon className="crop arrows" id="portrait" onClick={() => selectPortrait(selectedBackgroundOption!.imageUrl,
+            selectedBackgroundOption!.portraitUrl,
+            selectedBackgroundOption!.landscapeUrl)} icon={faImagePortrait}
+            />
+
 					<FontAwesomeIcon className="arrows" id= "landscape" onClick={() => selectLandscape(selectedBackgroundOption!.imageUrl, selectedBackgroundOption!.portraitUrl, selectedBackgroundOption!.landscapeUrl)} icon={faImage}/>
-					<FontAwesomeIcon className="arrows" id= "square" onClick={() => selectSquare(selectedBackgroundOption!.imageUrl, selectedBackgroundOption!.portraitUrl, selectedBackgroundOption!.landscapeUrl)} icon={faImage}/>
+					<FontAwesomeIcon className="arrows" id= "square" onClick={() => selectSquare(selectedBackgroundOption!.imageUrl, selectedBackgroundOption!.portraitUrl, selectedBackgroundOption!.landscapeUrl)} icon={faSquare}/>
 				</div>
 
           <div id="icon-mover" className="container">
@@ -276,7 +309,7 @@ const BackgroundChoiceComponent: React.FC = () => {
             onClick={createCombinedImage}
           >
             Combine
-            <br /> Images {/* <FontAwesomeIcon icon={faSquareCheck} /> */}
+            <br /> Images 
           </div>
         </div>
       </div>
