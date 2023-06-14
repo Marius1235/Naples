@@ -8,6 +8,7 @@
 
 #over-text {
     font-size: 62px;
+    margin-bottom: 15px;
 }
 
 #under-text {
@@ -16,7 +17,7 @@
     color:rgb(255, 255, 255);
     z-index: 1;
     animation: test 2s ease;
-    top: 30vh;
+    margin-bottom: 20px;
     user-select: none;
 }
 
