@@ -1,0 +1,25 @@
+#ending-title {
+    font-size: 50px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 100px;
+    user-select: none;
+}
+
+#qr-code-image {
+    position: absolute;
+    right: 43vw;
+    top: 40vh;
+    width: 15%;
+    height: auto;
+    user-select: none;
+}
+
+#qr-text {
+    position: absolute;
+    right: 41.7vw;
+    top: 73vh; 
+    justify-content: center;
+    text-align: center;
+    user-select: none;
+}

@@ -29,6 +29,7 @@
     display: flex;
     justify-content: center;
     overflow: hidden;
+    margin-top: 175px;
     margin-left: 20px;    
 }
 
@@ -49,7 +50,7 @@ element::-webkit-scrollbar {
 .selected-background {
     position: relative;
     width: 800px;
-    height: 800px;
+    height: 450px;
     border-radius: 10px;
     object-fit: contain;
     border: 2px solid #ffffff;
@@ -160,3 +161,6 @@ element::-webkit-scrollbar {
     transform: scale(1.05);
 }
 
+#instructional-text {
+    user-select: none;
+}

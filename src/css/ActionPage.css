@@ -26,20 +26,6 @@
 		}
 }
 
-#qr-code-image {
-    position: absolute;
-    right: 10vw;
-    top: 10vh;
-    width: 7%;
-    height: auto;
-}
-
-#qr-text {
-  position: absolute;
-  right: 6vw;
-  top: 25vh; 
-}
-
 #painting-1 {
 		animation-delay: 0s;
 		animation-duration: 5s;

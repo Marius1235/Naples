@@ -11,16 +11,17 @@
 
 
 #under-text {
+    position: relative;
     font-size: 30px;
-    position: absolute;
     color:rgb(255, 255, 255);
     z-index: 1;
     top: 45vh;
     left: 23.5vw;
     animation: test 2s ease;
-    justify-content: center;
     text-align: center;
-    align-self: center;
+    justify-content: center;
+    bottom: 80vh;
+
 }
 
 @keyframes test {
