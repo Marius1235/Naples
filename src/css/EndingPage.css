@@ -1,25 +1,32 @@
+#parent-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
 #ending-title {
-    font-size: 50px;
+    margin-top: 5%;
+    font-size: 3vw;
     font-weight: bold;
     text-align: center;
-    margin-top: 100px;
     user-select: none;
 }
 
 #qr-code-image {
-    position: absolute;
-    right: 43vw;
-    top: 40vh;
-    width: 15%;
-    height: auto;
+    width: 10%;
     user-select: none;
+    margin-top: 2%;
 }
 
 #qr-text {
-    position: absolute;
-    right: 41.7vw;
-    top: 73vh; 
-    justify-content: center;
+    font-size: 1vw;
+    font-weight: bold;
     text-align: center;
     user-select: none;
+    margin: auto;
+    margin-top: 1%;
+    width: 50%;
 }
+
