@@ -217,7 +217,7 @@ const BackgroundChoiceComponent: React.FC = () => {
           </div>
         </div>
 
-        <div className="col-sm-8" id="background-settings">
+        <div className="col-sm-8">
           <div className="image-wrapper">
             <img
               className="selected-background"
@@ -247,7 +247,7 @@ const BackgroundChoiceComponent: React.FC = () => {
           </div>
         </div>
 
-        <div className="col-sm-2">
+        <div className="col-sm-2" id="background-settings">
           <p className="text-center" id="instructional-text">Position yourself using the arrows</p>
 
 		  <div id="icon-cropper" className="container">

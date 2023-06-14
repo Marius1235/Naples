@@ -11,7 +11,9 @@ const MunchifyPicturePageComponent = () => {
   const isConvertedRef = useRef(false);
   const navigate = useNavigate();
   const previousCapturedImageRef = useRef(capturedImage?.capturedImage);
-
+  const munchifiedImages = useContext(CapturedImageContext);
+  const [test, setResponse] = useState([]);
+ 
   const convertToImageFile = useCallback(() => {
     fetch(capturedImage?.capturedImage!)
       .then((response) => response.blob())
@@ -42,6 +44,10 @@ const MunchifyPicturePageComponent = () => {
           const result = await response.json();
           console.log(result);
           capturedImage?.setCapturedImage("data:image/png;base64," + result.result);
+          munchifiedImages?.setMunchifiedImages(result.result)
+          console.log(munchifiedImages?.munchifiedImages)
+          setResponse(result)
+          console.log(test)
           setLoading(false);
           navigate("/previewResultsPage")// Replace '/new-page' with your desired route
         } else {

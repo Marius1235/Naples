@@ -21,6 +21,7 @@ type Props = {
 
 const CapturedImageProvider: FC<Props> = ({ children }) => {
     const [capturedImage, setCapturedImage] = useState<string | null>(null);
+    const [munchifiedImages, setMunchifiedImages] = useState<{ [key: string]: string } | null>(null);
 
     const handleRemoveBackground = async () => {
         if (capturedImage) {
@@ -39,6 +40,8 @@ const CapturedImageProvider: FC<Props> = ({ children }) => {
             capturedImage,
             setCapturedImage,
             removeBackground: handleRemoveBackground,
+            setMunchifiedImages,
+            munchifiedImages
         }}
         >
         {children}

@@ -4,6 +4,9 @@ import { CapturedImageContext } from "../contexts/CapturedImageContext";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCloudArrowUp } from '@fortawesome/free-solid-svg-icons'
 import { BlobServiceClient } from "@azure/storage-blob";
+import { Link } from 'react-router-dom';
+import "../css/ActionPage.css";
+
 
 // Component for ActionPage with the name of the art and the image 
 // object
@@ -104,10 +107,9 @@ const ActionPageComponent = () => {
 						{!image?.capturedImage && (
 							<img id="upload-art-image" src={require(`../assets/images/placeholder.jpg`)} alt="Placeholder image"/>
 						)}
-						
-						<img id="qr-code-image" src={require('../assets/images/qrCode.png')} alt="User feedback qr code"></img>
-						<p id="qr-text">Scan the QR code to give feedback</p>
+						<Link to="/EndingPage" className="text-center">
 						<h1 id="upload-btn" onClick={handleClick}>UPLOAD YOUR ART<FontAwesomeIcon icon={faCloudArrowUp}/></h1>
+						</Link>
 						{/* // POST to sql database goes here? */}
 						<h5>And become a part of the virtual Munch art gallery</h5>
 					</div>

@@ -1,0 +1,32 @@
+#parent-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#ending-title {
+    margin-top: 5%;
+    font-size: 3vw;
+    font-weight: bold;
+    text-align: center;
+    user-select: none;
+}
+
+#qr-code-image {
+    width: 10%;
+    user-select: none;
+    margin-top: 2%;
+}
+
+#qr-text {
+    font-size: 1vw;
+    font-weight: bold;
+    text-align: center;
+    user-select: none;
+    margin: auto;
+    margin-top: 1%;
+    width: 50%;
+}
+

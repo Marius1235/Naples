@@ -10,6 +10,13 @@
 		margin: 1%;
 }
 
+#artNameText {
+	border-radius: 5px;
+	height: 30px;
+	width: 40%;
+	margin-bottom: 10px;
+}
+
 @keyframes fadeIn {
 		0% {
 			opacity: 0;
@@ -17,20 +24,6 @@
 		100% {
 			opacity: 1;
 		}
-}
-
-#qr-code-image {
-    position: absolute;
-    right: 10vw;
-    top: 10vh;
-    width: 7%;
-    height: auto;
-}
-
-#qr-text {
-  position: absolute;
-  right: 6vw;
-  top: 25vh; 
 }
 
 #painting-1 {

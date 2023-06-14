@@ -6,7 +6,11 @@
     overflow: scroll;
 }
 
-
+#background-settings {
+    background-color: #194842;
+    width: 15%;
+    border-radius: 10px;
+}
 
 .background-option {
     width: 150px;
