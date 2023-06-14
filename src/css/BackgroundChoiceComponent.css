@@ -23,16 +23,6 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* .image-wrapper {
-    position: relative;
-    width: 800px;
-    display: flex;
-    justify-content: center;
-    overflow: hidden;
-    margin-top: 175px;
-    margin-left: 20px;    
-} */
-
 .image-wrapper {
     position: relative;
     width: 800px;
@@ -54,18 +44,6 @@
 element::-webkit-scrollbar {
     display: none; /* for Chrome, Safari, and Opera */
 }
-
-
-/* .selected-background {
-    position: relative;
-    width: 800px;
-    height: 450px;
-    border-radius: 10px;
-    object-fit: contain;
-    border: 2px solid #ffffff;
-    user-select: none;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-} */
 
 .selected-background {
     position: relative;
@@ -101,11 +79,11 @@ element::-webkit-scrollbar {
     object-fit: contain;
     z-index: 1;
 	user-select: none;
-  }
+}
   
   .combine-btn {
     font-family: girott, sans-serif;
-    margin-top: 30vh;
+    margin-top: 10vh;
     font-size: 24px;
     font-weight: bold;
     position: relative;    
@@ -116,7 +94,7 @@ element::-webkit-scrollbar {
     border: 6px solid white;
     border-radius: 10px;
     transition: color 0.3s ease, transform 0.3s ease;  
-  }
+}
    
   .combine-btn:hover {
     background-color: rgb(235, 163, 152);
@@ -128,8 +106,7 @@ element::-webkit-scrollbar {
     position: relative;
     height: 120px;
     width: 120px;     
-	margin-top: 30vh;
-    margin-bottom: 10vh;
+	margin-top: 30vh;    
     user-select: none; 
 }
 
@@ -173,23 +150,30 @@ element::-webkit-scrollbar {
     left: 30%;    
 }
 
+#zoom-div {
+    position: relative;
+    height: 120px;
+    width: 120px;
+    user-select: none;
+}
+
 .zoom {
     cursor: pointer;
     color: #ffffff;
     transition: color 0.3s ease, transform 0.3s ease;
+    top:30%;
 }
 
 #zoom-in {
     position: absolute;   
-    height: 6%;
-    right: 15%;
-    
+    height: 40%;
+    right: 55%;    
 }
 
 #zoom-out {
     position: absolute;   
-    height: 6%;
-    right: 20%;
+    height: 40%;
+    right: 0%;
 }
 
 .zoom:hover{

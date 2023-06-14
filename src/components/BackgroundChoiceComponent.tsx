@@ -287,7 +287,7 @@ const BackgroundChoiceComponent: React.FC = () => {
             />
           </div>
 
-          <div id="zoom-btn">
+          <div id="zoom-div" className="container">
             <FontAwesomeIcon
               className="zoom"
               id="zoom-in"
