@@ -4,8 +4,7 @@ import { CapturedImageContext } from "../contexts/CapturedImageContext";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCloudArrowUp } from '@fortawesome/free-solid-svg-icons'
 import { BlobServiceClient } from "@azure/storage-blob";
-
-
+import "../css/ActionPage.css";
 
 
 // Component for ActionPage with the name of the art and the image 

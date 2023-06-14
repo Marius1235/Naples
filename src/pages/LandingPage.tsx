@@ -50,7 +50,7 @@ const LandingPage = () => {
         <img
           id="tile-2"
           className="hexaTiles"
-          src={require(`../assets/images/2.jpg`)}
+          src={require(`../assets/images/download-2.jpg`)}
           alt="2"
         />
         <img

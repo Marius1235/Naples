@@ -8,6 +8,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDeleteLeft, faSquareCheck, fas } from '@fortawesome/free-solid-svg-icons';
 
 
+interface CapturedImages {
+	result1: string;
+	result2: string;
+	result3: string;
+	result4: string;
+	result5: string;
+  }
+
 // Component for ActionPage with the name of the art and the image 
 // object
 const PreviewResultsPageComponent = () => {
@@ -64,51 +72,7 @@ const PreviewResultsPageComponent = () => {
 		
 					<div id='choose-your-masterpiece' ><h1>CHOOSE YOUR MASTERPIECE</h1></div>
 			
-					{/* Result 1 */}
-					{capturedImage?.capturedImage && (
-						<img src={capturedImage.capturedImage} ref={imgRef} onClick={enlargePicture} alt="Munchified Image" />
-					)}
 
-					{/* Result 1 */}
-					{testImage && (
-						<img src={testImage} ref={imgRef} onClick={enlargePicture} alt="Munchified Image" />
-					)}
-
-						{/* Result 1 */}
-						{testImage && (
-						<img src={testImage} ref={imgRef} onClick={enlargePicture} alt="Munchified Image" />
-					)}
-						{/* Result 1 */}
-						{testImage && (
-						<img src={testImage} ref={imgRef} onClick={enlargePicture} alt="Munchified Image" />
-					)}
-						{/* Result 1 */}
-						{testImage && (
-						<img src={testImage} ref={imgRef} onClick={enlargePicture} alt="Munchified Image" />
-					)}
-						{/* Result 1 */}
-						{testImage && (
-						<img src={testImage} ref={imgRef} onClick={enlargePicture} alt="Munchified Image" />
-					)}
-					
-				
-					{/* Result 2 */}
-					{capturedImage?.capturedImage && (
-						<img src={capturedImage.capturedImage} ref={imgRef} onClick={enlargePicture} alt="Munchified Image" />
-					)}
-				
-					{/* Result 3 */}
-					{capturedImage?.capturedImage && (
-						<img src={capturedImage.capturedImage} ref={imgRef} onClick={enlargePicture} alt="Munchified Image" />
-					)}
-				
-				
-					{/* Result 4 */}
-					{capturedImage?.capturedImage && (
-						<img src={capturedImage.capturedImage} ref={imgRef} onClick={enlargePicture} alt="Munchified Image" />
-					)}
-				
-					{/* Renders the button if the image has been */}
 				</div>
 			</div>
 			{imgIsResized && (
