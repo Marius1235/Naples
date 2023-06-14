@@ -110,31 +110,35 @@ element::-webkit-scrollbar {
     user-select: none; 
 }
 
-#icon-cropper{
+#icon-cropper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
     position: relative;
     height: 120px;
-    width: 120px;         
+    width: 120px;
     user-select: none;
-    margin-top: 8vh;
+    margin-top: 4vh;
+    margin-bottom: 4vh;
     padding: 0;
 }
 
-#portrait{
+#portrait {
+    height: 29%;
+    top: 30%;
+    position: relative;
+    margin-right: 10px; 
+}
+
+#landscape {
     height: 33%;
     top: 30%;
     position: relative;
-    margin-right: 7px;
-
+    margin-right: 10px;
 }
 
-#landscape{
-    height: 33%;
-    top: 30%;
-    position: relative;
-}
-
-#square{
-    height: 33%;
+#square {
+    height: 34%;
     top: 30%;
     position: relative;
 }
