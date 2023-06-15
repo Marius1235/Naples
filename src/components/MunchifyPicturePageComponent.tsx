@@ -1,8 +1,7 @@
-import React, { useState, useEffect, useContext, useRef, useCallback } from 'react';
-import { Navigate, useNavigate } from 'react-router-dom';
-import { CapturedImageContext } from '../contexts/CapturedImageContext';
-import '../css/MunchifiedPage.css'
-import { div } from '@tensorflow/tfjs';
+import { useState, useEffect, useContext, useRef, useCallback } from "react";
+import { useNavigate } from "react-router-dom";
+import { CapturedImageContext } from "../contexts/CapturedImageContext";
+import "../css/MunchifiedPage.css";
 
 const MunchifyPicturePageComponent = () => {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
@@ -12,17 +11,16 @@ const MunchifyPicturePageComponent = () => {
   const navigate = useNavigate();
   const previousCapturedImageRef = useRef(capturedImage?.capturedImage);
   const munchifiedImages = useContext(CapturedImageContext);
-  const [test, setResponse] = useState([]);
- 
+
   const convertToImageFile = useCallback(() => {
     fetch(capturedImage?.capturedImage!)
       .then((response) => response.blob())
       .then((blob) => {
-        const file = new File([blob], 'image.jpg', { type: 'image/jpeg' });
+        const file = new File([blob], "image.jpg", { type: "image/jpeg" });
         setSelectedFile(file);
       })
       .catch((error) => {
-        console.log('An error occurred:', error);
+        console.log("An error occurred:", error);
       });
     isConvertedRef.current = true;
   }, [capturedImage]);
@@ -32,26 +30,31 @@ const MunchifyPicturePageComponent = () => {
       setLoading(true);
 
       const formData = new FormData();
-      formData.append('file', selectedFile, selectedFile.name);
+      formData.append("file", selectedFile, selectedFile.name);
 
       try {
-        const response = await fetch('http://localhost:5000/predict', {
-          method: 'POST',
+        const response = await fetch("http://localhost:5000/predict", {
+          method: "POST",
           body: formData,
         });
 
         if (response.ok) {
           const result = await response.json();
           console.log(result);
-          capturedImage?.setCapturedImage("data:image/png;base64," + result.result);
-          munchifiedImages?.setMunchifiedImages(result.result)
-          console.log(munchifiedImages?.munchifiedImages)
-          setResponse(result)
-          console.log(test)
+          capturedImage?.setCapturedImage(
+            "data:image/png;base64," + result.result
+          );
+
+          munchifiedImages?.setMunchifiedImages(
+            Object.values(result).map(
+              (image) => `data:image/png;base64,${image}`
+            )
+          );
+
           setLoading(false);
-          navigate("/previewResultsPage")// Replace '/new-page' with your desired route
+          navigate("/previewResultsPage"); // Replace '/new-page' with your desired route
         } else {
-          console.log('An error occurred');
+          console.log("An error occurred");
         }
       } catch (error) {
         console.error(error);
@@ -73,6 +76,7 @@ const MunchifyPicturePageComponent = () => {
 
   useEffect(() => {
     if (capturedImage?.capturedImage !== previousCapturedImageRef.current) {
+      console.log(test);
       navigate("/previewResultsPage");
     }
 
@@ -93,18 +97,8 @@ const MunchifyPicturePageComponent = () => {
           )}
         </div>
       )}
-
     </div>
   );
-  
 };
 
 export default MunchifyPicturePageComponent;
-
-
-
-
-
-
-
-
