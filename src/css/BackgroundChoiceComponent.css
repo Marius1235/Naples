@@ -6,12 +6,6 @@
     overflow: scroll;
 }
 
-#background-settings {
-    background-color: #194842;
-    width: 15%;
-    border-radius: 10px;
-}
-
 .background-option {
     width: 150px;
     height: 100px;
@@ -26,10 +20,9 @@
 .image-wrapper {
     position: relative;
     width: 800px;
-    display: flex;
-    justify-content: center;
     overflow: hidden;
-    margin-left: 20px;    
+    margin-left: 20px;
+        
 }
 
 .background-option.selected {
@@ -45,6 +38,7 @@ element::-webkit-scrollbar {
     display: none; /* for Chrome, Safari, and Opera */
 }
 
+
 .selected-background {
     position: relative;
     width: 800px;
@@ -52,95 +46,40 @@ element::-webkit-scrollbar {
     border-radius: 10px;
     object-fit: contain;
     border: 2px solid #ffffff;
-    user-select: none;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.selected-background.landscape {
-    width: 800px;
-    height: 450px;
-    margin-top: 20vh;    
-}
-  
-.selected-background.portrait {
-    width: 500px;
-    height: 800px;
-}
-
-.selected-background.square {
-    width: 800px;
-    height: 800px;
-}
-
 .selected-image {
-    position: absolute;
     top: 0;
-    left: -50;
+    left: 0;
     object-fit: contain;
     z-index: 1;
 	user-select: none;
-}
+  }
   
   .combine-btn {
     font-family: girott, sans-serif;
-    margin-top: 14vh;
     font-size: 24px;
-    font-weight: bold;
     position: relative;    
     user-select: none;
-    color: rgb(0, 0, 0);
+    color: white;
     cursor: pointer;
-    background-color: #ffffff;    
-    border: 6px solid white;
-    border-radius: 10px;
-    transition: color 0.3s ease, transform 0.3s ease;  
-}
-   
+    transition: color 0.3s ease;    
+  }
+  
+  .combine-btn.hovered {
+    color: rgb(235, 163, 152);
+  }
+  
   .combine-btn:hover {
-    background-color: rgb(235, 163, 152);
-    border-color: rgb(235, 163, 152);
-    transform: scale(1.05);  
+    color: rgb(235, 163, 152);
 }
 
 #icon-mover {
     position: relative;
-    height: 120px;
-    width: 120px;     
-	margin-top: 0;    
-    user-select: none; 
-}
-
-#icon-cropper {
-    display: flex;
-    align-items: center;
-    justify-content: space-between; 
-    position: relative;
-    height: 120px;
-    width: 120px;
-    user-select: none;
-    margin-top: 4vh;
-    margin-bottom: 4vh;
-    padding: 0;
-}
-
-#portrait {
-    height: 29%;
-    top: 30%;
-    position: relative;
-    margin-right: 10px; 
-}
-
-#landscape {
-    height: 33%;
-    top: 30%;
-    position: relative;
-    margin-right: 10px;
-}
-
-#square {
-    height: 34%;
-    top: 30%;
-    position: relative;
+    height: 250px;
+    width: 250px;     
+	margin-top: 40vh; 
 }
 
 .arrows{
@@ -157,63 +96,47 @@ element::-webkit-scrollbar {
 
 #arrow-left {
     position: absolute;
-    height: 40%;
-    left: 0%;
-    top:30%;    
+    height: 20%;
+    left: 10%;
+    top:20%;    
 }
 
 #arrow-right {
     position: absolute;
-    height: 40%;
-    left: 60%;
-    top:30%;
+    height: 20%;
+    left: 40%;
+    top:20%;
 }
 
 #arrow-up {
     position: absolute;    
-    top: 0%;
-    height: 40%;
-    left: 30%;
+    top: 5%;
+    height: 20%;
+    left: 25%;
 }
 
 #arrow-down {
     position: absolute;
-    top: 60%;
-    height: 40%;
-    left: 30%;    
+    top: 35%;
+    height: 20%;
+    left: 25%;    
 }
 
-#zoom-div {
-    position: relative;
-    height: 120px;
-    width: 120px;
-    user-select: none;
+.background-bar::-webkit-scrollbar {
+	width: 20px;
 }
 
-.zoom {
-    cursor: pointer;
-    color: #ffffff;
-    transition: color 0.3s ease, transform 0.3s ease;
-    top:30%;
+.background-bar::-webkit-scrollbar-track {
+	background-color: transparent;
 }
 
-#zoom-in {
-    position: absolute;   
-    height: 40%;
-    right: 55%;    
+.background-bar::-webkit-scrollbar-thumb {
+	background-color: #d6dee1;
+	border-radius: 20px;
+	border: 6px solid transparent;
+	background-clip: content-box;
 }
 
-#zoom-out {
-    position: absolute;   
-    height: 40%;
-    right: 0%;
-}
-
-.zoom:hover{
-    color: rgb(235, 163, 152);
-    transform: scale(1.05);
-}
-
-#instructional-text {
-    user-select: none;
+.background-bar::-webkit-scrollbar-corner {
+	background-color: transparent;
 }

@@ -2,8 +2,12 @@ import "../../css/HeaderComponent.css";
 
 const HeaderComponent = () => {
     return(
-        <div> 
-            <a href="/" className="Logo">Munch</a>
+        <div>
+            {/* <ul className="HeaderNav">
+                <li className="HeaderNavItem"> */}
+                    <a href="/" className="Logo">Munch</a>
+                {/* </li>
+            </ul> */}
         </div>
     );
 };

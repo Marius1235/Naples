@@ -6,7 +6,7 @@ import PreviewResultsPageComponent from "../components/PreviewResultsPageCompone
 // Includes the component to show results from the Munchifier algorithm
 const PreviewResultsPage = () => {
     return (
-        <div className ="container">
+        <div>
             <PreviewResultsPageComponent/>
         </div>
     );

@@ -1,4 +1,5 @@
 // indentation, use of double space in stead of 1 tab [CODEREVIEW]
+
 import React, { 
     createContext,
     useContext, // is used or no? [CODEREVIEW]
@@ -21,7 +22,6 @@ type Props = {
 
 const CapturedImageProvider: FC<Props> = ({ children }) => {
     const [capturedImage, setCapturedImage] = useState<string | null>(null);
-    const [munchifiedImages, setMunchifiedImages] = useState([]);
 
     const handleRemoveBackground = async () => {
         if (capturedImage) {
@@ -36,17 +36,15 @@ const CapturedImageProvider: FC<Props> = ({ children }) => {
 
     return (
         <CapturedImageContext.Provider
-          value={{
+        value={{
             capturedImage,
             setCapturedImage,
             removeBackground: handleRemoveBackground,
-            setMunchifiedImages,
-            munchifiedImages,
-          }}
+        }}
         >
-          {children}
+        {children}
         </CapturedImageContext.Provider>
-      );
+    );
 };
 
 export default CapturedImageProvider;

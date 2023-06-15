@@ -1,6 +1,7 @@
 .video-ref {
     position: relative;
     height: 600px;
+    margin-top: 30px;
     border-radius: 10px;
     border: 7px solid #ffffff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -21,11 +22,6 @@
 
 .blinking {
     animation: blinkBorder 1s infinite;
-}
-
-#zoom-description {
-    position: relative;
-    margin-top: -41px;
 }
 
 .countdown {
