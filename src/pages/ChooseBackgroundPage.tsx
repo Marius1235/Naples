@@ -1,10 +1,11 @@
 import BackgroundChoiceComponent from "../components/BackgroundChoiceComponent"
 import { Link } from "react-router-dom"
+
+// Includes the component for the background choice page
 const ChooseBackgroundPage = () => {
     return(
-        <div className="container">
+        <div className="">
             <BackgroundChoiceComponent/>
-            {/* <Link to="/actionPage">heihei</Link> */}
         </div>
     )
 }

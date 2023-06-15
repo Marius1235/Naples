@@ -1,0 +1,47 @@
+#parent-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#ending-title {
+    margin-top: 5%;
+    font-size: 3vw;
+    font-weight: bold;
+    text-align: center;
+    user-select: none;
+}
+
+#qr-code-image {
+    width: 10%;
+    user-select: none;
+    margin-top: 2%;
+}
+
+#qr-text {
+    font-size: 1vw;
+    font-weight: bold;
+    text-align: center;
+    user-select: none;
+    margin: auto;
+    margin-top: 1%;
+    width: 50%;
+}
+
+#house-icon {
+    width: 23%;
+    height: auto;
+    user-select: none;
+    color: #f7f7f7;
+    margin-bottom: 50%;
+    transition: color 0.3s ease, transform 0.3s ease;
+    
+}
+
+#house-icon:hover{
+    color: rgb(235, 163, 152);
+    transform: scale(1.05);
+    
+}
